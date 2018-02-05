@@ -5,3 +5,5 @@
 * Ensure your node version is 6.11.3
 
 * If you face @angular/devkit.... errors try reinstalling the angular/cli
+
+* For develeopment use,``` ng serve --aot=true ```
