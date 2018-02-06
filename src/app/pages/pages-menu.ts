@@ -8,11 +8,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
    {
-        title: 'Filler Library',
-        icon: 'nb-edit',
-        link: '/pages/filler-library',
-  },
-   {
     title: 'Game Overview',
     icon: 'nb-title',
     link: '/pages/dashboard',
