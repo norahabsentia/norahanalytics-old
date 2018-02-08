@@ -22,7 +22,7 @@ export class EchartsMultipleXaxisComponent implements AfterViewInit, OnDestroy {
 
       this.options = {
         backgroundColor: echarts.bg,
-        color: [colors.success, colors.info],
+        color: [colors.success, colors.info,colors.danger,colors.warning,colors.warningLight],
         tooltip: {
           trigger: 'none',
           axisPointer: {
@@ -30,7 +30,7 @@ export class EchartsMultipleXaxisComponent implements AfterViewInit, OnDestroy {
           },
         },
         legend: {
-          data: ['2015 Precipitation', '2016 Precipitation'],
+          data: ['2015 Precipitation', '2016 Precipitation','2017 Precipitation', '2018 Precipitation', '2019 Precipitation'],
           textStyle: {
             color: echarts.textColor,
           },
@@ -153,7 +153,25 @@ export class EchartsMultipleXaxisComponent implements AfterViewInit, OnDestroy {
             name: '2016 Precipitation',
             type: 'line',
             smooth: true,
+            data: [35,18,81,33,2,67,68,38,66,57,54,36],
+          },
+          {
+            name: '2017 Precipitation',
+            type: 'line',
+            smooth: true,
             data: [3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7],
+          },
+          {
+            name: '2018 Precipitation',
+            type: 'line',
+            smooth: true,
+            data: [76,77,34,84,51,21,10,12,56,64,1,6],
+          },
+          {
+            name: '2019 Precipitation',
+            type: 'line',
+            smooth: true,
+            data: [22,20,52,30,25,46,38,67,77,81,75,60],
           },
         ],
       };

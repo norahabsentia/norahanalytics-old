@@ -54,6 +54,14 @@ export class ChartjsMultipleXaxisComponent implements OnDestroy {
           fill: false,
           pointRadius: 8,
           pointHoverRadius: 10,
+        }, {
+          label: 'dataset - large pointHitDiameter',
+          data: [this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
+          borderColor: colors.warning,
+          backgroundColor: colors.warning,
+          fill: false,
+          pointRadius: 8,
+          pointHoverRadius: 10,
         }],
       };
 

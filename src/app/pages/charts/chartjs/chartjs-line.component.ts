@@ -31,11 +31,22 @@ export class ChartjsLineComponent implements OnDestroy {
           backgroundColor: NbColorHelper.hexToRgbA(colors.danger, 0.3),
           borderColor: colors.danger,
         }, {
-          data: [18, 48, 77, 9, 100, 27, 40],
+          data: [26,31,45,61,38,100,92],
           label: 'Series C',
           backgroundColor: NbColorHelper.hexToRgbA(colors.info, 0.3),
           borderColor: colors.info,
-        },
+        },, {
+          data: [41,42,40,90,34,83,71],
+          label: 'Series C',
+          backgroundColor: NbColorHelper.hexToRgbA(colors.success, 0.3),
+          borderColor: colors.info,
+        }
+        , {
+          data: [69,37,92,40,32,31,74],
+          label: 'Series C',
+          backgroundColor: NbColorHelper.hexToRgbA(colors.warning, 0.3),
+          borderColor: colors.info,
+        }
         ],
       };
 

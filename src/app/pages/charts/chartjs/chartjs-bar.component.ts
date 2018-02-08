@@ -28,6 +28,18 @@ export class ChartjsBarComponent implements OnDestroy {
           data: [28, 48, 40, 19, 86, 27, 90],
           label: 'Series B',
           backgroundColor: NbColorHelper.hexToRgbA(colors.infoLight, 0.8),
+        },{
+          data: [49,89,75,84,86,80,61],
+          label: 'Series C',
+          backgroundColor: NbColorHelper.hexToRgbA(colors.success, 0.8),
+        },{
+          data: [69,37,92,40,32,31,74],
+          label: 'Series D',
+          backgroundColor: NbColorHelper.hexToRgbA(colors.warning, 0.8),
+        },{
+          data: [22,21,30,36,34,47,92],
+          label: 'Series E',
+          backgroundColor: NbColorHelper.hexToRgbA(colors.danger, 0.8),
         }],
       };
 

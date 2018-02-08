@@ -19,6 +19,9 @@ export class EchartsBarAnimationComponent implements AfterViewInit, OnDestroy {
       const xAxisData = [];
       const data1 = [];
       const data2 = [];
+      const data3 =[];
+      const data4 =[];
+      const data5 =[];
 
       const colors: any = config.variables;
       const echarts: any = config.variables.echarts;
@@ -26,8 +29,12 @@ export class EchartsBarAnimationComponent implements AfterViewInit, OnDestroy {
       this.options = {
         backgroundColor: echarts.bg,
         color: [colors.primaryLight, colors.infoLight],
+        tooltip: {
+          trigger: 'item',
+          formatter: 'Data: {a}<br>{b} : {c}<br>',
+        },
         legend: {
-          data: ['bar', 'bar2'],
+          data: ['bar', 'bar2','bar3','bar4','bar5'],
           align: 'left',
           textStyle: {
             color: echarts.textColor,
@@ -88,6 +95,30 @@ export class EchartsBarAnimationComponent implements AfterViewInit, OnDestroy {
               return idx * 10 + 100;
             },
           },
+          {
+            name: 'bar3',
+            type: 'bar',
+            data: data3,
+            animationDelay: function(idx) {
+              return idx * 10 + 100;
+            },
+          },
+          {
+            name: 'bar4',
+            type: 'bar',
+            data: data4,
+            animationDelay: function(idx) {
+              return idx * 10 + 100;
+            },
+          },
+          {
+            name: 'bar5',
+            type: 'bar',
+            data: data5,
+            animationDelay: function(idx) {
+              return idx * 10 + 100;
+            },
+          },
         ],
         animationEasing: 'elasticOut',
         animationDelayUpdate: function(idx) {
@@ -99,6 +130,9 @@ export class EchartsBarAnimationComponent implements AfterViewInit, OnDestroy {
         xAxisData.push('Category ' + i);
         data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);
         data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);
+        data3.push((Math.sin(i / 5) * (i / 4 - 5) + i / 6) * 5);
+        data4.push((Math.cos(i / 5) * (i / 8 - 3) + i / 6) * 5);
+        data5.push((Math.sin(i / 5) * (i / 2 - 7) + i / 6) * 5);
       }
     });
   }
