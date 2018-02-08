@@ -35,7 +35,7 @@ export class ChartjsLineComponent implements OnDestroy {
           label: 'Series C',
           backgroundColor: NbColorHelper.hexToRgbA(colors.info, 0.3),
           borderColor: colors.info,
-        },, {
+        }, {
           data: [41,42,40,90,34,83,71],
           label: 'Series C',
           backgroundColor: NbColorHelper.hexToRgbA(colors.success, 0.3),
