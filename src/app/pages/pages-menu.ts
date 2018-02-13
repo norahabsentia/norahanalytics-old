@@ -14,9 +14,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'Filler Library',
+    title: 'Norah-Scheduler',
     icon: 'nb-edit',
-    link: '/pages/filler-library',
+    link: '/pages/norah-scheduler',
   },
   {
     title: 'FEATURES',

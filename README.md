@@ -7,7 +7,3 @@
 * If you face @angular/devkit.... errors try reinstalling the angular/cli
 
 * For developement use ```ng serve --aot=true``` this will solve the reflector.guards error.
-
-
-
-init-new
