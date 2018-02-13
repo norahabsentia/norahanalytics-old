@@ -1,0 +1,83 @@
+<nb-card class="noti_nb_card1">
+    <nb-card-header class="noti_nb_header1">Filler Library</nb-card-header>
+    <nb-card-body class="noti_nb_body1">
+      
+      <div style="text-align: center;">
+        <img src="../../../assets/images/mybtn.png" alt="" style="width:96%;">
+      </div>
+    </nb-card-body>
+  </nb-card>
+  <nb-card>
+    <nb-card-header class="noti_nb_header2">
+      <span>Notification Manager</span><button class="btn noti_nb_header2_span">Choose from templates</button></nb-card-header>
+    <nb-card-body>
+      <form  #notificationForm="ngForm" (ngSubmit)="onSubmit(notificationForm)">
+          <input type="hidden" name="noti_ID" #noti_ID="ngModel" [(ngModel)]="notificationService.selectedNotification.noti_ID">
+      <div class="row">
+          <div  class="col-lg-12 input-group input-group-fill-only" style="height:1em;">
+              <input _ngcontent-c45="" class="form-control" placeholder="Title" type="text"
+              name="title" #title="ngModel"  [(ngModel)]="notificationService.selectedNotification.title">
+            </div>
+       
+      </div>
+      <div class="row">
+        <div mwlTextInputHighlightContainer
+             class="col-lg-12 input-group">
+          <textarea  name="body" #body="ngModel"  [(ngModel)]="notificationService.selectedNotification.body"
+           
+            mwlTextInputElement
+            placeholder="Body"
+            rows="1"
+            class="form-control"
+             required></textarea>
+        
+        </div>
+      </div>
+      <div class="row">
+        
+        <div class="col-lg-5">
+        <nb-card size="small" style="height: 17em;">
+            <nb-card-header class="noti_nb_card_header3">
+                TARGET CUSTOMER SEGMENTS
+            </nb-card-header>
+            <nb-card-body class="noti_nb_body2">
+                <select  multiple class="form-control noti_nb_select"  >
+                    <option *ngFor = "let item of notificationService.itemArray | orderBy: orderId" (click)="selectChangeHandler(item.name)" [value]="item.name">{{item.name}}</option>
+                </select>
+                 
+            </nb-card-body>
+          </nb-card>
+
+        </div>
+        <div class="col-lg-7">
+          <div>
+            <div style="min-height: 8em; padding: 1em;">
+
+                <button  class="noti_nb_button1" *ngFor="let item of notificationService.rightArray; let i = index"              
+                  (click)="buttonChangeHandler(i)">{{item.name}}</button>
+              
+            </div>
+            <div  class="input-group input-group-fill-only">
+                <input _ngcontent-c45="" class="form-control" placeholder="Deep Link (optional)" type="text"
+                name="deeplink" #deeplink="ngModel"  [(ngModel)]="notificationService.selectedNotification.deeplink">
+              </div>
+          </div>
+        
+
+          <div  style=" float: right;  margin-right: 2em;margin-top: 3em;">
+              <button class="btn btn-default noti_nb_button2"  type="submit" [disabled]="!notificationForm.valid">
+                  <img style="padding-right: 1em;" src="../../../assets/images/save1.png" alt="">
+              </button>
+
+              <img style="padding-right: 1em;" src="../../../assets/images/cancel1.png" alt=""  (click)="resetForm(notificationForm)">
+              <img style="padding-right: 1em;" src="../../../assets/images/reset1.png" alt="" (click)="resetEditForm()">
+              <img src="../../../assets/images/enter1.png" alt="" >
+
+            </div>
+
+
+        </div>
+      </div>
+    </form>
+    </nb-card-body>
+  </nb-card>
