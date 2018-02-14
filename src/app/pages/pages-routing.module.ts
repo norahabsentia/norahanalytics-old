@@ -14,6 +14,9 @@ const routes: Routes = [{
   }, {
     path: 'filler-library',
     loadChildren: './filler-library/filler-library.module#FillerLibraryModule',
+  },{
+    path: 'norah-scheduler',
+    loadChildren: './norah-scheduler/norah-scheduler.module#NorahSchedulerModule',
   }, {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
