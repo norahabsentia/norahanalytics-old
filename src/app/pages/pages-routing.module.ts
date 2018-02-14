@@ -12,8 +12,8 @@ const routes: Routes = [{
     path: 'dashboard',
     component: DashboardComponent,
   }, {
-    path: 'norah-scheduler',
-    loadChildren: './norah-scheduler/norah-scheduler.module#NorahSchedulerModule',
+    path: 'filler-library',
+    loadChildren: './filler-library/filler-library.module#FillerLibraryModule',
   }, {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
