@@ -4,11 +4,11 @@ import {SmartTableService} from "../../../@core/data/smart-table.service";
 import {DataService} from "../../../@core/data/getcountrydata.service";
 
 @Component({
-  selector: 'charts-swithcer',
-  templateUrl: './charts-swithcer.component.html',
-  styleUrls: ['./charts-swithcer.component.scss']
+  selector: 'chart-switcher',
+  templateUrl: './chart-switcher.component.html',
+  styleUrls: ['./chart-switcher.component.scss']
 })
-export class ChartsSwithcerComponent implements OnInit {
+export class ChartSwitcherComponent implements OnInit {
 
   showSelectItems;
   charts = [

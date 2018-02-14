@@ -26,7 +26,6 @@ import {UserChartsComponent} from './charts/charts.component';
 import {ChartsService} from './charts/charts.service';
 import {ChartsTableComponent} from './charts/charts-table.component';
 import {AgmCoreModule} from '@agm/core';
-import {ChartsSwithcerComponent} from "../charts/charts-swithcer/charts-swithcer.component";
 import {ChartsModule} from "../charts/charts.module";
 import {Ng2SmartTableModule} from "ng2-smart-table";
 import {ChartsRoutingModule} from "../charts/charts-routing.module";
@@ -34,6 +33,7 @@ import {EchartsLineComponent} from "../charts/echarts/echarts-line.component";
 import {ChartjsBarComponent} from "../charts/chartjs/chartjs-bar.component";
 import {EchartsBarComponent} from "../charts/echarts/echarts-bar.component";
 import {EchartsPieComponent} from "../charts/echarts/echarts-pie.component";
+import {ChartSwitcherComponent} from "../charts/chart-switcher/chart-switcher.component";
 
 @NgModule({
   imports: [
@@ -79,9 +79,7 @@ import {EchartsPieComponent} from "../charts/echarts/echarts-pie.component";
     EchartsPieComponent,
     EchartsLineComponent,
     ChartjsBarComponent,
-
-    ChartsSwithcerComponent,
-
+    ChartSwitcherComponent
   ],
 })
 export class GameOverviewModule {

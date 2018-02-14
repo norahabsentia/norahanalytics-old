@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChartsSwithcerComponent } from './charts-swithcer.component';
+import { ChartSwitcherComponent } from './chart-switcher.component';
 
 describe('ChartsSwithcerComponent', () => {
-  let component: ChartsSwithcerComponent;
-  let fixture: ComponentFixture<ChartsSwithcerComponent>;
+  let component: ChartSwitcherComponent;
+  let fixture: ComponentFixture<ChartSwitcherComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChartsSwithcerComponent ]
+      declarations: [ ChartSwitcherComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChartsSwithcerComponent);
+    fixture = TestBed.createComponent(ChartSwitcherComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
