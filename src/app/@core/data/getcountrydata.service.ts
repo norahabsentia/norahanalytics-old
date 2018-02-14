@@ -10,7 +10,7 @@ export class DataService {
     CountryData: Array<any>;
 
     constructor(private http: Http) { }
-   getData() {
+   public getData() {
         return this.http.get('assets/country-currency.json')
                  .map((res: Response) => res.json());
     }

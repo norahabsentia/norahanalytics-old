@@ -28,7 +28,6 @@ import { EchartsRadarComponent } from './echarts/echarts-radar.component';
 import {Ng2SmartTableModule} from "ng2-smart-table";
 
 const components = [
-  ChartjsBarComponent,
   ChartjsLineComponent,
   ChartjsPieComponent,
   ChartjsMultipleXaxisComponent,
@@ -40,13 +39,11 @@ const components = [
   D3AreaStackComponent,
   D3PolarComponent,
   D3AdvancedPieComponent,
-  EchartsLineComponent,
-  EchartsPieComponent,
-  EchartsBarComponent,
   EchartsMultipleXaxisComponent,
   EchartsAreaStackComponent,
   EchartsBarAnimationComponent,
   EchartsRadarComponent,
+
 ];
 
 @NgModule({

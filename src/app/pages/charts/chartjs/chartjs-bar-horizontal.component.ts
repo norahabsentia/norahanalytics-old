@@ -68,7 +68,7 @@ export class ChartjsBarHorizontalComponent implements OnDestroy {
           yAxes: [
             {
               gridLines: {
-                display: false,
+                display: true,
                 color: chartjs.axisLineColor,
               },
               ticks: {

@@ -15,74 +15,123 @@ export class ChartjsLineComponent implements OnDestroy {
   constructor(private theme: NbThemeService) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
-      const colors: any = config.variables;
-      const chartjs: any = config.variables.chartjs;
+      this.data= {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+          datasets: [{
+          label: "My First dataset",
+          backgroundColor: 'rgba(110, 110, 110, 0.1)',
+          borderColor: 'rgba(110, 110, 110, 0.1)',
+          data: [
+            {
+              x: 20,
+              y: 30
+            }, {
+              x: 35,
+              y: 20
+            }
+          ],
+          fill: false,
+        }, {
+          label: "My Second dataset",
+          fill: false,
+          backgroundColor: 'rgba(0, 0, 0, 0.1)',
+          borderColor: 'rgba(0, 0, 0, 0.1)',
+          data: [
+            {
+              x: 10,
+              y: 20
+            }, {
+              x: 15,
+              y: 10
+            }
+          ],
+        }]
+      }
 
-      this.data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          data: [65, 59, 80, 81, 56, 55, 40],
-          label: 'Series A',
-          backgroundColor: NbColorHelper.hexToRgbA(colors.primary, 0.3),
-          borderColor: colors.primary,
-        }, {
-          data: [28, 48, 40, 19, 86, 27, 90],
-          label: 'Series B',
-          backgroundColor: NbColorHelper.hexToRgbA(colors.danger, 0.3),
-          borderColor: colors.danger,
-        }, {
-          data: [26,31,45,61,38,100,92],
-          label: 'Series C',
-          backgroundColor: NbColorHelper.hexToRgbA(colors.info, 0.3),
-          borderColor: colors.info,
-        }, {
-          data: [41,42,40,90,34,83,71],
-          label: 'Series C',
-          backgroundColor: NbColorHelper.hexToRgbA(colors.success, 0.3),
-          borderColor: colors.info,
-        }
-        , {
-          data: [69,37,92,40,32,31,74],
-          label: 'Series C',
-          backgroundColor: NbColorHelper.hexToRgbA(colors.warning, 0.3),
-          borderColor: colors.info,
-        }
-        ],
-      };
-
+      var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       this.options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          xAxes: [
-            {
-              gridLines: {
-                display: true,
-                color: chartjs.axisLineColor,
-              },
-              ticks: {
-                fontColor: chartjs.textColor,
-              },
-            },
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                display: true,
-                color: chartjs.axisLineColor,
-              },
-              ticks: {
-                fontColor: chartjs.textColor,
-              },
-            },
-          ],
-        },
-        legend: {
-          labels: {
-            fontColor: chartjs.textColor,
+          responsive: true,
+          title:{
+            display:true,
+            text:'Chart.js Line Chart'
           },
-        },
+          tooltips: {
+            mode: 'index',
+            intersect: false,
+          },
+          hover: {
+            mode: 'nearest',
+            intersect: true
+          },
+          scales: {
+            xAxes: [{
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Month'
+              }
+            }],
+            yAxes: [{
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Value'
+              }
+            }]
+          }
       };
+
+
+    //
+    //   this.options = {
+    //     responsive: true,
+    //     maintainAspectRatio: false,
+    //         scales: {
+    //   xAxes: [{
+    //     display: true,
+    //     scaleLabel: {
+    //       display: true,
+    //       labelString: 'Month'
+    //     }
+    //   }],
+    //   yAxes: [{
+    //     display: true,
+    //     scaleLabel: {
+    //       display: true,
+    //       labelString: 'Value'
+    //     }
+    //   }]
+    // },
+    //     // scales: {
+    //     //   xAxes: [
+    //     //     {
+    //     //       gridLines: {
+    //     //         display: true,
+    //     //         color: chartjs.axisLineColor,
+    //     //       },
+    //     //       ticks: {
+    //     //         fontColor: chartjs.textColor,
+    //     //       },
+    //     //     },
+    //     //   ],
+    //     //   yAxes: [
+    //     //     {
+    //     //       gridLines: {
+    //     //         display: true,
+    //     //         color: chartjs.axisLineColor,
+    //     //       },
+    //     //       ticks: {
+    //     //         fontColor: chartjs.textColor,
+    //     //       },
+    //     //     },
+    //     //   ],
+    //     // },
+    //     legend: {
+    //       labels: {
+    //         fontColor: chartjs.textColor,
+    //       },
+    //     },
+    //   };
     });
   }
 
@@ -90,3 +139,94 @@ export class ChartjsLineComponent implements OnDestroy {
     this.themeSubscription.unsubscribe();
   }
 }
+
+// /*
+//
+//
+// var config = {
+//   type: 'line',
+//   data: {
+//     labels: ["January", "February", "March", "April", "May", "June", "July"],
+//     datasets: [{
+//       label: "Unfilled",
+//       fill: false,
+//       backgroundColor: window.chartColors.blue,
+//       borderColor: window.chartColors.blue,
+//       data: [
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor()
+//       ],
+//     }, {
+//       label: "Dashed",
+//       fill: false,
+//       backgroundColor: window.chartColors.green,
+//       borderColor: window.chartColors.green,
+//       borderDash: [5, 5],
+//       data: [
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor()
+//       ],
+//     }, {
+//       label: "Filled",
+//       backgroundColor: window.chartColors.red,
+//       borderColor: window.chartColors.red,
+//       data: [
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor(),
+//         randomScalingFactor()
+//       ],
+//       fill: true,
+//     }]
+//   },
+//   options: {
+//     responsive: true,
+//     title:{
+//       display:true,
+//       text:'Chart.js Line Chart'
+//     },
+//     tooltips: {
+//       mode: 'index',
+//       intersect: false,
+//     },
+//     hover: {
+//       mode: 'nearest',
+//       intersect: true
+//     },
+//     scales: {
+//       xAxes: [{
+//         display: true,
+//         scaleLabel: {
+//           display: true,
+//           labelString: 'Month'
+//         }
+//       }],
+//       yAxes: [{
+//         display: true,
+//         scaleLabel: {
+//           display: true,
+//           labelString: 'Value'
+//         }
+//       }]
+//     }
+//   }
+// };
+//
+// window.onload = function() {
+//   var ctx = document.getElementById("canvas").getContext("2d");
+//   window.myLine = new Chart(ctx, config);
+// };
+//   */

@@ -67,15 +67,17 @@ export class ChartjsMultipleXaxisComponent implements OnDestroy {
 
       this.options = {
         responsive: true,
-        maintainAspectRatio: false,
-        legend: {
-          position: 'bottom',
-          labels: {
-            fontColor: chartjs.textColor,
-          },
+        title:{
+          display:true,
+          text:'Chart.js Line Chart'
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
         },
         hover: {
-          mode: 'index',
+          mode: 'nearest',
+          intersect: true
         },
         scales: {
           xAxes: [
