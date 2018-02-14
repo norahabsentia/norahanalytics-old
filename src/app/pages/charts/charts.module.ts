@@ -25,9 +25,10 @@ import { EchartsMultipleXaxisComponent } from './echarts/echarts-multiple-xaxis.
 import { EchartsAreaStackComponent } from './echarts/echarts-area-stack.component';
 import { EchartsBarAnimationComponent } from './echarts/echarts-bar-animation.component';
 import { EchartsRadarComponent } from './echarts/echarts-radar.component';
+import { ChartsSwithcerComponent } from './charts-swithcer/charts-swithcer.component';
+import {Ng2SmartTableModule} from "ng2-smart-table";
 
 const components = [
-  ChartjsBarComponent,
   ChartjsLineComponent,
   ChartjsPieComponent,
   ChartjsMultipleXaxisComponent,
@@ -39,17 +40,16 @@ const components = [
   D3AreaStackComponent,
   D3PolarComponent,
   D3AdvancedPieComponent,
-  EchartsLineComponent,
-  EchartsPieComponent,
-  EchartsBarComponent,
   EchartsMultipleXaxisComponent,
   EchartsAreaStackComponent,
   EchartsBarAnimationComponent,
   EchartsRadarComponent,
+
 ];
 
 @NgModule({
-  imports: [ThemeModule, ChartsRoutingModule, NgxEchartsModule, NgxChartsModule, ChartModule],
+  imports: [ThemeModule, ChartsRoutingModule, NgxEchartsModule, NgxChartsModule, ChartModule,
+    Ng2SmartTableModule],
   declarations: [...routedComponents, ...components],
 })
 export class ChartsModule {}

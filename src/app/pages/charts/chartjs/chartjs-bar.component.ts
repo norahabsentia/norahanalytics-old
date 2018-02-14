@@ -45,7 +45,6 @@ export class ChartjsBarComponent implements OnDestroy {
 
       this.options = {
         maintainAspectRatio: false,
-        responsive: true,
         legend: {
           labels: {
             fontColor: chartjs.textColor,

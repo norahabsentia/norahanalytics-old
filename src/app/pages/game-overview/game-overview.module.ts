@@ -26,6 +26,14 @@ import {UserChartsComponent} from './charts/charts.component';
 import {ChartsService} from './charts/charts.service';
 import {ChartsTableComponent} from './charts/charts-table.component';
 import {AgmCoreModule} from '@agm/core';
+import {ChartsSwithcerComponent} from "../charts/charts-swithcer/charts-swithcer.component";
+import {ChartsModule} from "../charts/charts.module";
+import {Ng2SmartTableModule} from "ng2-smart-table";
+import {ChartsRoutingModule} from "../charts/charts-routing.module";
+import {EchartsLineComponent} from "../charts/echarts/echarts-line.component";
+import {ChartjsBarComponent} from "../charts/chartjs/chartjs-bar.component";
+import {EchartsBarComponent} from "../charts/echarts/echarts-bar.component";
+import {EchartsPieComponent} from "../charts/echarts/echarts-pie.component";
 
 @NgModule({
   imports: [
@@ -33,6 +41,8 @@ import {AgmCoreModule} from '@agm/core';
     NgxEchartsModule,
     NgxChartsModule,
     ChartModule,
+    ChartsModule,
+    Ng2SmartTableModule, ChartsRoutingModule,
     AgmCoreModule.forRoot(
       {
         apiKey: 'AIzaSyCA-qYd1msgbj8_-D29gANUA3RkLsWpv_U',
@@ -64,6 +74,14 @@ import {AgmCoreModule} from '@agm/core';
     SpentTimeComponent,
     UserSkillsComponent,
     CurrentLevelComponent,
+
+    EchartsBarComponent,
+    EchartsPieComponent,
+    EchartsLineComponent,
+    ChartjsBarComponent,
+
+    ChartsSwithcerComponent,
+
   ],
 })
 export class GameOverviewModule {

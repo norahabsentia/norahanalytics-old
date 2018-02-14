@@ -20,135 +20,161 @@
         <ngx-country-chart></ngx-country-chart>
       </div>
       <div class="col-sm-6">
-        <nb-card>
-          <nb-card-header>Region</nb-card-header>
-          <nb-card-body>
-            <ngx-region-chart></ngx-region-chart>
-          </nb-card-body>
-        </nb-card>
+        <!--<nb-card>-->
+          <!--<nb-card-header>Region</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-region-chart></ngx-region-chart>-->
+          <!--</nb-card-body>-->
+          <charts-swithcer [title]="'Region'"></charts-swithcer>
+
+        <!--</nb-card>-->
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-12">
-        <nb-card>
-          <nb-card-header>Mobile Brand</nb-card-header>
-          <nb-card-body>
-            <ngx-user-chart type="line" [series]="mobileBrandSeries"></ngx-user-chart>
-          </nb-card-body>
-        </nb-card>
+        <charts-swithcer [title]="'Mobile Brand'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>Mobile Brand</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-user-chart type="line" [series]="mobileBrandSeries"></ngx-user-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6">
-        <nb-card>
-          <nb-card-header>Affluence</nb-card-header>
-          <nb-card-body>
-            <ngx-user-chart type="bar" [series]="affluenceSeries"></ngx-user-chart>
-          </nb-card-body>
-        </nb-card>
+        <charts-swithcer [title]="'Affluence'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>Affluence</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-user-chart type="bar" [series]="affluenceSeries"></ngx-user-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
       <div class="col-sm-6">
-        <nb-card>
-          <nb-card-header>Country</nb-card-header>
-          <nb-card-body>
-            <ngx-user-chart type="horizontalBar" [series]="countrySeries"></ngx-user-chart>
-          </nb-card-body>
-        </nb-card>
-      </div>
-    </div>
+        <charts-swithcer [title]="'Country'"></charts-swithcer>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <nb-card>
-          <nb-card-header>Current Level</nb-card-header>
-          <nb-card-body>
-            <ngx-user-chart type="line" [series]="currentLevelSeries" [options]="currentLevelOptions"></ngx-user-chart>
-
-            <!--<ngx-current-level-chart></ngx-current-level-chart>-->
-          </nb-card-body>
-        </nb-card>
+        <!--<nb-card>-->
+          <!--<nb-card-header>Country</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-user-chart type="horizontalBar" [series]="countrySeries"></ngx-user-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-12">
-        <nb-card>
-          <nb-card-header>Last Action</nb-card-header>
-          <nb-card-body>
-            <ngx-user-chart type="line" [series]="actionsSeries" [options]="actionsSeriesOptions"></ngx-user-chart>
-          </nb-card-body>
-        </nb-card>
+        <charts-swithcer [title]="'Current Level'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>Current Level</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-user-chart type="line" [series]="currentLevelSeries" [options]="currentLevelOptions"></ngx-user-chart>-->
+
+            <!--&lt;!&ndash;<ngx-current-level-chart></ngx-current-level-chart>&ndash;&gt;-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <charts-swithcer [title]="'Last Action'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>Last Action</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-user-chart type="line" [series]="actionsSeries" [options]="actionsSeriesOptions"></ngx-user-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6">
-        <nb-card>
-          <nb-card-header>Engagement</nb-card-header>
-          <nb-card-body>
-            <ngx-engagement-chart></ngx-engagement-chart>
-          </nb-card-body>
-        </nb-card>
+        <charts-swithcer [title]="'Engagement'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>Engagement</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-engagement-chart></ngx-engagement-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
       <div class="col-sm-6">
-        <nb-card>
-          <nb-card-header>Total time spent in Game</nb-card-header>
-          <nb-card-body>
-            <ngx-spent-time-chart></ngx-spent-time-chart>
-          </nb-card-body>
-        </nb-card>
+        <charts-swithcer [title]="'Total time spent in Game'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>Total time spent in Game</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-spent-time-chart></ngx-spent-time-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6">
-        <nb-card>
-          <nb-card-header>User Skills</nb-card-header>
-          <nb-card-body>
-            <ngx-user-chart type="line" [series]="skillsSeries" [options]="skillsSeriesOptions"></ngx-user-chart>
-          </nb-card-body>
-        </nb-card>
+        <charts-swithcer [title]="'User Skills'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>User Skills</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-user-chart type="line" [series]="skillsSeries" [options]="skillsSeriesOptions"></ngx-user-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
       <div class="col-sm-6">
-        <nb-card>
-          <nb-card-header>Out of Lives</nb-card-header>
-          <nb-card-body>
-            <ngx-user-chart type="line" [series]="outOfLivesSeries"></ngx-user-chart>
-          </nb-card-body>
-        </nb-card>
+        <charts-swithcer [title]="'Out of Lives'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>Out of Lives</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-user-chart type="line" [series]="outOfLivesSeries"></ngx-user-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
     </div>
 
 
     <div class="row">
       <div class="col-sm-12">
-        <nb-card>
-          <nb-card-header>Level Stickiness</nb-card-header>
-          <nb-card-body>
-            <ngx-user-chart type="line" [series]="sticknessSeries" [options]="sticknessSeriesOptions"></ngx-user-chart>
-          </nb-card-body>
-        </nb-card>
+        <charts-swithcer [title]="'Level Stickiness'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>Level Stickiness</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-user-chart type="line" [series]="sticknessSeries" [options]="sticknessSeriesOptions"></ngx-user-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6">
-        <nb-card>
-          <nb-card-header>Loyality Index</nb-card-header>
-          <nb-card-body>
-            <ngx-user-chart type="horizontalBar" [series]="loyaltySeries"></ngx-user-chart>
-          </nb-card-body>
-        </nb-card>
+        <charts-swithcer [title]="'Loyality Index'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>Loyality Index</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-user-chart type="horizontalBar" [series]="loyaltySeries"></ngx-user-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
       <div class="col-sm-6">
-        <nb-card>
-          <nb-card-header>App Version</nb-card-header>
-          <nb-card-body>
-            <ngx-user-chart type="line" [series]="appVersionSeries" [options]="appVersionOptions"></ngx-user-chart>
-          </nb-card-body>
-        </nb-card>
+        <charts-swithcer [title]="'App Version'"></charts-swithcer>
+
+        <!--<nb-card>-->
+          <!--<nb-card-header>App Version</nb-card-header>-->
+          <!--<nb-card-body>-->
+            <!--<ngx-user-chart type="line" [series]="appVersionSeries" [options]="appVersionOptions"></ngx-user-chart>-->
+          <!--</nb-card-body>-->
+        <!--</nb-card>-->
       </div>
     </div>
 
