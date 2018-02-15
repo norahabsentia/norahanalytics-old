@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {GameOverviewComponent} from './game-overview/game-overview.component';
+import {ChurnPredictionsComponent} from "./churn-predictions/churn-predictions.component";
 
 const routes: Routes = [{
   path: '',
@@ -43,6 +44,9 @@ const routes: Routes = [{
     path: 'game-overview',
     component: GameOverviewComponent,
   }, {
+    path: 'churn-predictions',
+    component: ChurnPredictionsComponent,
+  },{
     path: 'game-overview',
     pathMatch: 'full',
   }],
