@@ -1,0 +1,177 @@
+<nb-card>
+  <nb-card-body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 col-xs-12">
+          <div class="label-top">
+              Chart Prediction Overview
+          </div>
+          <div>
+            <chart type="doughnut" [data]="data" [options]="options"></chart>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12 col-md-push-1">
+          <div style="margin-top: 27px;">
+              <div class="user-active">
+                  <span>
+                    Active Users:
+                  </span>
+                  <span>
+                    131,439
+                  </span>
+                </div>
+                <div class="container-risk">
+                  <div class="box" style="border-radius: 10px 0 0 10px;">
+                    <div class="caption-risk" style="color: rgba(102, 179, 255, 1);">
+                      High Risk
+                    </div>
+                    <span class="users">
+                      11,491
+                    </span>
+                  </div>
+                  <div class="box">
+                    <div class="caption-risk" style="color: rgba(92, 225, 145, 1);">
+                      Medium Risk
+                    </div>
+                    <span class="users">
+                      46,719
+                    </span>
+                  </div>
+                  <div class="box" style="border-radius:0 10px 10px 0;">
+                    <div class="caption-risk" style="color: rgba(155, 146, 255, 1);">
+                      Low Risk
+                    </div>
+                    <span class="users">
+                      69,147
+                    </span>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 col-xs-12">
+          <div class="label-top">
+              User Distribution on base of behaviour
+          </div>
+          <div>
+            <chart type="bar" [data]="dataBar1" [options]="optionsBar"></chart>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <div class="right-content-select" style="margin-top: 27px;">
+            <div class="lable">
+              Basic:
+            </div>
+            <div class="select-wrap">
+              <button class="select" (click)="showLocation = !showLocation">
+                  {{selectedLocation}}
+                  <i class="ion-arrow-down-b"></i>
+              </button>
+              <div *ngIf="showLocation" class="dropdawn dropdawn-location">
+                <ul class="list-location">
+                  <li *ngFor="let item of dataLocation">
+                    <a (click)="clickLocation(item)">{{item.name}}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+    <nb-card-body>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-xs-12">
+            <div class="label-top">
+              User Distribution on base of behaviour
+            </div>
+            <div>
+              <chart type="bar" [data]="dataBar2" [options]="optionsBar"></chart>
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="right-content-select" style="margin-top: 27px;">
+              <div class="lable">
+                Basic:
+              </div>
+              <div class="select-wrap">
+                <button class="select" (click)="showEngagement = !showEngagement">
+                    {{selectedEngagement}}
+                    <i class="ion-arrow-down-b"></i>
+                </button>
+                <div *ngIf="showEngagement" class="dropdawn dropdawn-engagament">
+                  <ul class="list-location">
+                    <li *ngFor="let item of dataEngagement">
+                      <a (click)="clickEngagement(item)">{{item.name}}</a>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+
+<nb-card>
+  <nb-card-body>
+    <div class="container">
+      <div class="row">
+          <div class="label-top" style="width: 100%">
+            USER LIST
+          </div>
+        <div style="width: 100%">
+          <ng2-smart-table [settings]="settings" [source]="source" reset></ng2-smart-table>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+  <div class="page-button-wrap" style="margin-top: -15px;">
+    <button>
+        <!-- <i _ngcontent-c10="" class="nb-chevron-left-outline"></i> -->
+        <span style="margin-right: 5px;">
+          <
+        </span>
+         Prev Page
+    </button>
+    <button>
+        <!-- <i _ngcontent-c10="" class="nb-chevron-right-outline"></i> -->
+        Next Page
+        <span style="margin-left: 5px;">
+          >
+        </span>
+    </button>
+  </div>
+
+  <div class="download-wrap">
+      <div class="select-wrap">
+          <button class="select select-download" (click)="showDownload = !showDownload">
+              Download
+              <!-- <span>V</span> -->
+              <i style="color: white;" class="ion-chevron-down"></i>
+          </button>
+          <div *ngIf="showDownload" class="dropdawn dropdawn-download">
+            <ul class="list-location list-download">
+              <li><a class="download-button"  (click)="showDownload = !showDownload">Download .csv</a></li>
+              <li><a class="download-button"  (click)="showDownload = !showDownload">Download .json</a></li>
+            </ul>
+          </div>
+        </div>
+  </div>
