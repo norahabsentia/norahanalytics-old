@@ -22,33 +22,33 @@ export class ChartSwitcherComponent implements OnInit {
       type: 'Pie',
       icon: 'fa-pie-chart',
       show: true,
-      label: 'Display simple pie chart',
+      label: 'Display pie chart',
 
     },
     {
       type: 'Line',
       icon: 'fa-line-chart',
       show: false,
-      label: 'Display simple line chart',
+      label: 'Display line chart',
 
     },
     {
       type: 'Bar',
       icon: 'fa-bar-chart',
       show: false,
-      label: 'Display simple bar chart',
+      label: 'Display bar chart',
     },
     {
       type: 'Table',
       icon: 'fa-table',
       show: false,
-      label: 'Display simple table',
+      label: 'Display table',
     },
     {
       type: 'Histogram',
       icon: 'fa-bar-chart',
       show: false,
-      label: 'Display simple Histogram chart',
+      label: 'Display Histogram chart',
     },
 
   ]
@@ -135,6 +135,15 @@ export class ChartSwitcherComponent implements OnInit {
       },
     },
   };
+  selectedLocation = 'Churned';
+  showLocation;
+  dataLocation= [
+    {name: 'Churned'},
+    {name: 'Predicted to churn'},
+    {name: 'Churned and predicted'},
+    {name: 'Predicted but not churned'},
+    {name: 'Churned but not predicted'}
+  ];
 
   source: LocalDataSource = new LocalDataSource();
   public tabledata: any
@@ -143,6 +152,11 @@ export class ChartSwitcherComponent implements OnInit {
   constructor(private service: SmartTableService, public dataservice: DataService) {
     const data = this.service.getData();
     this.source.load(data);
+  }
+
+  clickLocation(item){
+    this.selectedLocation = item.name;
+    this.showLocation = false;
   }
 
   onDeleteConfirm(event): void {

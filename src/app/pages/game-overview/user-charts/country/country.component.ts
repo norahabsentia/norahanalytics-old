@@ -11,6 +11,7 @@ declare var google: any;
       <nb-card-body>
         <div echarts [options]="options" class="echarts"></div>
       </nb-card-body>
+      <nb-card-footer class="footer-country"></nb-card-footer>
     </nb-card>
   `,
 })

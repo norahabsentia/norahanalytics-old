@@ -1,10 +1,24 @@
-<div class="row">
+<div class="tab-wrap" (click)="OVERVIEWShow = !OVERVIEWShow">
+  <span>
+    OVERVIEW
+  </span>
+  <div class="horizontal-line"></div>
+  <button *ngIf="!OVERVIEWShow">
+    <i class="ion-chevron-up ion-top"></i>
+    <i class="ion-chevron-up ion-bot"></i>
+  </button>
+   <button *ngIf="OVERVIEWShow">
+    <i class="ion-chevron-down ion-top"></i>
+    <i class="ion-chevron-down ion-bot"></i>
+  </button>
+</div>
+<div class="row" *ngIf="!OVERVIEWShow">
   <div class="col-sm-12">
     <ngx-overview-status-card></ngx-overview-status-card>
   </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="!OVERVIEWShow">
   <div class="col-sm-6">
     <ngx-classification></ngx-classification>
   </div>
@@ -13,9 +27,24 @@
   </div>
 </div>
 
+<div class="tab-wrap" (click)="DISTRIBUTIONShow = !DISTRIBUTIONShow">
+  <span style="width: 624px;">
+    USER DISTRIBUTION (Based on Player origin)
+  </span>
+  <div class="horizontal-line"></div>
+  <button *ngIf="!DISTRIBUTIONShow">
+    <i class="ion-chevron-up ion-top"></i>
+    <i class="ion-chevron-up ion-bot"></i>
+  </button>
+  <button *ngIf="DISTRIBUTIONShow">
+    <i class="ion-chevron-down ion-top"></i>
+    <i class="ion-chevron-down ion-bot"></i>
+  </button>
+</div>
+
 <div class="row">
   <div class="col-sm-12">
-    <div class="row">
+    <div *ngIf="!DISTRIBUTIONShow" class="row">
       <div class="col-sm-6">
         <ngx-country-chart></ngx-country-chart>
       </div>
@@ -31,7 +60,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div *ngIf="!DISTRIBUTIONShow" class="row">
       <div class="col-sm-12">
         <chart-switcher [title]="'Mobile Brand'"></chart-switcher>
 
@@ -44,7 +73,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div *ngIf="!DISTRIBUTIONShow" class="row">
       <div class="col-sm-6">
         <chart-switcher [title]="'Affluence'"></chart-switcher>
 
@@ -67,7 +96,23 @@
       </div>
     </div>
 
-    <div class="row">
+
+    <div class="tab-wrap" (click)="ENGAGEMENTShow = !ENGAGEMENTShow">
+      <span style="width: 222px;">
+        USER ENGAGEMENT
+      </span>
+          <div class="horizontal-line"></div>
+      <button *ngIf="!ENGAGEMENTShow">
+        <i class="ion-chevron-up ion-top"></i>
+        <i class="ion-chevron-up ion-bot"></i>
+      </button>
+      <button *ngIf="ENGAGEMENTShow">
+        <i class="ion-chevron-down ion-top"></i>
+        <i class="ion-chevron-down ion-bot"></i>
+      </button>
+    </div>
+
+    <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-12">
         <chart-switcher [title]="'Current Level'"></chart-switcher>
 
@@ -82,7 +127,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-12">
         <chart-switcher [title]="'Last Action'"></chart-switcher>
 
@@ -95,7 +140,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-6">
         <chart-switcher [title]="'Engagement'"></chart-switcher>
 
@@ -118,7 +163,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-6">
         <chart-switcher [title]="'User Skills'"></chart-switcher>
 
@@ -142,7 +187,7 @@
     </div>
 
 
-    <div class="row">
+    <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-12">
         <chart-switcher [title]="'Level Stickiness'"></chart-switcher>
 
@@ -155,7 +200,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-6">
         <chart-switcher [title]="'Loyality Index'"></chart-switcher>
 

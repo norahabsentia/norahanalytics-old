@@ -11,6 +11,23 @@ import {SmartTableService} from "../../@core/data/smart-table.service";
 })
 export class ChurnPredictionsComponent implements OnInit, OnDestroy {
 
+  charts = [
+    {
+      type: 'Table',
+      icon: 'fa-table',
+      show: false,
+      label: 'Display table',
+    },
+    {
+      type: 'Histogram',
+      icon: 'fa-bar-chart',
+      show: true,
+      label: 'Display stacked bar',
+    },
+  ];
+  dataBar1Options = this.charts[1];
+  dataBar2Options = this.charts[1];
+
   data: any;
   options: any;
   themeSubscription: any;
@@ -46,6 +63,17 @@ export class ChurnPredictionsComponent implements OnInit, OnDestroy {
 
   }
 
+  changeUserDistribution(item){
+    this.dataBar1Options = item;
+    console.log(item)
+  }
+
+  changeUserDistribution2(item){
+    this.dataBar2Options = item;
+
+    console.log(item)
+  }
+
   settings = {
     hideSubHeader: false,
     actions: false,
@@ -64,7 +92,6 @@ export class ChurnPredictionsComponent implements OnInit, OnDestroy {
         filter: false,
         width: '50%'
       },
-
     },
   };
 
