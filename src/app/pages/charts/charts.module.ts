@@ -26,6 +26,7 @@ import { EchartsAreaStackComponent } from './echarts/echarts-area-stack.componen
 import { EchartsBarAnimationComponent } from './echarts/echarts-bar-animation.component';
 import { EchartsRadarComponent } from './echarts/echarts-radar.component';
 import {Ng2SmartTableModule} from "ng2-smart-table";
+import { SwitcherComponent } from './chart-switcher/switcher/switcher.component';
 
 const components = [
   ChartjsLineComponent,

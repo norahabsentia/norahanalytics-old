@@ -62,10 +62,17 @@
               User Distribution on base of behaviour
           </div>
           <div>
-            <chart type="bar" [data]="dataBar1" [options]="optionsBar"></chart>
+            <chart *ngIf="dataBar1Options.type === 'Histogram'" type="bar" [data]="dataBar1" [options]="optionsBar"></chart>
+            <div class="table-wrap-scroll" *ngIf="dataBar1Options.type === 'Table'">
+                <ng2-smart-table *ngIf="dataBar1Options.type === 'Table'" [settings]="settings" [source]="source" reset></ng2-smart-table>
+            </div>
+            <div class="switcher-wrap">
+              <switcher [charts]="charts" (changeEvent)="changeUserDistribution($event)"></switcher>
+            </div>
+
           </div>
         </div>
-        <div class="col-md-4 col-xs-12">
+        <div class="col-md-4 col-xs-12">  
           <div class="right-content-select" style="margin-top: 27px;">
             <div class="lable">
               Basic:
@@ -99,7 +106,15 @@
               User Distribution on base of behaviour
             </div>
             <div>
-              <chart type="bar" [data]="dataBar2" [options]="optionsBar"></chart>
+              <chart *ngIf="dataBar2Options.type === 'Histogram'" type="bar" [data]="dataBar2" [options]="optionsBar"></chart>
+              <div class="table-wrap-scroll" *ngIf="dataBar2Options.type === 'Table'">
+                  <ng2-smart-table *ngIf="dataBar2Options.type === 'Table'" [settings]="settings" [source]="source" reset>
+                
+                    </ng2-smart-table>
+              </div>
+              <div class="switcher-wrap">
+                <switcher [charts]="charts" (changeEvent)="changeUserDistribution2($event)"></switcher>              
+              </div>
             </div>
           </div>
           <div class="col-md-4 col-xs-12">

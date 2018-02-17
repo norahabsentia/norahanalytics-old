@@ -4,26 +4,52 @@
           <span *ngFor="let item of charts" [hidden]="!item.show || title">
             {{item.type}}
           </span>
-          <span *ngIf="title">
+      <span *ngIf="title">
             {{title}}
           </span>
     </div>
   </nb-card-header>
   <nb-card-body>
-    <div *ngFor="let item of charts">
-      <!--<ngx-chartjs-pie></ngx-chartjs-pie>-->
-      <ngx-echarts-pie *ngIf="item.show && item.type === 'Pie'"></ngx-echarts-pie>
-      <ngx-echarts-bar *ngIf="item.show && item.type === 'Histogram'"></ngx-echarts-bar>
-
-      <ngx-chartjs-bar *ngIf="item.show && item.type === 'Bar'"></ngx-chartjs-bar>
-      <!--<ngx-chartjs-line *ngIf="item.show && item.type === 'Line'"></ngx-chartjs-line>-->
-      <!--<ngx-chartjs-multiple-xaxis *ngIf="item.show && item.type === 'Area'"></ngx-chartjs-multiple-xaxis>-->
-      <ngx-echarts-line *ngIf="item.show && item.type === 'Line'"></ngx-echarts-line>
-
-      <div>
-        <ng2-smart-table *ngIf="item.show && item.type === 'Table'" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" reset></ng2-smart-table>
-      </div>
+    <div id="class" class="wrapper">
+        <div *ngFor="let item of charts">
+            <div *ngIf="item.show && (item.type === 'Pie' || item.type === 'Histogram')" class="dropdawn-wrap-outer">
+                <div class="right-content-select" style="">
+                    <div class="lable">
+                      Basic:
+                    </div>
+                    <div class="select-wrap">
+                      <button class="select" (click)="showLocation = !showLocation">
+                          {{selectedLocation}}
+                          <i class="ion-arrow-down-b"></i>
+                      </button>
+                      <div *ngIf="showLocation" class="dropdawn dropdawn-location">
+                        <ul class="list-location">
+                          <li *ngFor="let item of dataLocation">
+                            <a (click)="clickLocation(item)">{{item.name}}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div *ngFor="let item of charts">
+            <!--<ngx-chartjs-pie></ngx-chartjs-pie>-->
+            <ngx-echarts-pie *ngIf="item.show && item.type === 'Pie'"></ngx-echarts-pie>
+            <ngx-echarts-bar *ngIf="item.show && item.type === 'Histogram'"></ngx-echarts-bar>
+      
+            <ngx-chartjs-bar *ngIf="item.show && item.type === 'Bar'"></ngx-chartjs-bar>
+            <!--<ngx-chartjs-line *ngIf="item.show && item.type === 'Line'"></ngx-chartjs-line>-->
+            <!--<ngx-chartjs-multiple-xaxis *ngIf="item.show && item.type === 'Area'"></ngx-chartjs-multiple-xaxis>-->
+            <ngx-echarts-line *ngIf="item.show && item.type === 'Line'"></ngx-echarts-line>
+      
+            <div>
+              <ng2-smart-table *ngIf="item.show && item.type === 'Table'" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" reset></ng2-smart-table>
+            </div>
+          </div>
     </div>
+  </nb-card-body>
+  <nb-card-footer>
     <div class="select-items-wrap">
       <div>
         <div *ngFor="let item of charts">
@@ -37,5 +63,5 @@
         </div>
       </div>
     </div>
-  </nb-card-body>
+  </nb-card-footer>
 </nb-card>

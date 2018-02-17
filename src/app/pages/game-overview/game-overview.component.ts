@@ -26,6 +26,9 @@ export class GameOverviewComponent implements OnInit {
   sticknessSeriesOptions: any;
   appVersionSeries: any;
   appVersionOptions: any;
+  DISTRIBUTIONShow;
+  OVERVIEWShow;
+  ENGAGEMENTShow;
 
   constructor(private theme: NbThemeService) {
     theme.getJsTheme().subscribe(config => {
