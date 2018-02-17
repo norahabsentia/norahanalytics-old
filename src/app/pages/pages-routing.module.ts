@@ -27,6 +27,9 @@ const routes: Routes = [{
   }, {
     path: 'maps',
     loadChildren: './maps/maps.module#MapsModule',
+  },{
+    path: 'smart-pricing',
+    loadChildren: './smart-pricing/smart-pricing.module#SmartPricingModule',
   }, {
     path: 'charts',
     loadChildren: './charts/charts.module#ChartsModule',

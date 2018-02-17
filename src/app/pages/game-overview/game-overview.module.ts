@@ -82,6 +82,7 @@ import {SwitcherComponent} from "../charts/chart-switcher/switcher/switcher.comp
     ChartjsBarComponent,
     ChartSwitcherComponent
   ],
+  exports: []
 })
 export class GameOverviewModule {
 }
