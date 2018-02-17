@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {LocalDataSource} from "ng2-smart-table";
 import {SmartTableService} from "../../../@core/data/smart-table.service";
 import {DataService} from "../../../@core/data/getcountrydata.service";
+import {NbThemeService} from "@nebular/theme";
 
 @Component({
   selector: 'chart-switcher',
@@ -148,8 +149,21 @@ export class ChartSwitcherComponent implements OnInit {
   source: LocalDataSource = new LocalDataSource();
   public tabledata: any
 
+  //map
+  latlong: any = {};
+  mapData: any[];
+  max = -Infinity;
+  min = Infinity;
+  options: any;
+
+  bubbleTheme: any;
+  geoColors: any[];
+  themeSubscription: any;
+
+
   @Input() title;
-  constructor(private service: SmartTableService, public dataservice: DataService) {
+  @Input() showMap;
+  constructor(private service: SmartTableService, public dataservice: DataService, private theme: NbThemeService) {
     const data = this.service.getData();
     this.source.load(data);
   }
@@ -167,7 +181,17 @@ export class ChartSwitcherComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.getDataFromJson()
+    this.getDataFromJson();
+    if(this.showMap){
+      this.charts.push( {
+        type: 'Map',
+        icon: 'fa-map',
+        show: true,
+        label: 'Display gradient map',
+      });
+
+      this.select(this.charts[this.charts.length - 1]);
+    }
   }
   getDataFromJson() {
     this.dataservice.getData().subscribe((data) => {

@@ -6,13 +6,7 @@ declare var google: any;
 @Component({
   selector: 'ngx-country-chart',
   template: `
-    <nb-card>
-      <nb-card-header>Country</nb-card-header>
-      <nb-card-body>
         <div echarts [options]="options" class="echarts"></div>
-      </nb-card-body>
-      <nb-card-footer class="footer-country"></nb-card-footer>
-    </nb-card>
   `,
 })
 export class CountryComponent implements OnDestroy {

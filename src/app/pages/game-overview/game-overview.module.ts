@@ -34,6 +34,7 @@ import {ChartjsBarComponent} from "../charts/chartjs/chartjs-bar.component";
 import {EchartsBarComponent} from "../charts/echarts/echarts-bar.component";
 import {EchartsPieComponent} from "../charts/echarts/echarts-pie.component";
 import {ChartSwitcherComponent} from "../charts/chart-switcher/chart-switcher.component";
+import {SwitcherComponent} from "../charts/chart-switcher/switcher/switcher.component";
 
 @NgModule({
   imports: [
