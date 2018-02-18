@@ -96,6 +96,24 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
+    title: 'Smart Pricing',
+    icon: 'nb-location',
+    children: [
+      {
+        title: 'User Trends',
+        link: '/pages/smart-pricing/user-trends',
+      },
+      {
+        title: 'Predictions',
+        link: '/pages/smart-pricing/predictions',
+      },
+      {
+        title: 'Performance Analysis',
+        link: '/pages/smart-pricing/performance-analysis',
+      },
+    ],
+  },
+  {
     title: 'Maps',
     icon: 'nb-location',
     children: [

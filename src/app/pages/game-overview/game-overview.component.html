@@ -46,7 +46,9 @@
   <div class="col-sm-12">
     <div *ngIf="!DISTRIBUTIONShow" class="row">
       <div class="col-sm-6">
-        <ngx-country-chart></ngx-country-chart>
+        <!--<ngx-country-chart></ngx-country-chart>-->
+        <chart-switcher [title]="'Country'" [showMap]="true"></chart-switcher>
+
       </div>
       <div class="col-sm-6">
         <!--<nb-card>-->

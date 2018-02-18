@@ -1,17 +1,17 @@
 @import '../../../@theme/styles/themes';
 
 @include nb-install-component() {
-  ngx-chartjs-pie,
-  ngx-chartjs-bar,
-  ngx-chartjs-line,
+  ngx-chartjs-pie-smart-pricing,
+  ngx-chartjs-bar-smart-pricing,
+  ngx-chartjs-line-smart-pricing,
   ngx-chartjs-multiple-xaxis,
   ngx-chartjs-bar-horizontal,
   ng2-smart-table,
-  ngx-echarts-line,
-  ngx-echarts-bar,
-  ngx-echarts-pie,
-  ngx-country-chart,
-  ngx-chartjs-radar {
+  ngx-echarts-line-smart-pricing,
+  ngx-echarts-bar-smart-pricing,
+  ngx-echarts-pie-smart-pricing,
+  ngx-country-chart-smart-pricing,
+  ngx-chartjs-radar-smart-pricing {
     display: block;
     height: nb-theme(card-height-medium);
     width: 100%;
@@ -21,6 +21,12 @@
       height: 100%;
       width: 100%;
     }
+  }
+}
+
+nb-card {
+  nb-card-body {
+    height: 470px;
   }
 }
 

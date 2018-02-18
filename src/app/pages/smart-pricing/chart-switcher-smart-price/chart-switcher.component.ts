@@ -5,52 +5,15 @@ import {DataService} from "../../../@core/data/getcountrydata.service";
 import {NbThemeService} from "@nebular/theme";
 
 @Component({
-  selector: 'chart-switcher',
+  selector: 'chart-switcher-smart-price',
   templateUrl: './chart-switcher.component.html',
   styleUrls: ['./chart-switcher.component.scss']
 })
-export class ChartSwitcherComponent implements OnInit {
+export class ChartSwitcherSmartPriceComponent implements OnInit {
 
   showSelectItems;
   charts = [
-    // {
-    //   type: 'Area',
-    //   icon: 'fa-area-chart',
-    //   show: false,
-    //   label: 'Display simple area chart',
-    // },
-    {
-      type: 'Pie',
-      icon: 'fa-pie-chart',
-      show: true,
-      label: 'Display pie chart',
 
-    },
-    {
-      type: 'Line',
-      icon: 'fa-line-chart',
-      show: false,
-      label: 'Display line chart',
-
-    },
-    {
-      type: 'Bar',
-      icon: 'fa-bar-chart',
-      show: false,
-      label: 'Display bar chart',
-    },
-    {
-      type: 'Table',
-      icon: 'fa-table',
-      show: false,
-      label: 'Display table',
-    },
-    {
-      type: 'Histogram',
-      icon: 'fa-bar-chart',
-      show: false,
-      label: 'Display Histogram chart',
-    },
 
   ]
   change() {
@@ -136,14 +99,14 @@ export class ChartSwitcherComponent implements OnInit {
       },
     },
   };
-  selectedLocation = 'Churned';
+  selectedLocation = 'Product 1';
   showLocation;
   dataLocation= [
-    {name: 'Churned'},
-    {name: 'Predicted to churn'},
-    {name: 'Churned and predicted'},
-    {name: 'Predicted but not churned'},
-    {name: 'Churned but not predicted'}
+    {name: 'Product 1'},
+    {name: 'Product 1'},
+    {name: 'Product 1'},
+    {name: 'Product 1'},
+    {name: 'Product 1'}
   ];
 
   source: LocalDataSource = new LocalDataSource();
@@ -163,9 +126,13 @@ export class ChartSwitcherComponent implements OnInit {
 
   @Input() title;
   @Input() showMap;
+  @Input() chartsValue;
+
   constructor(private service: SmartTableService, public dataservice: DataService, private theme: NbThemeService) {
     const data = this.service.getData();
     this.source.load(data);
+
+
   }
 
   clickLocation(item){
@@ -191,6 +158,65 @@ export class ChartSwitcherComponent implements OnInit {
       });
 
       this.select(this.charts[this.charts.length - 1]);
+    }
+
+    for(let item of this.chartsValue){
+      console.log(item)
+      if(item === 'Line'){
+        this.charts.push({
+          type: 'Line',
+          icon: 'fa-line-chart',
+          show: true,
+          label: 'Display line chart',
+        });
+      }
+      if(item === 'Table'){
+        this.charts.push(   {
+          type: 'Table',
+          icon: 'fa-table',
+          show: false,
+          label: 'Display table',
+        });
+      }
+      if(item === 'Bar'){
+        this.charts.push({
+          type: 'Bar',
+          icon: 'fa-bar-chart',
+          show: false,
+          label: 'Display bar chart',
+        });
+      }
+      if(item === 'eBar'){
+        this.charts.push({
+          type: 'eBar',
+          icon: 'fa-bar-chart',
+          show: false,
+          label: 'Display bar chart',
+        });
+      }
+      if(item === 'ePie'){
+        this.charts.push({
+          type: 'ePie',
+          icon: 'fa-pie-chart',
+          show: true,
+          label: 'Display bar chart',
+        });
+      }
+      // {
+      //   type: 'Pie',
+      //     icon: 'fa-pie-chart',
+      //   show: true,
+      //   label: 'Display pie chart',
+      // },
+
+
+
+      // {
+      //   type: 'Histogram',
+      //     icon: 'fa-bar-chart',
+      //   show: false,
+      //   label: 'Display Histogram chart',
+      // },
     }
   }
   getDataFromJson() {

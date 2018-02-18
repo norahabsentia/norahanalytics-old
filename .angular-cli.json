@@ -43,7 +43,9 @@
         "../node_modules/tinymce/plugins/table/plugin.min.js",
         "./assets/vendors/echarts.min.js",
         "./assets/vendors/echarts.world.min.js",
-        "../node_modules/chart.js/dist/Chart.min.js"
+        "../node_modules/chart.js/dist/Chart.min.js",
+        "../node_modules/d3v4/build/d3.js",
+        "../node_modules/venn.js/venn.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

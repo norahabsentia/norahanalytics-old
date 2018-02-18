@@ -4,12 +4,12 @@ import { NbThemeService } from '@nebular/theme';
 declare var google: any;
 
 @Component({
-  selector: 'ngx-country-chart',
+  selector: 'ngx-country-chart-smart-pricing',
   template: `
         <div echarts [options]="options" class="echarts"></div>
   `,
 })
-export class CountryComponent implements OnDestroy {
+export class CountrySmartPricingComponent implements OnDestroy {
 
   latlong: any = {};
   mapData: any[];
