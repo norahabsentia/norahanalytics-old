@@ -9,6 +9,7 @@ $yellow-bevel: btn-hero-bevel($yellow-middle);
 $yellow-glow: btn-hero-glow($yellow-middle);
 
 @include nb-install-component() {
+  
 
   .btn {
     border-radius: nb-theme(btn-round-border-radius);
@@ -79,4 +80,7 @@ $yellow-glow: btn-hero-glow($yellow-middle);
     };
   }
 }
+.tagbutton{padding: 5px 10px;border-radius: 25px;color: #fff;font-size: 14px;font-weight: bolder;display: inline-block;margin: 8px;}
+.display{z-index: 1111111 !important;position: absolute;box-shadow: none;}
+
 
