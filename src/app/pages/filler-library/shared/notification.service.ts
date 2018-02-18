@@ -28,6 +28,20 @@ export class NotificationService {
     {id:12,name:'item4'},
     {id:13,name:'item5'},
   ];
+
+  fillerArray = [
+     {filler_id:'1',tag_name:'Country',count:4},
+     {filler_id:'2',tag_name:'Time',count:1},
+     {filler_id:'3',tag_name:'Month',count:2},
+     {filler_id:'4',tag_name:'brave',count:5},
+     {filler_id:'5',tag_name:'Day',count:6},
+     {filler_id:'6',tag_name:'Username',count:4},
+     {filler_id:'7',tag_name:'test1',count:5},
+     {filler_id:'8',tag_name:'test3',count:5},
+     {filler_id:'9',tag_name:'test2',count:0},
+     {filler_id:'10',tag_name:'test4',count:6},
+     {filler_id:'11',tag_name:'test5',count:11},
+  ];
   constructor(private firebase :AngularFireDatabase) { }
   
   getData(){
@@ -85,5 +99,14 @@ export class NotificationService {
 
   }
 
+  getFiller(){
+      return this.fillerArray;
+  }
+  
+  addFiller(val){
+      var id = this.fillerArray.length;
+      this.fillerArray.push({filler_id: (id+1)+'' , tag_name:val , count:0});
+      return this.fillerArray;
+  }
 
 }
