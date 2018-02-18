@@ -108,7 +108,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/smart-pricing/predictions',
       },
       {
-        title: 'Bubble Maps',
+        title: 'Performance Analysis',
         link: '/pages/smart-pricing/performance-analysis',
       },
     ],

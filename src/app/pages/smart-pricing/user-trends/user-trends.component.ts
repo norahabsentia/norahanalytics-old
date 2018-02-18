@@ -8,6 +8,10 @@ import {NbColorHelper, NbThemeService} from "@nebular/theme";
 })
 export class UserTrendsComponent implements OnInit {
 
+
+  charts = ['Line', 'Bar', 'Table'
+  ];
+
   colors: any;
   chartjs: any;
 
@@ -38,6 +42,7 @@ export class UserTrendsComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.affluenceSeries = {
       labels: ['afluance1', 'afluance2', 'afluance3', 'afluance4', 'afluance5', 'afluance6', 'afluance7'],
       datasets: [{

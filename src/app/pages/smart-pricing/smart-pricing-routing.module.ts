@@ -5,6 +5,12 @@ import {SmartPricingComponent} from "./smart-pricing.component";
 import {UserTrendsComponent} from "./user-trends/user-trends.component";
 import {PerformanceAnalysisComponent} from "./performance-analysis/performance-analysis.component";
 import {PredictionsComponent} from "./predictions/predictions.component";
+import {ChartSwitcherSmartPriceComponent} from "./chart-switcher-smart-price/chart-switcher.component";
+import {ChartjsBarSmartPricingComponent} from "./chart-switcher-smart-price/chartjs-bar-smart-pricing.component";
+import {EchartsLineSmartPricingComponent} from "./chart-switcher-smart-price/echarts-line.component";
+import {CountrySmartPricingComponent} from "./chart-switcher-smart-price/country/country.component";
+import {EchartsBarSmartPriceComponent} from "./chart-switcher-smart-price/echarts-bar.component";
+import {EchartsPieSmartPriceComponent} from "./chart-switcher-smart-price/echarts-pie.component";
 
 const routes: Routes = [{
   path: '',
@@ -32,5 +38,11 @@ export const routedComponents = [
   SmartPricingComponent,
   UserTrendsComponent,
   PredictionsComponent,
-  PerformanceAnalysisComponent
+  PerformanceAnalysisComponent,
+  ChartSwitcherSmartPriceComponent,
+  ChartjsBarSmartPricingComponent,
+  EchartsLineSmartPricingComponent,
+  CountrySmartPricingComponent,
+  EchartsBarSmartPriceComponent,
+  EchartsPieSmartPriceComponent
 ];

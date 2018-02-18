@@ -1,236 +1,133 @@
-
-<div class="row">
-
-  <div class="main-caption">
-    USER TRENDS ( In App Purchases )
-  </div>
-  <div class="box-wrapper-top">
-    <div class="user-active">
-    <span>
-      Revenue Overview
-    </span>
+<div class="container">
+  <div class="row" style="margin: 0;">
+    <div class="main-caption">
+      USER TRENDS ( In App Purchases )
     </div>
-    <div class="container-risk">
-      <div class="box" style="border-radius: 10px 0 0 10px; border-right: none;">
-        <div class="caption-risk" style="width: 80%;">
-          Total Revenue (from 9/8/2012)
-        </div>
-        <span class="users" style="text-align: left;">
-        <!-- <i class="fas fa-rupee-sign"></i> -->
-        ₹ 49,17,6050
-      </span>
-      </div>
-      <div class="box" style="border-right: none;">
-        <div class="caption-risk">
-          Average Daily Revenue this week
-        </div>
-        <span class="users">
-        46,719
-      </span>
-      </div>
-      <div class="box" style="border-right: none; width: 160px;">
-        <div class="caption-risk" style="text-align: center;">
-          Daily Active Users
-        </div>
-        <span class="users">
-        69,147
-      </span>
-      </div>
-      <div class="box" style="border-right: none; width: 160px;">
-        <div class="caption-risk" style="text-align: center;">
-          ARPDAU
-        </div>
-        <span class="users">
-        70.25
-      </span>
-      </div>
-      <div class="box" style="border-radius:0 10px 10px 0; width: 160px;">
-        <div class="caption-risk" style="text-align: center;">
-          Last day Revenue
-        </div>
-        <span class="users">
-
-          ₹ 51,761
-      </span>
-      </div>
-    </div>
-  </div>
-  <div>
-    <div class="user-active">
-      <span>
-        Purchases Overview
-      </span>
-    </div>
-    <div class="container-risk" style="margin-bottom: 30px;">
-      <div class="box" style="border-radius: 10px 0 0 10px;border-right: none;">
-        <div class="caption-risk" style="width: 80%;">
-          Total Purchases (since 9/8/2012)
-        </div>
-        <span class="users">
-          22.918
+    <div class="box-wrapper-top">
+      <div class="user-active">
+        <span>
+          Revenue Overview
         </span>
       </div>
-      <div class="box" style="border-right: none;">
-        <div class="caption-risk" style="text-align: center;">
-          Average Daily Purchases this week
+      <div class="container-risk">
+        <div class="box" style="border-radius: 10px 0 0 10px; border-right: none;">
+          <div class="caption-risk" style="">
+            Total Revenue (from 9/8/2012)
+          </div>
+          <span class="users" style="">
+            <!-- <i class="fas fa-rupee-sign"></i> -->
+            ₹ 49,17,6050
+          </span>
         </div>
-        <span class="users">
-          262
-        </span>
+        <div class="box" style="border-right: none;">
+          <div class="caption-risk">
+            Average Daily Revenue this week
+          </div>
+          <span class="users">
+            46,719
+          </span>
+        </div>
+        <div class="box" style="border-right: none;">
+          <div class="caption-risk" style="text-align: center;">
+            Daily Active Users
+          </div>
+          <span class="users">
+            69,147
+          </span>
+        </div>
+        <div class="box" style="border-right: none;">
+          <div class="caption-risk" style="text-align: center;">
+            ARPDAU
+          </div>
+          <span class="users">
+            70.25
+          </span>
+        </div>
+        <div class="box" style="border-radius:0 10px 10px 0;">
+          <div class="caption-risk" style="text-align: center;">
+            Last day Revenue
+          </div>
+          <span class="users">
+
+              ₹ 51,761
+          </span>
+        </div>
       </div>
-      <div class="box" style="border-radius:0 10px 10px 0; width: 160px;">
-        <div class="caption-risk" style="text-align: center;">
-          Purchases Last Day
+    </div>
+    <div class="box-wrapper-top">
+      <div class="user-active">
+          <span>
+            Purchases Overview
+          </span>
+      </div>
+      <div class="container-risk" style="margin-bottom: 30px;">
+        <div class="box" style="border-radius: 10px 0 0 10px;border-right: none;">
+          <div class="caption-risk" style="">
+            Total Purchases (since 9/8/2012)
+          </div>
+          <span class="users">
+              22.918
+            </span>
         </div>
-        <span class="users">
-          314
-        </span>
+        <div class="box" style="border-right: none;">
+          <div class="caption-risk" style="text-align: center;">
+            Average Daily Purchases this week
+          </div>
+          <span class="users">
+              262
+            </span>
+        </div>
+        <div class="box" style="border-radius:0 10px 10px 0;">
+          <div class="caption-risk" style="text-align: center;">
+            Purchases Last Day
+          </div>
+          <span class="users">
+              314
+            </span>
+        </div>
       </div>
     </div>
   </div>
+</div>
+<div class="container">
 
     <div class="row">
       <div class="col-sm-6">
-
+        <chart-switcher-smart-price [chartsValue]="charts" [title]="'Revenue Time Series'"></chart-switcher-smart-price>
       </div>
       <div class="col-sm-6">
-
+        <chart-switcher-smart-price [chartsValue]="['Table']" [showMap]="1" [title]="'Revenue Geography Distribution'"></chart-switcher-smart-price>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6">
-        <!--<chart-switcher [title]="'Affluence'"></chart-switcher>-->
+        <chart-switcher-smart-price [chartsValue]="charts" [title]="'Geogrphy of Revenue'"></chart-switcher-smart-price>
 
-        <!--<nb-card>-->
-        <!--<nb-card-header>Affluence</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-user-chart type="bar" [series]="affluenceSeries"></ngx-user-chart>-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
       </div>
       <div class="col-sm-6">
-        <!--<chart-switcher [title]="'Country'"></chart-switcher>-->
+        <chart-switcher-smart-price [chartsValue]="charts" [title]="'Revenue Visualisation by Level'"></chart-switcher-smart-price>
 
-        <!--<nb-card>-->
-        <!--<nb-card-header>Country</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-user-chart type="horizontalBar" [series]="countrySeries"></ngx-user-chart>-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
       </div>
     </div>
 
 
 
     <div class="row">
-      <div class="col-sm-12">
-        <!--<chart-switcher [title]="'Current Level'"></chart-switcher>-->
+      <div class="col-sm-6">
+        <chart-switcher-smart-price [chartsValue]="charts" [title]="'Sink and Source for Currency per Level'"></chart-switcher-smart-price>
 
-        <!--<nb-card>-->
-        <!--<nb-card-header>Current Level</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-user-chart type="line" [series]="currentLevelSeries" [options]="currentLevelOptions"></ngx-user-chart>-->
-
-        <!--&lt;!&ndash;<ngx-current-level-chart></ngx-current-level-chart>&ndash;&gt;-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
       </div>
-    </div>
+      <div class="col-sm-6">
+        <chart-switcher-smart-price [chartsValue]="charts" [title]="'Level Revenue Visualisation'"></chart-switcher-smart-price>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <!--<chart-switcher [title]="'Last Action'"></chart-switcher>-->
-
-        <!--<nb-card>-->
-        <!--<nb-card-header>Last Action</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-user-chart type="line" [series]="actionsSeries" [options]="actionsSeriesOptions"></ngx-user-chart>-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6">
-        <!--<chart-switcher [title]="'Engagement'"></chart-switcher>-->
+        <chart-switcher-smart-price [chartsValue]="charts" [title]="'Affluence Revenue'"></chart-switcher-smart-price>
 
-        <!--<nb-card>-->
-        <!--<nb-card-header>Engagement</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-engagement-chart></ngx-engagement-chart>-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
-      </div>
-      <div class="col-sm-6">
-        <!--<chart-switcher [title]="'Total time spent in Game'"></chart-switcher>-->
-
-        <!--<nb-card>-->
-        <!--<nb-card-header>Total time spent in Game</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-spent-time-chart></ngx-spent-time-chart>-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6">
-        <!--<chart-switcher [title]="'User Skills'"></chart-switcher>-->
-
-        <!--<nb-card>-->
-        <!--<nb-card-header>User Skills</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-user-chart type="line" [series]="skillsSeries" [options]="skillsSeriesOptions"></ngx-user-chart>-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
-      </div>
-      <div class="col-sm-6">
-        <!--<chart-switcher [title]="'Out of Lives'"></chart-switcher>-->
-
-        <!--<nb-card>-->
-        <!--<nb-card-header>Out of Lives</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-user-chart type="line" [series]="outOfLivesSeries"></ngx-user-chart>-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-sm-12">
-        <!--<chart-switcher [title]="'Level Stickiness'"></chart-switcher>-->
-
-        <!--<nb-card>-->
-        <!--<nb-card-header>Level Stickiness</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-user-chart type="line" [series]="sticknessSeries" [options]="sticknessSeriesOptions"></ngx-user-chart>-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6">
-        <!--<chart-switcher [title]="'Loyality Index'"></chart-switcher>-->
-
-        <!--<nb-card>-->
-        <!--<nb-card-header>Loyality Index</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-user-chart type="horizontalBar" [series]="loyaltySeries"></ngx-user-chart>-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
-      </div>
-      <div class="col-sm-6">
-        <!--<chart-switcher [title]="'App Version'"></chart-switcher>-->
-
-        <!--<nb-card>-->
-        <!--<nb-card-header>App Version</nb-card-header>-->
-        <!--<nb-card-body>-->
-        <!--<ngx-user-chart type="line" [series]="appVersionSeries" [options]="appVersionOptions"></ngx-user-chart>-->
-        <!--</nb-card-body>-->
-        <!--</nb-card>-->
       </div>
     </div>
 

@@ -7,6 +7,9 @@ import {ThemeModule} from "../../@theme/theme.module";
 import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 
 import {Ng2SmartTableModule} from "ng2-smart-table";
+import {ChartsRoutingModule} from "../charts/charts-routing.module";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {ChartModule} from "angular2-chartjs";
 
 @NgModule({
   imports: [
@@ -15,7 +18,9 @@ import {Ng2SmartTableModule} from "ng2-smart-table";
     LeafletModule.forRoot(),
     SmartPricingRoutingModule,
     NgxEchartsModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    ChartsRoutingModule, NgxChartsModule, ChartModule,
+
   ],
   exports: [],
   declarations: [

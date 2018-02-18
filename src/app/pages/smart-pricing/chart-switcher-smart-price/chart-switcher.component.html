@@ -1,0 +1,70 @@
+<nb-card>
+  <nb-card-header>
+    <div>
+          <span *ngFor="let item of charts" [hidden]="!item.show || title">
+            {{item.type}}
+          </span>
+      <span *ngIf="title">
+            {{title}}
+          </span>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div id="class" class="wrapper">
+        <div *ngFor="let item of charts">
+            <div *ngIf="item.show && (item.type === 'Pie' || item.type === 'Histogram' || item.type === 'eBar' || item.type === 'ePie')" class="dropdawn-wrap-outer">
+                <div class="right-content-select" style="">
+                    <div class="lable">
+                      Basic:
+                    </div>
+                    <div class="select-wrap">
+                      <button class="select" (click)="showLocation = !showLocation">
+                          {{selectedLocation}}
+                          <i class="ion-arrow-down-b"></i>
+                      </button>
+                      <div *ngIf="showLocation" class="dropdawn dropdawn-location">
+                        <ul class="list-location">
+                          <li *ngFor="let item of dataLocation">
+                            <a (click)="clickLocation(item)">{{item.name}}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div *ngFor="let item of charts">
+            <!--<ngx-chartjs-pie></ngx-chartjs-pie>-->
+            <!--<ngx-echarts-pie *ngIf="item.show && item.type === 'Pie'"></ngx-echarts-pie>-->
+            <!--<ngx-echarts-bar *ngIf="item.show && item.type === 'Histogram'"></ngx-echarts-bar>-->
+
+            <ngx-chartjs-bar-smart-pricing *ngIf="item.show && item.type === 'Bar'"></ngx-chartjs-bar-smart-pricing>
+            <!--&lt;!&ndash;<ngx-chartjs-line *ngIf="item.show && item.type === 'Line'"></ngx-chartjs-line>&ndash;&gt;-->
+            <!--&lt;!&ndash;<ngx-chartjs-multiple-xaxis *ngIf="item.show && item.type === 'Area'"></ngx-chartjs-multiple-xaxis>&ndash;&gt;-->
+            <ngx-echarts-line-smart-pricing *ngIf="item.show && item.type === 'Line'"></ngx-echarts-line-smart-pricing>
+            <!--&lt;!&ndash;<div *ngIf="item.show && item.type === 'Map'" echarts [options]="options" class="echarts"></div>&ndash;&gt;-->
+            <ngx-country-chart-smart-pricing *ngIf="item.show && item.type === 'Map'"></ngx-country-chart-smart-pricing>
+            <ngx-echarts-bar-smart-price *ngIf="item.show && item.type === 'eBar'"></ngx-echarts-bar-smart-price>
+            <ngx-echarts-pie-smart-price *ngIf="item.show && item.type === 'ePie'"></ngx-echarts-pie-smart-price>
+            <div>
+              <ng2-smart-table *ngIf="item.show && item.type === 'Table'" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" reset></ng2-smart-table>
+            </div>
+          </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="select-items-wrap">
+      <div>
+        <div *ngFor="let item of charts">
+          <i class="fa fa {{ item.icon }} item-icon" *ngIf="item.show" (click)="change()"></i>
+        </div>
+      </div>
+      <div class="select-items" *ngIf="showSelectItems">
+        <div class="select-item" *ngFor="let item of charts" (click)="select(item)">
+          <i class="fa fa {{ item.icon }}"></i>
+          <span>{{item.label}}</span>
+        </div>
+      </div>
+    </div>
+  </nb-card-footer>
+</nb-card>
