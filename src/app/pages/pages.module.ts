@@ -11,11 +11,11 @@ import {ChartModule} from "angular2-chartjs";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {NgxEchartsModule} from "ngx-echarts";
 import {ChartsRoutingModule} from "./charts/charts-routing.module";
-import {SwitcherComponent} from "./charts/chart-switcher/switcher/switcher.component";
-
+// 
+import { CanDeactivateGurad } from "./norah-scheduler/shared/can-deactivate-guard.service";
+// import { DialogService } from '../pages/norah-scheduler/shared/dialog.service';
 const PAGES_COMPONENTS = [
   PagesComponent,
-  SwitcherComponent
 ];
 
 @NgModule({
@@ -30,6 +30,10 @@ const PAGES_COMPONENTS = [
   declarations: [
     ...PAGES_COMPONENTS,
     ChurnPredictionsComponent,
+  ],
+  providers:[
+    CanDeactivateGurad,
+    // DialogService
   ],
 })
 export class PagesModule {
