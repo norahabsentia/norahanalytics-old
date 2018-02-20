@@ -19,8 +19,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// 
-import { CanDeactivateGurad } from "./pages/norah-scheduler/shared/can-deactivate-guard.service";
+
 
 
 
@@ -42,7 +41,6 @@ import { CanDeactivateGurad } from "./pages/norah-scheduler/shared/can-deactivat
   ],
   bootstrap: [AppComponent],
   providers: [
-    CanDeactivateGurad,
     { provide: APP_BASE_HREF, useValue: '/' },
   ],
 })
