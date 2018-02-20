@@ -20,6 +20,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+// service import
+import {NorahService } from '../app/pages/norah-scheduler/shared/norah.service';
+import { CanDeactivateGurad } from '../app/pages/norah-scheduler/shared/can-deactivate-guard.service';
+import { DialogService } from '../app/pages/norah-scheduler/shared/dialog.service';
+
 
 
 

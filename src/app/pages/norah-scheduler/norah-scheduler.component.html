@@ -25,9 +25,8 @@
               
               <div style="border-top: solid 1px lightgray;padding: 1em;    padding-left: 2em;">
                 <span style="font-size: 19px;">Minimum gap between notifications</span>
-                <span style="float:  right;-right:  10em;    margin-right: 14.6em;">
-                  <select  name="top_entry" #top_entry="ngModel"  [(ngModel)]="norahService.scheduleTop_entry"   required
-                   style="margin-right:  1em;    width: 5em;border: 1px solid #d1d1d1;    color: #4c4c4c;border-radius:0.5em;">
+                <span class="spanN">
+                  <select  name="top_entry" #top_entry="ngModel"  [(ngModel)]="norahService.scheduleTop_entry" class="selectN"   required>
                    <option  *ngFor='let top_entry of top_entries' [value]="top_entry.id">{{top_entry.name}}</option>
                    </select><span>hrs</span>
                  </span>
@@ -39,16 +38,16 @@
                     <thead>
                        <tr>
                           <th style="    padding-left: 2em;">
-                            <div style="position: relative;top: -2em;font-size:19px;">Customer Segments</div>
+                            <div class="divTdN">Customer Segments</div>
                            </th>
-                          <th _ngcontent-c10="" colspan="2" style="text-align: center;padding: 0;">
+                          <th _ngcontent-c10="" colspan="2" class="tCN">
                             <table style="width:  100%;">
                               <thead>
                                 <tr>
                                   <th colspan="2" style="font-size: 19px;">Scheduling</th>
                                </tr>
                              </thead>
-                             <tbody><tr style="background: none;"><td style="font-size: 18px;    right: 8px;    color: #a4abb3;">Times a week</td><td  style="font-size: 18px;right: 20px;    color: #a4abb3;">Times a day</td></tr>
+                             <tbody><tr style="background: none;"><td class="tbodyN1">Times a week</td><td class="tbodyN1td">Times a day</td></tr>
                              </tbody>
                            </table>
                          </th>
