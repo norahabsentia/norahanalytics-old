@@ -75,10 +75,19 @@
     
 </nb-card>
 
-  <nb-card>
-    <nb-card-header class="noti_nb_header2">
-      <span>Notification Manager</span><button class="btn noti_nb_header2_span">Choose from templates</button></nb-card-header>
-    <nb-card-body>
+  <nb-card >
+    <nb-card-header class="noti_nb_header2" >
+      <span *ngIf="notificationService.showHide == 0">
+      	<span>Notification Manager</span>
+      	<button class="btn noti_nb_header2_span" (click)="showTemplate(1)">Choose from templates</button>
+      </span>
+      <span *ngIf="notificationService.showHide==1">
+      	<span>Notification Template</span>
+      	<button class="btn noti_nb_header2_span" (click)=showTemplate(0)>Back</button>
+      </span>
+    </nb-card-header>
+    <nb-card-body >
+    	<div [hidden]="notificationService.showHide==1" > 
       <form  #notificationForm="ngForm" (ngSubmit)="onSubmit(notificationForm)">
           <input type="hidden" name="noti_ID" #noti_ID="ngModel" [(ngModel)]="notificationService.selectedNotification.noti_ID">
       <div class="row">
@@ -88,7 +97,7 @@
               [(ngModel)]="notificationService.selectedNotification.title" 
               id="title" 
               (select)="textSelect('title',$event)"
-              (click)="fillerEnabledTitleInputsClick('title',$event)">
+              (click)="fillerEnabledTitleInputsClick('title',$event)" autocomplete="off">
            </div>
            
       </div>
@@ -102,7 +111,7 @@
             class="form-control qtip-enabled"
             id="body"
              required (select)="textSelect('body',$event)"
-             (click)="fillerEnabledTitleInputsClick('body',$event)"></textarea>
+             (click)="fillerEnabledTitleInputsClick('body',$event)" autocomplete="off"></textarea>
         
         </div>
         <div class="setbody"></div>
@@ -153,5 +162,9 @@
         </div>
       </div>
     </form>
+    </div>
+    <div [hidden]="notificationService.showHide == 0"> 
+    	<notification-template *ngIf="notificationService.showHide == 1"></notification-template>
+    </div>
     </nb-card-body>
   </nb-card>
