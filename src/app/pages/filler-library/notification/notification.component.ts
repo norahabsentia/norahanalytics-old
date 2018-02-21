@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation , Input } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
 
@@ -9,6 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../../ui-features/modals/modal/modal.component';
 
 declare var $:any;
+
 @Component({
   selector: 'notification',
   templateUrl: './notification.component.html',
@@ -178,14 +179,23 @@ showFillerStatus:boolean = false;;
           },
           position: {
               target: 'mouse',
-              at: 'top left',
-              tooltip: 'topRight',
-              adjust: { mouse: false }
+              my:'top center',
+              at: 'top center',
+              tooltip: 'topCenter',
+              adjust: {
+                  mouse : false
+              },
+              
           },
           style: {
-              classes: 'filletTooltip-main'
+              classes: 'filletTooltip-main',
+              
           },
-          events: {
+          events: { 
+              visible: function(event, api) {
+                  var id = api._id;
+                  $("#"+id).css("top",$("#"+id).position().top -100);
+              },
               show: function(event, api){
                   console.log('EVENT : '+window.getSelection().toString()+" ON ID:"+api.target[0].id)
                   console.log(event)
@@ -231,7 +241,7 @@ showFillerStatus:boolean = false;;
       var textContent = this.notificationService.selectedNotification[type_];
       
       console.log('CURRENT CURSOR INDEX :'+currentCursorIndex); 
-      
+      console.log(textContent.length);
       for(var i=0; i< textContent.length;i++){
           console.log('compare : '+textContent[i])
           console.log('RESULT : '+(textContent[i] === "`"))
@@ -277,8 +287,9 @@ showFillerStatus:boolean = false;;
   }
   
   textSelect(val,event){
-     // this.resetFillerVar();
+      // this.resetFillerVar();
      console.log("CURRENT SEL :"+val)
+     
      this.currentSelection =val;  
   } 
   
@@ -418,6 +429,9 @@ showFillerStatus:boolean = false;;
       this.fillArr = this.notificationService.addFiller(this.newFillerVal);
       this.fillArr[this.fillArr.length-1]['color'] =this.getRandomColor();
       this.showAddNewFiller = false;
+  }
+  showTemplate(value){
+      this.notificationService.showHide = value;
   }
   
 }

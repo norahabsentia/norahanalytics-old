@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Notification} from './notification.model';
+import { Filler} from './filler.model'; 
 
 @Injectable()
 export class NotificationService {
@@ -13,6 +14,7 @@ export class NotificationService {
   itemArray : any =[];
   tempItemArray : any =[];
   tempRightArray : any =[];
+  showHide = 0;
   itemsInit = [
     {id:1,name:'Normacjk'},
     {id:2,name:'Inspiring'},
@@ -28,20 +30,24 @@ export class NotificationService {
     {id:12,name:'item4'},
     {id:13,name:'item5'},
   ];
-
   fillerArray = [
-     {filler_id:'1',tag_name:'Country',count:4},
-     {filler_id:'2',tag_name:'Time',count:1},
-     {filler_id:'3',tag_name:'Month',count:2},
-     {filler_id:'4',tag_name:'brave',count:5},
-     {filler_id:'5',tag_name:'Day',count:6},
-     {filler_id:'6',tag_name:'Username',count:4},
-     {filler_id:'7',tag_name:'test1',count:5},
-     {filler_id:'8',tag_name:'test3',count:5},
-     {filler_id:'9',tag_name:'test2',count:0},
-     {filler_id:'10',tag_name:'test4',count:6},
-     {filler_id:'11',tag_name:'test5',count:11},
-  ];
+                 {filler_id:'1',tag_name:'Country',count:4},
+                 {filler_id:'2',tag_name:'Time',count:1},
+                 {filler_id:'3',tag_name:'Month',count:2},
+                 {filler_id:'4',tag_name:'brave',count:5},
+                 {filler_id:'5',tag_name:'Day',count:6},
+                 {filler_id:'6',tag_name:'Username',count:4},
+                 {filler_id:'7',tag_name:'test1',count:5},
+                 {filler_id:'8',tag_name:'test3',count:5},
+                 {filler_id:'9',tag_name:'test2',count:0},
+                 {filler_id:'10',tag_name:'test4',count:6},
+                 {filler_id:'11',tag_name:'test5',count:11},
+    ];
+  notificationTemplate = [
+                          {templateId:'1',title:'Hello `Username`. Today is `Month`',body:'Hello `brave`. Today is `test4`'},
+                          {templateId:'2',title:'test `Country` . Today is `test1`',body:'`Time`. Today is `Day`'},
+                          {templateId:'3',title:'test `brave` . Today is `test1`',body:'`Time`. Today is `Day`'}
+                         ];
   constructor(private firebase :AngularFireDatabase) { }
   
   getData(){
@@ -98,9 +104,38 @@ export class NotificationService {
     this.notificationList.remove(noti_ID);
 
   }
-
+  
   getFiller(){
       return this.fillerArray;
+  }
+  
+  getNotificationTemplate(){
+      for (var i = 0 ; i < this.notificationTemplate.length ; i++){
+          let str = this.getConcateString(this.notificationTemplate[i].title,this.notificationTemplate[i].body);  
+          let splittext = str.match(/`(.*?)`/g);
+          for (var j=0 ; j < splittext.length ; j++){
+              if(j==0){ 
+                  this.notificationTemplate[i]['filler']=[];
+              }
+              this.notificationTemplate[i]['filler'].push(this.getFillerByName(splittext[j].slice(1, -1)));
+          }
+      }
+      return this.notificationTemplate;
+  }
+  
+  getConcateString(title,body){
+      return title+body;
+  }
+  
+  getFillerByName(fillerName){
+      let fillerNameList = {};
+      for(var i = 0 ; i < this.fillerArray.length; i++){
+          if(this.fillerArray[i].tag_name == fillerName){
+              fillerNameList = this.fillerArray[i];
+              break;
+          }
+      }
+      return fillerNameList;
   }
   
   addFiller(val){

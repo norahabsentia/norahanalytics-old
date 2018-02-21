@@ -111,7 +111,7 @@ export class FillerLibraryComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ 
   tagSelection(tag) {
     const textComponent = this.field === 'body' ?
       this.highlight.textInputElement :
