@@ -25,7 +25,7 @@
                       <div *ngIf="showLocation" class="dropdawn dropdawn-location">
                         <ul class="list-location">
                           <li *ngFor="let item of dataLocation">
-                            <a (click)="clickLocation(item)">{{item.name}}</a>
+                            <a (click)="clickLocation(item)">{{item}}</a>
                           </li>
                         </ul>
                       </div>
@@ -35,13 +35,13 @@
           </div>
           <div *ngFor="let item of charts">
             <!--<ngx-chartjs-pie></ngx-chartjs-pie>-->
-            <ngx-echarts-pie *ngIf="item.show && item.type === 'Pie'"></ngx-echarts-pie>
-            <ngx-echarts-bar *ngIf="item.show && item.type === 'Histogram'"></ngx-echarts-bar>
+            <ngx-echarts-pie *ngIf="item.show && item.type === 'Pie' && dataEPie && reload" [data]="dataEPie"></ngx-echarts-pie>
+            <ngx-echarts-bar *ngIf="item.show && item.type === 'Histogram' && dataEBar && reload" [data]="dataEBar"></ngx-echarts-bar>
 
-            <ngx-chartjs-bar *ngIf="item.show && item.type === 'Bar'"></ngx-chartjs-bar>
+            <ngx-chartjs-bar *ngIf="item.show && item.type === 'Bar' && dataBar" [data]="dataBar"></ngx-chartjs-bar>
             <!--<ngx-chartjs-line *ngIf="item.show && item.type === 'Line'"></ngx-chartjs-line>-->
             <!--<ngx-chartjs-multiple-xaxis *ngIf="item.show && item.type === 'Area'"></ngx-chartjs-multiple-xaxis>-->
-            <ngx-echarts-line *ngIf="item.show && item.type === 'Line'"></ngx-echarts-line>
+            <ngx-echarts-line *ngIf="item.show && item.type === 'Line' && dataLine" [data]="dataLine"></ngx-echarts-line>
             <!--<div *ngIf="item.show && item.type === 'Map'" echarts [options]="options" class="echarts"></div>-->
             <ngx-country-chart *ngIf="item.show && item.type === 'Map'"></ngx-country-chart>
             <div>
