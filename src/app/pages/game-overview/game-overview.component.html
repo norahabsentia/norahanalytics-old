@@ -47,7 +47,7 @@
     <div *ngIf="!DISTRIBUTIONShow" class="row">
       <div class="col-sm-6">
         <!--<ngx-country-chart></ngx-country-chart>-->
-        <chart-switcher [title]="'Country'" [showMap]="true"></chart-switcher>
+        <chart-switcher *ngIf="country" [title]="'Country'" [showMap]="true" [data]="country"></chart-switcher>
 
       </div>
       <div class="col-sm-6">
@@ -56,7 +56,7 @@
           <!--<nb-card-body>-->
             <!--<ngx-region-chart></ngx-region-chart>-->
           <!--</nb-card-body>-->
-          <chart-switcher [title]="'Region'"></chart-switcher>
+          <chart-switcher *ngIf="region" [title]="'Region'" [data]="region"></chart-switcher>
 
         <!--</nb-card>-->
       </div>
@@ -64,7 +64,7 @@
 
     <div *ngIf="!DISTRIBUTIONShow" class="row">
       <div class="col-sm-12">
-        <chart-switcher [title]="'Mobile Brand'"></chart-switcher>
+        <chart-switcher *ngIf="mobile" [title]="'Mobile Brand'" [data]="mobile"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>Mobile Brand</nb-card-header>-->
@@ -77,7 +77,7 @@
 
     <div *ngIf="!DISTRIBUTIONShow" class="row">
       <div class="col-sm-6">
-        <chart-switcher [title]="'Affluence'"></chart-switcher>
+        <chart-switcher *ngIf="affluence" [title]="'Affluence'" [data]="affluence"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>Affluence</nb-card-header>-->
@@ -87,7 +87,7 @@
         <!--</nb-card>-->
       </div>
       <div class="col-sm-6">
-        <chart-switcher [title]="'Country'"></chart-switcher>
+        <chart-switcher *ngIf="country" [title]="'Country'" [data]="country"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>Country</nb-card-header>-->
@@ -116,7 +116,7 @@
 
     <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-12">
-        <chart-switcher [title]="'Current Level'"></chart-switcher>
+        <chart-switcher *ngIf="currentlevel" [title]="'Current Level'" [data]="currentlevel"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>Current Level</nb-card-header>-->
@@ -131,7 +131,7 @@
 
     <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-12">
-        <chart-switcher [title]="'Last Action'"></chart-switcher>
+        <chart-switcher *ngIf="lastAction" [title]="'Last Action'" [data]="lastAction"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>Last Action</nb-card-header>-->
@@ -144,7 +144,7 @@
 
     <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-6">
-        <chart-switcher [title]="'Engagement'"></chart-switcher>
+        <chart-switcher *ngIf="engagement" [title]="'Engagement'" [data]="engagement"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>Engagement</nb-card-header>-->
@@ -154,7 +154,7 @@
         <!--</nb-card>-->
       </div>
       <div class="col-sm-6">
-        <chart-switcher [title]="'Total time spent in Game'"></chart-switcher>
+        <chart-switcher *ngIf="totalGame" [title]="'Total time spent in Game'" [data]="totalGame"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>Total time spent in Game</nb-card-header>-->
@@ -167,7 +167,7 @@
 
     <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-6">
-        <chart-switcher [title]="'User Skills'"></chart-switcher>
+        <chart-switcher *ngIf="userSkill" [title]="'User Skills'" [data]="userSkill"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>User Skills</nb-card-header>-->
@@ -177,7 +177,7 @@
         <!--</nb-card>-->
       </div>
       <div class="col-sm-6">
-        <chart-switcher [title]="'Out of Lives'"></chart-switcher>
+        <chart-switcher *ngIf="Out_of_Lives" [title]="'Out of Lives'" [data]="Out_of_Lives"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>Out of Lives</nb-card-header>-->
@@ -191,7 +191,7 @@
 
     <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-12">
-        <chart-switcher [title]="'Level Stickiness'"></chart-switcher>
+        <chart-switcher *ngIf="LevelStickiness" [title]="'Level Stickiness'" [data]="LevelStickiness"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>Level Stickiness</nb-card-header>-->
@@ -204,7 +204,7 @@
 
     <div *ngIf="!ENGAGEMENTShow" class="row">
       <div class="col-sm-6">
-        <chart-switcher [title]="'Loyality Index'"></chart-switcher>
+        <chart-switcher *ngIf="Loyalty_Index" [title]="'Loyality Index'" [data]="Loyalty_Index"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>Loyality Index</nb-card-header>-->
@@ -214,7 +214,7 @@
         <!--</nb-card>-->
       </div>
       <div class="col-sm-6">
-        <chart-switcher [title]="'App Version'"></chart-switcher>
+        <chart-switcher *ngIf="Platform" [title]="'App Version'" [data]="Platform"></chart-switcher>
 
         <!--<nb-card>-->
           <!--<nb-card-header>App Version</nb-card-header>-->
