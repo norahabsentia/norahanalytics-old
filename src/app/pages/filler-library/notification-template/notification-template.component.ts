@@ -20,9 +20,8 @@ export class NotificationTemplateComponent implements OnInit {
   ngOnInit() {
       this.templateList = this.notificationService.getNotificationTemplate();
   }
-  useTemplate(object){
+  useTemplate(object:Notification){
       this.notificationService.showHide = 0;
-      this.notificationService.selectedNotification['title'] = object.title;
-      this.notificationService.selectedNotification['body'] = object.body;
+      this.notificationService.selectedNotification = Object.assign({}, object);
   }
 }
