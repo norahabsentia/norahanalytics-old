@@ -577,26 +577,27 @@ export class ChartSwitcherComponent implements OnInit {
         {
           label: 'dataPack1',
           data: dataPack1,
-          backgroundColor: "rgba(55, 160, 225, 0.7)",
-          hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
+          backgroundColor: "#81b7dc",
+          hoverBackgroundColor: "#81b7dc",
           hoverBorderWidth: 2,
-          hoverBorderColor: 'lightgrey'
+          hoverBorderColor: '#dddde0'
         },
         {
           label: 'dataPack2',
           data: dataPack2,
-          backgroundColor: "rgba(225, 58, 55, 0.7)",
-          hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
+          backgroundColor: "#bcbabe",
+          hoverBackgroundColor: "#bcbabe",
           hoverBorderWidth: 2,
-          hoverBorderColor: 'lightgrey'
+          hoverBorderColor: '#bcbabe'
         },
         {
           label: 'dataPack3',
           data: dataPack3,
-          backgroundColor: "rgba(55, 160, 0, 0.7)",
-          hoverBackgroundColor: "rgba(55, 160, 0, 0.7)",
+
+          backgroundColor: "#dddde0",
+          hoverBackgroundColor: "#dddde0",
           hoverBorderWidth: 2,
-          hoverBorderColor: 'lightgrey'
+          hoverBorderColor: '#81b7dc'
         }
       ],
     };
