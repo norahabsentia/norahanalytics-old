@@ -39,7 +39,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
           },
         ],
       }]
-  }, 
+  },
   {
     title: 'Dashboard',
     icon: 'nb-home',
@@ -57,9 +57,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/norah-scheduler',
   },
   {
-    title: 'Notification Manager',
-    icon: 'nb-edit',
-    link: '/pages/notificationslist',
+      title: 'Notification Manager',
+      icon: 'nb-edit',
+      link: '/pages/notificationslist',
   },
   {
     title: 'FEATURES',
