@@ -1,5 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+
+@Component({
+  selector: 'button-view',
+  template: `
+    <button (click)="onClick()">{{ renderValue }}</button>
+  `,
+})
+export class ButtonViewComponent implements ViewCell, OnInit {
+  renderValue: string;
+
+  @Input() value: string | number;
+  @Input() rowData: any;
+
+  @Output() save: EventEmitter<any> = new EventEmitter();
+
+  ngOnInit() {
+    this.renderValue = this.value.toString().toUpperCase();
+  }
+
+  onClick() {
+    this.save.emit(this.rowData);
+  }
+}
+
+
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {LocalDataSource, ViewCell} from 'ng2-smart-table';
 
 import { SmartTableService } from '../../../@core/data/smart-table.service';
 import { DataService } from '../../../@core/data/getcountrydata.service';
@@ -32,36 +57,37 @@ import { DataService } from '../../../@core/data/getcountrydata.service';
   }
 
   nb-card-body {
-    overflow: visible;
+   
   }
   `],
 })
 export class SmartTableComponent implements OnInit {
   settings = {
      hideSubHeader: false,
-     actions:
-      {
-        position: 'right',
-        add : false,
-      custom: [
-        {
-          name: '<i class="nb-loop" (click)="onClick()"></i>',
-          title: '<i class="nb-loop" (click)="onClick()"></i>',
-        },
-      ],
-     },
-   edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    reset: {
-      reset: '<i class="nb-loop"></i>',
-      },
+    actions: false,
+   //   actions:
+   //    {
+   //      position: 'right',
+   //      add : false,
+   //    custom: [
+   //      {
+   //        name: '<i class="nb-loop" (click)="onClick()"></i>',
+   //        title: '<i class="nb-loop" (click)="onClick()"></i>',
+   //      },
+   //    ],
+   //   },
+   // edit: {
+   //    editButtonContent: '<i class="nb-edit"></i>',
+   //    saveButtonContent: '<i class="nb-checkmark"></i>',
+   //    cancelButtonContent: '<i class="nb-close"></i>',
+   //  },
+   //  delete: {
+   //    deleteButtonContent: '<i class="nb-trash"></i>',
+   //    confirmDelete: true,
+   //  },
+   //  reset: {
+   //    reset: '<i class="nb-loop"></i>',
+   //    },
     columns: {
       ProductID: {
         title: 'Product ID',
@@ -69,41 +95,49 @@ export class SmartTableComponent implements OnInit {
          editable: false,
          filter: false,
         },
-      AndroidBase: {
-        title: 'Android Base Price',
-        type: 'string',
+      BasePrice: {
+        title: 'Base Price',
+        type: 'number',
          editable: false,
           filter: false,
       },
-      IOSBase: {
-        title: 'IOS Base Price',
-        type: 'string',
+      RMin: {
+        title: 'Min',
+        type: 'number',
          editable: false,
           filter: false,
       },
-      AndroidRecommended: {
-        title: 'Android Recommended Price Range',
-        type: 'string',
+      RMax: {
+        title: 'Max',
+        type: 'number',
          editable: false,
           filter: false,
       },
-      IOSRecommended: {
-        title: 'IOS Recommended Price Range',
-        type: 'string',
+      CMin: {
+        title: 'Min',
+        type: 'number',
         editable: false,
          filter: false,
       },
-      AndroidCustom: {
-        title: 'Android Custom Price Range',
-        type: 'string',
+      CMax: {
+        title: 'Max',
+        type: 'number',
         editable: true,
          filter: false,
       },
-      IOSCustom: {
-        title: 'IOS Custom Price Range',
-        type: 'string',
-        editable: true,
-         filter: false,
+      button: {
+        title: 'Actions',
+        type: 'custom',
+        editable: false,
+        filter: false,
+        renderComponent: ButtonViewComponent,
+        onComponentInitFunction(instance) {
+          instance.save.subscribe(row => {
+            // this.showModal = true;
+
+            alert(`${row.ProductID} saved!`)
+          });
+        }
       },
     },
   };
@@ -134,4 +168,9 @@ getDataFromJson() {
 }
     changeonddl(): void {
     }
+  showModal;
+  onClick(){
+    console.log(2323)
+  this.showModal = true;
+  }
 }

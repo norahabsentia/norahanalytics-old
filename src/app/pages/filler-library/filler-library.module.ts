@@ -23,7 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
   imports: [
     RouterModule.forChild([
       {
-        path: '',
+        path: '*/filler-library',
         component: FillerLibraryComponent,
       },
     ]),
@@ -31,12 +31,12 @@ import { ToastrModule } from 'ngx-toastr';
     TextInputHighlightModule,
     Ng2OrderModule,
     FormsModule,
-    ToastrModule.forRoot()
+    // ToastrModule.forRoot()
   ],
   entryComponents: [
     ModalComponent,
   ],
-  exports: [],
+  exports: [FillerLibraryComponent],
   declarations: [FillerLibraryComponent, NotificationComponent, NotificationListComponent,NotificationTemplateComponent],
   providers: [],
 })

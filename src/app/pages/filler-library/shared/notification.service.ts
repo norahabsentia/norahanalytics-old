@@ -106,21 +106,33 @@ export class NotificationService {
   }
   
   getFiller(){
-      return this.fillerArray;
+      let finalArrayObj =  this.fillerArray;
+      for (var i=0 ; i < finalArrayObj.length; i++){
+          finalArrayObj[i]['color'] =this.getRandomColor();
+      }
+      return finalArrayObj;
   }
+  
   
   getNotificationTemplate(){
       for (var i = 0 ; i < this.notificationTemplate.length ; i++){
-          let str = this.getConcateString(this.notificationTemplate[i].title,this.notificationTemplate[i].body);  
-          let splittext = str.match(/`(.*?)`/g);
-          for (var j=0 ; j < splittext.length ; j++){
-              if(j==0){ 
-                  this.notificationTemplate[i]['filler']=[];
-              }
-              this.notificationTemplate[i]['filler'].push(this.getFillerByName(splittext[j].slice(1, -1)));
-          }
+          let fillerArray = this.getFillerListFromNotificationObj(this.notificationTemplate[i]);
+          if(!this.notificationTemplate[i]['filler'])this.notificationTemplate[i]['filler']=[]
+          
+          this.notificationTemplate[i]['filler'].push(fillerArray);
       }
       return this.notificationTemplate;
+  }
+  
+  getFillerListFromNotificationObj(notificationObj){
+      let fillers = []
+      let str = this.getConcateString(notificationObj.title,notificationObj.body);  
+      let splittext = str.match(/`(.*?)`/g);
+      for (var j=0 ; j < splittext.length ; j++){
+          fillers.push(this.getFillerByName(splittext[j].slice(1, -1)));
+      }
+      
+      return fillers;
   }
   
   getConcateString(title,body){
@@ -132,6 +144,7 @@ export class NotificationService {
       for(var i = 0 ; i < this.fillerArray.length; i++){
           if(this.fillerArray[i].tag_name == fillerName){
               fillerNameList = this.fillerArray[i];
+              fillerNameList['color'] =this.getRandomColor();
               break;
           }
       }
@@ -142,6 +155,15 @@ export class NotificationService {
       var id = this.fillerArray.length;
       this.fillerArray.push({filler_id: (id+1)+'' , tag_name:val , count:0});
       return this.fillerArray;
+  }
+  
+  getRandomColor() {
+      var letters = '0123456789ABCDEF'.split('');
+      let color = '#';
+      for (var i = 0; i < 6; i++ ) {
+          color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
   }
 
 }

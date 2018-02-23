@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
 
@@ -17,7 +17,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NotificationListComponent implements OnInit {
 
-
+  @Input()
+  selectedNotification : Notification
+  
+  renederedFirstTime : boolean = false;
+  
   noti_List: Notification[];
   constructor(private notificationService: NotificationService, private tostr: ToastrService) { }
   
@@ -30,6 +34,11 @@ export class NotificationListComponent implements OnInit {
         console.log(element.key);
         y["noti_ID"] = element.key;
         this.noti_List.push(y as Notification);
+        
+        if(!this.renederedFirstTime && this.selectedNotification && element.key == this.selectedNotification.noti_ID){
+            this.renederedFirstTime = true;
+            this.onEdit(y as Notification);
+        }
       });
     });
   }
