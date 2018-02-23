@@ -35,6 +35,9 @@ import {EchartsBarComponent} from "../charts/echarts/echarts-bar.component";
 import {EchartsPieComponent} from "../charts/echarts/echarts-pie.component";
 import {ChartSwitcherComponent} from "../charts/chart-switcher/chart-switcher.component";
 import {SwitcherComponent} from "../charts/chart-switcher/switcher/switcher.component";
+import {PerformanceAnalysisOverviewComponent} from "../retention-booster/user-churn/performance-analysis/performance-analysis-overview/performance-analysis-overview.component";
+import {PerformanceAnalysisUserOriginBasisComponent} from "../retention-booster/user-churn/performance-analysis/performance-analysis-user-origin-basis/performance-analysis-user-origin-basis.component";
+import {PerformanceAnalysisUserBehaviorBasisComponent} from "../retention-booster/user-churn/performance-analysis/performance-analysis-user-behavior-basis/performance-analysis-user-behavior-basis.component";
 
 @NgModule({
   imports: [
@@ -54,6 +57,9 @@ import {SwitcherComponent} from "../charts/chart-switcher/switcher/switcher.comp
     ChartsService,
   ],
   declarations: [
+    PerformanceAnalysisOverviewComponent,
+    PerformanceAnalysisUserOriginBasisComponent,
+    PerformanceAnalysisUserBehaviorBasisComponent,
     GameOverviewComponent,
     OverviewStatusCardComponent,
     ClassificationComponent,

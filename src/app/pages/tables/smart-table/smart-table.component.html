@@ -1,24 +1,65 @@
+
 <nb-card>
-    <nb-card-header>
-        <div class="dropdown" ngbDropdown>
+        <div *ngIf="showModal" class="modal-wrap">
+                <div class="modal-wrap-second">
+                  <div class="modal-wrap-iside">
+                        <div class="heared-modal">
+                                Product ID Prise Tiers
+                                <button (click)="showModal = !true" class="close-icon-wrap">
+                                <!-- <i class="material-icons icon-close">close</i> -->
+                                        <i class="ion-close-round"></i>
+                                </button>
+                            </div>
+                            <div class="main-content-wrap">
+                                <div class="prew-button">
+                                    <!-- <i class="material-icons">keyboard_arrow_right</i> -->
+                                    <button>
+                                        <i class="ion-chevron-left"></i>
+                                    </button>
+                                </div>
+                                <div class="main-content">
+                                    main content
+                                </div>
+                                <div class="next-button">
+                                    <!-- <i class="material-icons">keyboard_arrow_right</i> -->
+                                    <button>
+                                        <i class="ion-chevron-right"></i>                                        
+                                    </button>
+                                </div>
+                            </div>
+                  </div>
+                </div>
+        </div>
+    <nb-card-header class="header-smart-table">
+        <div class="system-wrap">
+            <button>
+                Android
+            </button>
+            <button>
+                IOS 
+            </button>
+        </div>
+        <div class="dropdown dropdown-smart-table" ngbDropdown>
             Currency &nbsp;
             <!-- <button class="btn btn-primary setwidth" type="button" ngbDropdownToggle>
         Dropdown
       </button>
       <ul  class="dropdown-menu dropdownset" ngbDropdownMenu>
         <li *ngFor="let item of tabledata" class="dropdown-item">{{item.currency}}</li>
-        
+
       </ul> -->
             <select>
         <option (change)="changeonddl()"  *ngFor="let item of tabledata" value="{{item.currency}}">{{item.currency}}</option>
-       
+
       </select>
+          
+        <button (click)="showModal = true">ClicK</button>
         </div>
 
         <!-- <button class="btn btn-hero-success btn-demo icon-setting" (click)="onClick()"><i class="nb-loop"></i></button> -->
     </nb-card-header>
 
-    <nb-card-body>
+    <nb-card-body class="smart-table-body">
         <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" reset>
         </ng2-smart-table>
         <div class="container-btn rightposition">
@@ -28,3 +69,4 @@
 
     </nb-card-body>
 </nb-card>
+

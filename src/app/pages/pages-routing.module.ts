@@ -5,6 +5,9 @@ import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {GameOverviewComponent} from './game-overview/game-overview.component';
 import {ChurnPredictionsComponent} from "./churn-predictions/churn-predictions.component";
+import {PerformanceAnalysisUserBehaviorBasisComponent} from "./retention-booster/user-churn/performance-analysis/performance-analysis-user-behavior-basis/performance-analysis-user-behavior-basis.component";
+import {PerformanceAnalysisOverviewComponent} from "./retention-booster/user-churn/performance-analysis/performance-analysis-overview/performance-analysis-overview.component";
+import {PerformanceAnalysisUserOriginBasisComponent} from "./retention-booster/user-churn/performance-analysis/performance-analysis-user-origin-basis/performance-analysis-user-origin-basis.component";
 
 const routes: Routes = [{
   path: '',
@@ -39,7 +42,20 @@ const routes: Routes = [{
   }, {
     path: 'tables',
     loadChildren: './tables/tables.module#TablesModule',
-  }, {
+  },
+    {
+      path: 'retention-booster/user-churn/performance-analysis/performance-analysis-user-behavior-basis',
+      component: PerformanceAnalysisUserBehaviorBasisComponent,
+    },
+    {
+      path: 'retention-booster/user-churn/performance-analysis/performance-analysis-overview',
+      component: PerformanceAnalysisOverviewComponent,
+    },
+    {
+      path: 'retention-booster/user-churn/performance-analysis/performance-analysis-user-origin-basis',
+      component: PerformanceAnalysisUserOriginBasisComponent,
+    },
+    {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
