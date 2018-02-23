@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-sm-12">
+<div class="row">
+  <div class="col-sm-12">
+    <chart-switcher *ngIf="currentlevel" [title]="'Current Level'" [data]="currentlevel"></chart-switcher>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <chart-switcher *ngIf="lastAction" [title]="'Last Action'" [data]="lastAction"></chart-switcher>
+  </div>
+</div>
+
+<div class="row small-wrap">
+  <div class="col-sm-6">
+    <chart-switcher *ngIf="engagement" [title]="'Engagement'" [data]="engagement"></chart-switcher>
+  </div>
+  <div class="col-sm-6">
+    <chart-switcher *ngIf="totalGame" [title]="'Total time spent in Game'" [data]="totalGame"></chart-switcher>
+  </div>
+</div>
+
+<div class="row small-wrap" >
+  <div class="col-sm-6">
+    <chart-switcher *ngIf="userSkill" [title]="'User Skills'" [data]="userSkill"></chart-switcher>
+  </div>
+  <div class="col-sm-6">
+    <chart-switcher *ngIf="Out_of_Lives" [title]="'Out of Lives'" [data]="Out_of_Lives"></chart-switcher>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <chart-switcher *ngIf="LevelStickiness" [title]="'Level Stickiness'" [data]="LevelStickiness"></chart-switcher>
+  </div>
+</div>
+
+<div class="row small-wrap">
+  <div class="col-sm-6">
+    <chart-switcher *ngIf="Loyalty_Index" [title]="'Loyality Index'" [data]="Loyalty_Index"></chart-switcher>
+  </div>
+  <div class="col-sm-6">
+    <chart-switcher *ngIf="Platform" [title]="'App Version'" [data]="Platform"></chart-switcher>
+  </div>
+</div>
+  </div>
+</div>

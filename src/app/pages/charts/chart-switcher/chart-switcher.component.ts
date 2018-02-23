@@ -19,38 +19,46 @@ export class ChartSwitcherComponent implements OnInit {
     //   show: false,
     //   label: 'Display simple area chart',
     // },
-    {
-      type: 'Pie',
-      icon: 'fa-pie-chart',
-      show: true,
-      label: 'Display pie chart',
+    // {
+    //   type: 'Pie',
+    //   icon: 'fa-pie-chart',
+    //   show: true,
+    //   label: 'Display pie chart',
+    //
+    // },
+    // {
+    //   type: 'Line',
+    //   icon: 'fa-line-chart',
+    //   show: false,
+    //   label: 'Display line chart',
+    //
+    // },
+    // {
+    //   type: 'Bar',
+    //   icon: 'fa-bar-chart',
+    //   show: false,
+    //   label: 'Display bar chart',
+    // },
 
-    },
     {
-      type: 'Line',
-      icon: 'fa-line-chart',
-      show: false,
-      label: 'Display line chart',
-
-    },
-    {
-      type: 'Bar',
+      type: 'StackBar',
       icon: 'fa-bar-chart',
-      show: false,
+      show: true,
       label: 'Display bar chart',
     },
+
     {
       type: 'Table',
       icon: 'fa-table',
       show: false,
       label: 'Display table',
     },
-    {
-      type: 'Histogram',
-      icon: 'fa-bar-chart',
-      show: false,
-      label: 'Display Histogram chart',
-    },
+    // {
+    //   type: 'Histogram',
+    //   icon: 'fa-bar-chart',
+    //   show: false,
+    //   label: 'Display Histogram chart',
+    // },
 
   ]
   change() {
@@ -150,7 +158,7 @@ export class ChartSwitcherComponent implements OnInit {
   max = -Infinity;
   min = Infinity;
   options: any;
-
+  optionsBar;
   bubbleTheme: any;
   geoColors: any[];
   themeSubscription: any;
@@ -167,7 +175,64 @@ export class ChartSwitcherComponent implements OnInit {
   constructor(private service: SmartTableService, public dataservice: DataService, private theme: NbThemeService) {
     const data = this.service.getData();
     this.source.load(data);
+    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
+      const colors: any = config.variables;
+      const chartjs: any = config.variables.chartjs;
+
+      this.data = {
+        // labels: ['Download Sales', 'In-Store Sales', 'Mail Sales'],
+        datasets: [{
+          data: [300, 500, 100],
+          backgroundColor: [colors.primaryLight, colors.infoLight, colors.successLight],
+        }],
+      };
+
+      this.options = {
+        maintainAspectRatio: false,
+        responsive: true,
+        scales: {
+          xAxes: [
+            {
+              display: false,
+            },
+          ],
+          yAxes: [
+            {
+              display: false,
+            },
+          ],
+        },
+        // legend: {
+        //   labels: {
+        //     fontColor: chartjs.textColor,
+        //   },
+        // },
+      };
+
+      let barOptions = {
+        animation: {
+          duration: 10,
+        },
+        tooltips: {
+          mode: 'label',
+        },
+        scales: {
+          xAxes: [{
+            stacked: true,
+            gridLines: { display: false },
+          }],
+          yAxes: [{
+            stacked: true,
+
+          }],
+        }, // scales
+        legend: {display: true}
+      }
+      this.setData();
+
+      this.optionsBar = barOptions;
+    });
   }
 
   setChartBarData(){
@@ -494,5 +559,46 @@ export class ChartSwitcherComponent implements OnInit {
 
   }
   changeonddl(): void {
+  }
+  dataBar1
+  setData(){
+    var dataPack1 = [];
+    var dataPack2 = [];
+    var dataPack3 = [];
+    for(let i = 0; i < 12 ; i++){
+      dataPack1.push(Math.floor(Math.random() * 60000) + 1  );
+      dataPack2.push(Math.floor(Math.random() * 60000) + 1  );
+      dataPack3.push(Math.floor(Math.random() * 60000) + 1  );
+    }
+    console.log(dataPack1, dataPack2)
+    this.dataBar1 = {
+      labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+      datasets: [
+        {
+          label: 'dataPack1',
+          data: dataPack1,
+          backgroundColor: "rgba(55, 160, 225, 0.7)",
+          hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
+          hoverBorderWidth: 2,
+          hoverBorderColor: 'lightgrey'
+        },
+        {
+          label: 'dataPack2',
+          data: dataPack2,
+          backgroundColor: "rgba(225, 58, 55, 0.7)",
+          hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
+          hoverBorderWidth: 2,
+          hoverBorderColor: 'lightgrey'
+        },
+        {
+          label: 'dataPack3',
+          data: dataPack3,
+          backgroundColor: "rgba(55, 160, 0, 0.7)",
+          hoverBackgroundColor: "rgba(55, 160, 0, 0.7)",
+          hoverBorderWidth: 2,
+          hoverBorderColor: 'lightgrey'
+        }
+      ],
+    };
   }
 }
