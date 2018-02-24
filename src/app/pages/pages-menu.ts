@@ -57,6 +57,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/norah-scheduler',
   },
   {
+      title: 'Notification Manager',
+      icon: 'nb-edit',
+      link: '/pages/notificationslist',
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

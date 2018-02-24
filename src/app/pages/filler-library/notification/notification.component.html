@@ -41,7 +41,12 @@
 <div class="modal-backdrop fade show" *ngIf="showFillerStatus"></div> 
 <nb-card class="noti_nb_card1 {{showFillerStatus?'display':''}}" >
 
-    <nb-card-header class="noti_nb_header1">Filler Library
+    <nb-card-header class="noti_nb_header1">
+    	<div *ngIf="selectedNotification" class="float-left clickable" (click)="backToNotificationManager()">
+ 			<i class="nb-arrow-thin-left" ></i>
+ 		</div>
+ 		
+    	Filler Library
  		
     	<span class="float-right clickable" *ngIf="showFillerStatus" (click)="closeFiller()">
       		<i class="control-icon nb-close"></i>

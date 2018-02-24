@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,Input,Output,EventEmitter } from '@angular/core';
 import { TextInputHighlightComponent } from 'angular-text-input-highlight/text-input-highlight.component';
 import { HighlightTag } from 'angular-text-input-highlight';
 
 import {NotificationService } from './shared/notification.service';
+import {Notification} from './shared/notification.model';
 
 @Component({
   moduleId: module.id,
@@ -17,6 +18,16 @@ export class FillerLibraryComponent implements OnInit {
   @ViewChild('highlight') highlight: TextInputHighlightComponent;
   @ViewChild('highlightTitle') highlightTitle: TextInputHighlightComponent;
 
+  @Input()
+  selectedNotification : Notification
+  
+  @Output() 
+  eventEmitter = new EventEmitter(); 
+  
+  
+  getNotification($event){
+      this.eventEmitter.emit($event);
+  }
   // items = [
   //   {id:1,name:'Normacjk'},
   //   {id:2,name:'Inspiring'},
@@ -110,6 +121,9 @@ export class FillerLibraryComponent implements OnInit {
 
 
   ngOnInit() {
+      console.log('selected notification is : ')
+      console.log(this.selectedNotification);
+      
   }
  
   tagSelection(tag) {

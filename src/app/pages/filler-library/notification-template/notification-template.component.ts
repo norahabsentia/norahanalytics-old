@@ -17,11 +17,15 @@ export class NotificationTemplateComponent implements OnInit {
 
   templateList = [];
   constructor(private notificationService: NotificationService, private tostr: ToastrService) { }
+  
   ngOnInit() {
       this.templateList = this.notificationService.getNotificationTemplate();
   }
-  useTemplate(object:Notification){
-      this.notificationService.showHide = 0;
+   
+  useTemplate(object: Notification){
+      this.notificationService.showHide = 0;      
       this.notificationService.selectedNotification = Object.assign({}, object);
   }
+  
+  
 }

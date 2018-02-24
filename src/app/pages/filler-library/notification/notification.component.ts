@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation , Input } from '@angular/core';
-
+import { Component, OnInit, ViewEncapsulation , Input, Output,EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import {NotificationService } from '../shared/notification.service';
@@ -9,7 +9,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../../ui-features/modals/modal/modal.component';
 
 declare var $:any;
-
 @Component({
   selector: 'notification',
   templateUrl: './notification.component.html',
@@ -30,9 +29,18 @@ colors:string;
 showAddNewFiller:boolean = false;
 
 showFillerStatus:boolean = false;;
-
+  
+  @Input()
+  selectedNotification : Notification
+  
+  @Output() 
+  eventEmitter = new EventEmitter(); 
+  
   ngOnInit() {
+    
     this.resetForm();
+    
+    
     this.notificationService.itemArray = this.notificationService.itemsInit.slice(0);
     this.getFiller();
     
@@ -40,7 +48,8 @@ showFillerStatus:boolean = false;;
   }
 
   // noti_EditList: Notification[];
-  constructor(public notificationService: NotificationService, private tostr: ToastrService , private modalService: NgbModal) { }
+  constructor(public router: Router,
+          public notificationService: NotificationService, private tostr: ToastrService , private modalService: NgbModal) { }
 
 
 
@@ -83,8 +92,7 @@ showFillerStatus:boolean = false;;
   getId :string ='';
   selectChangeHandler(event){
 
-    var i = 0;
-   
+    var i = 0;   
     this.notificationService.itemArray.forEach(element => {
       
       if(element.name == event){
@@ -94,15 +102,22 @@ showFillerStatus:boolean = false;;
       }
       i ++;
     });
- 
-
   }
-
+  
+  backToNotificationManager(){
+      console.log('in..')
+      
+      this.eventEmitter.emit(true); 
+      // this.router.navigate(['pages/notificationslist']);
+      
+  }
+  
   buttonChangeHandler(index){
     this.notificationService.itemArray.push(this.notificationService.rightArray[index]);
     this.notificationService.rightArray.splice(index, 1);
     this.sortLeft();
   }
+  
   sortLeft(){
     this.notificationService.itemArray.sort((a: any, b: any) => {
       if (a.id < b.id) {
@@ -350,19 +365,10 @@ showFillerStatus:boolean = false;;
   
   getFiller(){
       this.fillArr = this.notificationService.getFiller();
-      for (var i=0 ; i < this.fillArr.length; i++){
-          this.fillArr[i]['color'] =this.getRandomColor();
-      }
+      
       console.log(this.fillArr);
   }
-  getRandomColor() {
-      var letters = '0123456789ABCDEF'.split('');
-      let color = '#';
-      for (var i = 0; i < 6; i++ ) {
-          color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-  }
+  
   showLargeModal() {
       const activeModal = this.modalService.open(ModalComponent,{ size: 'lg', container: 'nb-layout' });
       activeModal.componentInstance.modalHeader = 'Large Modal';
@@ -427,7 +433,7 @@ showFillerStatus:boolean = false;;
       if(!this.newFillerVal)return;
       
       this.fillArr = this.notificationService.addFiller(this.newFillerVal);
-      this.fillArr[this.fillArr.length-1]['color'] =this.getRandomColor();
+      this.fillArr[this.fillArr.length-1]['color'] =this.notificationService.getRandomColor();
       this.showAddNewFiller = false;
   }
   showTemplate(value){

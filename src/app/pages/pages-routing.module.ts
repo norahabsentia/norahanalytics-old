@@ -21,7 +21,11 @@ const routes: Routes = [{
   },{
     path: 'norah-scheduler',
     loadChildren: './norah-scheduler/norah-scheduler.module#NorahSchedulerModule',
-  }, {
+  }, 
+  {
+      path: 'notificationslist',
+      loadChildren: './notifications/notificationlist.module#NotificationlistModule',
+  },{
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
   }, {
