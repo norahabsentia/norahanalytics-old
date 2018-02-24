@@ -1,0 +1,7 @@
+{
+  "Levelstickness": [
+    {"value": "High", "pop_churned": 1000, "pop_notChurned": 89000, "pop_predicted": 800, "pop_notPredicted":89200, "pop_churnedPredicted": 600, "pop_churnedNotPredicted": 400, "pop_notchurnedNotpredicted": 88100, "pop_notchurnedPredicted": 900} ,
+    {"value": "Medium", "pop_churned": 1500, "pop_notChurned": 78500, "pop_predicted": 1200, "pop_notPredicted":78800, "pop_churnedPredicted": 1000, "pop_churnedNotPredicted": 500, "pop_notchurnedNotpredicted": 77600, "pop_notchurnedPredicted": 900} ,
+    {"value": "Low", "pop_churned": 2500, "pop_notChurned": 37500, "pop_predicted": 2200, "pop_notPredicted":37800, "pop_churnedPredicted": 2000, "pop_churnedNotPredicted": 500, "pop_notchurnedNotpredicted": 36700, "pop_notchurnedPredicted": 800}
+  ]
+}

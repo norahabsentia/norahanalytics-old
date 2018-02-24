@@ -144,7 +144,7 @@ export class ChartSwitcherComponent implements OnInit {
       },
     },
   };
-  selectedLocation = '';
+  selectedLocation = 'Overview';
   showLocation;
   dataLocation= [
   ];
@@ -180,13 +180,13 @@ export class ChartSwitcherComponent implements OnInit {
       const colors: any = config.variables;
       const chartjs: any = config.variables.chartjs;
 
-      this.data = {
-        // labels: ['Download Sales', 'In-Store Sales', 'Mail Sales'],
-        datasets: [{
-          data: [300, 500, 100],
-          backgroundColor: [colors.primaryLight, colors.infoLight, colors.successLight],
-        }],
-      };
+      // this.data = {
+      //   // labels: ['Download Sales', 'In-Store Sales', 'Mail Sales'],
+      //   datasets: [{
+      //     data: [300, 500, 100],
+      //     backgroundColor: [colors.primaryLight, colors.infoLight, colors.successLight],
+      //   }],
+      // };
 
       this.options = {
         maintainAspectRatio: false,
@@ -229,7 +229,7 @@ export class ChartSwitcherComponent implements OnInit {
         }, // scales
         legend: {display: true}
       }
-      this.setData();
+
 
       this.optionsBar = barOptions;
     });
@@ -524,6 +524,9 @@ export class ChartSwitcherComponent implements OnInit {
       if(item.show && item.type === 'Pie'){
         this.setChartEPieData(this.dataLocation.indexOf(i));
       }
+      if(item.show && item.type === 'StackBar'){
+        this.setData();
+      }
     }
 
   }
@@ -547,10 +550,11 @@ export class ChartSwitcherComponent implements OnInit {
 
       this.select(this.charts[this.charts.length - 1]);
     }
-    this.setChartBarData();
-    this.setChartLineData();
-    this.setChartEBarData(0);
-    this.setChartEPieData(0);
+    // this.setChartBarData();
+    // this.setChartLineData();
+    // this.setChartEBarData(0);
+    // this.setChartEPieData(0);
+    this.setData();
   }
   getDataFromJson() {
     this.dataservice.getData().subscribe((data) => {
@@ -562,44 +566,153 @@ export class ChartSwitcherComponent implements OnInit {
   }
   dataBar1
   setData(){
-    var dataPack1 = [];
-    var dataPack2 = [];
-    var dataPack3 = [];
-    for(let i = 0; i < 12 ; i++){
-      dataPack1.push(Math.floor(Math.random() * 60000) + 1  );
-      dataPack2.push(Math.floor(Math.random() * 60000) + 1  );
-      dataPack3.push(Math.floor(Math.random() * 60000) + 1  );
-    }
-    console.log(dataPack1, dataPack2)
-    this.dataBar1 = {
-      labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
-      datasets: [
-        {
-          label: 'dataPack1',
-          data: dataPack1,
-          backgroundColor: "#81b7dc",
-          hoverBackgroundColor: "#81b7dc",
-          hoverBorderWidth: 2,
-          hoverBorderColor: '#dddde0'
-        },
-        {
-          label: 'dataPack2',
-          data: dataPack2,
-          backgroundColor: "#bcbabe",
-          hoverBackgroundColor: "#bcbabe",
-          hoverBorderWidth: 2,
-          hoverBorderColor: '#bcbabe'
-        },
-        {
-          label: 'dataPack3',
-          data: dataPack3,
+    this.reload = false;
+    setTimeout(() => {
+      this.reload = true;
+      setTimeout(() => {
 
-          backgroundColor: "#dddde0",
-          hoverBackgroundColor: "#dddde0",
-          hoverBorderWidth: 2,
-          hoverBorderColor: '#81b7dc'
+        document.getElementById('stackbar').click();
+      }, 100);
+    }, 100);
+    this.dataLocation = [
+      'Overview',
+      'Detailed summary',
+      'Churned users summary'
+    ]
+    let labels = [];
+    let keys =[];
+    let datasets = [];
+    let objData = {};
+    let colors = [];
+    if(this.data){
+      for(let item of this.data){
+        labels.push(item.value);
+
+        keys = Object.keys(item);
+      }
+      keys.splice(keys.indexOf('value'), 1);
+      for(let key of keys){
+        let arr = [];
+        for(let item of this.data){
+          arr.push(item[key]);
         }
-      ],
+        objData[key] = arr;
+      }
+    }
+
+    if (this.selectedLocation === 'Overview') {
+      datasets.push({
+        label: 'Churned users',
+        data: objData['pop_churned'],
+        backgroundColor: "#81b7dc",
+        hoverBackgroundColor: "#81b7dc",
+        hoverBorderWidth: 2,
+        hoverBorderColor: '#dddde0'
+      });
+      datasets.push({
+        label: 'Not-Churned users',
+        data: objData['pop_notChurned'],
+        backgroundColor: "#bcbabe",
+        hoverBackgroundColor: "#bcbabe",
+        hoverBorderWidth: 2,
+        hoverBorderColor: '#dddde0'
+      });
+    }
+
+    if (this.selectedLocation === 'Detailed summary') {
+      datasets.push({
+        label: 'Accurate churned user predictions',
+        data: objData['pop_churnedPredicted'],
+        backgroundColor: "#4aa3df",
+        hoverBackgroundColor: "#4aa3df",
+        hoverBorderWidth: 2,
+        hoverBorderColor: '#dddde0'
+      });
+      datasets.push({
+        label: 'False negatives',
+        data: objData['pop_churnedNotPredicted'],
+        backgroundColor: "#81b7dc",
+        hoverBackgroundColor: "#81b7dc",
+        hoverBorderWidth: 2,
+        hoverBorderColor: '#dddde0'
+      });
+      datasets.push({
+        label: 'False positives',
+        data: objData['pop_notchurnedPredicted'],
+        backgroundColor: "#bcbabe",
+        hoverBackgroundColor: "#bcbabe",
+        hoverBorderWidth: 2,
+        hoverBorderColor: '#dddde0'
+      });
+      datasets.push({
+        label: 'Accurate not-churned user predictions',
+        data: objData['pop_notchurnedNotpredicted'],
+        backgroundColor: "#dddde0",
+        hoverBackgroundColor: "#dddde0",
+        hoverBorderWidth: 2,
+        hoverBorderColor: '#dddde0'
+      });
+      // {
+      //   label: 'dataPack3',
+      //   data: dataPack3,
+      //
+      //   backgroundColor: "#dddde0",
+      //   hoverBackgroundColor: "#dddde0",
+      //   hoverBorderWidth: 2,
+      //   hoverBorderColor: '#81b7dc'
+      // }
+    }
+
+    if (this.selectedLocation === 'Churned users summary') {
+      datasets.push({
+        label: 'Predicted to churn',
+        data: objData['pop_churnedPredicted'],
+        backgroundColor: "#81b7dc",
+        hoverBackgroundColor: "#81b7dc",
+        hoverBorderWidth: 2,
+        hoverBorderColor: '#dddde0'
+      });
+      datasets.push({
+        label: 'Not predicted to churn',
+        data: objData['pop_churnedNotPredicted'],
+        backgroundColor: "#bcbabe",
+        hoverBackgroundColor: "#bcbabe",
+        hoverBorderWidth: 2,
+        hoverBorderColor: '#dddde0'
+      });
+    }
+
+    console.log(this.data, labels, datasets, objData)
+    this.dataBar1 = {
+      labels: labels,
+      datasets: datasets
+        // [
+        // {
+        //   label: 'dataPack1',
+        //   data: dataPack1,
+        //   backgroundColor: "#81b7dc",
+        //   hoverBackgroundColor: "#81b7dc",
+        //   hoverBorderWidth: 2,
+        //   hoverBorderColor: '#dddde0'
+        // },
+        // {
+        //   label: 'dataPack2',
+        //   data: dataPack2,
+        //   backgroundColor: "#bcbabe",
+        //   hoverBackgroundColor: "#bcbabe",
+        //   hoverBorderWidth: 2,
+        //   hoverBorderColor: '#bcbabe'
+        // },
+        // {
+        //   label: 'dataPack3',
+        //   data: dataPack3,
+        //
+        //   backgroundColor: "#dddde0",
+        //   hoverBackgroundColor: "#dddde0",
+        //   hoverBorderWidth: 2,
+        //   hoverBorderColor: '#81b7dc'
+        // }
+      // ],
     };
   }
 }
