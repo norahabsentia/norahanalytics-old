@@ -149,7 +149,7 @@ chart-switcher > nb-card > nb-card-body > div:nth-child(4) > div > ng2-smart-tab
   position: relative;
 }
 
-// footer country 
+// footer country
 
 .footer-country{
   padding: 1.25rem !important;
@@ -158,9 +158,9 @@ chart-switcher > nb-card > nb-card-body > div:nth-child(4) > div > ng2-smart-tab
   border-bottom-right-radius: 0.375rem !important;
   padding-bottom: 36px !important;
 }
- 
 
-// Smart-table bitton
+
+// Smart-table button
 .header-smart-table{
   padding: 0 !important;
   .system-wrap{
@@ -183,6 +183,121 @@ chart-switcher > nb-card > nb-card-body > div:nth-child(4) > div > ng2-smart-tab
   }
 }
 
+// Smart-table-Table
+.header-table-smart{
+  display: flex;
+  justify-content: space-between;
+  .column{
+    width: 20%;
+    border: 1px solid #e7e7e7;
+    border-right: 0;
+    text-align: center;
+    .prise-range{
+      display: flex;
+      justify-content: space-between;
+      .min-range{
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #e7e7e7;
+        border-right: 1px solid #e7e7e7;
+        height: 50px;
+        padding-top: 15px;
+      }
+      .max-range{
+        width: 100%;
+        border-top: 1px solid #e7e7e7;
+        text-align: center;
+        height: 50px;
+        padding-top: 15px;
+      }
+    }
+    .range-header{
+      height: 50px;
+      padding-top: 15px;
+    }
+  }
+  .column-range{
+
+  }
+}
+.row-table-smart{
+  display: flex;
+  justify-content: space-between;
+  .row-table-item{
+    width: 20%;
+    text-align: center;
+    border: 1px solid #e7e7e7;
+    border-right: 0;
+    border-top: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+}
+.text-hiden{
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// .text-hiden:hover{
+//   background: #ececec;
+//   overflow: visible;
+//   z-index: 333;
+//   position: absolute;
+//   text-overflow: unset;
+//   width: max-content;
+//   text-align: left;
+//   padding: 3px;
+//   border-radius: 5px;
+//   color: black;
+//   transition: all 0.5s;
+// }
+.center-alingh{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.small-cell{
+  width: 16% !important;
+}
+.small-cell-icon{
+  width: 16% !important;
+}
+.big-cell-range{
+  width: 24% !important;
+}
+.icon-position{
+  position: absolute;
+  bottom: -3px;
+  right: 6px;
+  color: #757575;
+  font-size: 24px;
+}
+.icon-wrap-smart-table{
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  font-size: 23px;
+  color: #757575;
+}
+.input-smart-table{
+  background: none;
+  border: none;
+  outline: none;
+  width: 90%;
+  text-align: center;
+  border: 1px solid #ececec;
+  padding: 3px;
+  border-radius: 3px;
+}
+.smart-table-body{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 // Modal page
 .modal-wrap{
   position: absolute;
@@ -200,7 +315,7 @@ chart-switcher > nb-card > nb-card-body > div:nth-child(4) > div > ng2-smart-tab
       position: absolute;
       background: white;
       width: 100%;
-      top: 190px;
+      top: -7px;
       border-radius: 5px;
       .heared-modal{
         text-align: center;
@@ -239,4 +354,26 @@ chart-switcher > nb-card > nb-card-body > div:nth-child(4) > div > ng2-smart-tab
 
 .small-wrap > div > chart-switcher > nb-card{
   max-height: 334px !important;
+}
+
+// CHART SIZE
+.stackbar > chart-switcher > nb-card > nb-card-body > .wrapper > div:nth-child(1) > #stackbar > canvas{
+  width: 914px !important;
+  height: 457px !important;
+  position: relative;
+  left: 31px;
+}
+
+.chart-modal > #stackbar > canvas{
+  width: 600px !important;
+  height: 300px !important;
+}
+
+
+// icon nav-bar
+// nb-sidebar.menu-sidebar.left.expanded > div > div > nb-menu > ul > li:nth-child(3) > a > i.ion.chevron.ion-chevron-down, nb-sidebar.menu-sidebar.left.expanded > div > div > nb-menu > ul > li:nth-child(3) > ul > li > ul > li > a > i, nb-sidebar.menu-sidebar.left.expanded > div > div > nb-menu > ul > li:nth-child(3) > ul > li > a > i{
+//   transform: rotate(180deg);
+// }
+.menu-item > a > i{
+  transform: rotate(180deg);
 }

@@ -62,6 +62,27 @@ import { DataService } from '../../../@core/data/getcountrydata.service';
   `],
 })
 export class SmartTableComponent implements OnInit {
+
+  dataT = [
+    {
+      "ProductID": "12321312",
+      "BasePrice": "10000",
+      "RPRMax": 50,
+      "RPRMin": 10,
+      "CPRMax": 50,
+      "CPRMin": 10,
+    },
+    {
+      "ProductID": "12321312",
+      "BasePrice": "10000",
+      "RPRMax": 50,
+      "RPRMin": 10,
+      "CPRMax": 50,
+      "CPRMin": 10,
+    },
+  ]
+
+
   settings = {
      hideSubHeader: false,
     actions: false,
@@ -156,9 +177,57 @@ public tabledata: any
       event.confirm.reject();
     }
   }
+
+  dataTCopy = [];
+option = {};
+  optionsBar;
  ngOnInit() {
-   this.getDataFromJson()
+   this.getDataFromJson();
+  this.dataTCopy = Object.assign([], this.dataT);
+
+   let barOptions = {
+     animation: {
+       duration: 10,
+     },
+     tooltips: {
+       mode: 'label',
+     },
+     scales: {
+       xAxes: [{
+         stacked: true,
+         gridLines: { display: false },
+       }],
+       yAxes: [{
+         stacked: true,
+
+       }],
+     }, // scales
+     legend: {display: true}
+   }
+
+
+   this.optionsBar = barOptions;
+   this.setData();
+ }
+
+  refresh(i){
+   console.log(i, this.dataTCopy[i], this.dataT[i])
+    // this.dataTCopy[i] = Object.assign({}, this.dataT[i]);
+    this.dataTCopy[i] =  {
+      "ProductID": "12321312",
+      "BasePrice": "10000",
+      "RPRMax": 50,
+      "RPRMin": 10,
+      "CPRMax": 50,
+      "CPRMin": 10,
+    };
   }
+
+ remove(i){
+   this.dataT.splice(i, 1);
+   this.dataTCopy.splice(i, 1);
+ }
+
 getDataFromJson() {
   this.dataservice.getData()
                    .subscribe((data) => { this.tabledata
@@ -173,4 +242,48 @@ getDataFromJson() {
     console.log(2323)
   this.showModal = true;
   }
+
+  dataBar1
+
+  setData(){
+    var dataPack1 = [];
+    var dataPack2 = [];
+    var dataPack3 = [];
+    for(let i = 0; i < 12 ; i++){
+      dataPack1.push(Math.floor(Math.random() * 60000) + 1  );
+      dataPack2.push(Math.floor(Math.random() * 60000) + 1  );
+      dataPack3.push(Math.floor(Math.random() * 60000) + 1  );
+    }
+    console.log(dataPack1, dataPack2)
+    this.dataBar1 = {
+      labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+      datasets: [
+        {
+          label: 'dataPack1',
+          data: dataPack1,
+          backgroundColor: "rgba(55, 160, 225, 0.7)",
+          hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
+          hoverBorderWidth: 2,
+          hoverBorderColor: 'lightgrey'
+        },
+        // {
+        //   label: 'dataPack2',
+        //   data: dataPack2,
+        //   backgroundColor: "rgba(225, 58, 55, 0.7)",
+        //   hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
+        //   hoverBorderWidth: 2,
+        //   hoverBorderColor: 'lightgrey'
+        // },
+        // {
+        //   label: 'dataPack3',
+        //   data: dataPack3,
+        //   backgroundColor: "rgba(55, 160, 0, 0.7)",
+        //   hoverBackgroundColor: "rgba(55, 160, 0, 0.7)",
+        //   hoverBorderWidth: 2,
+        //   hoverBorderColor: 'lightgrey'
+        // }
+      ],
+    };
+  }
+
 }

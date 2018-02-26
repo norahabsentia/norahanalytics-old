@@ -75,7 +75,7 @@
       </div>
     </div>
 
-    <div *ngIf="!DISTRIBUTIONShow" class="row">
+    <div *ngIf="!DISTRIBUTIONShow" class="row small-container">
       <div class="col-sm-6">
         <chart-switcher *ngIf="affluence" [title]="'Affluence'" [data]="affluence"></chart-switcher>
 
@@ -202,7 +202,7 @@
       </div>
     </div>
 
-    <div *ngIf="!ENGAGEMENTShow" class="row">
+    <div *ngIf="!ENGAGEMENTShow" class="row small-container">
       <div class="col-sm-6">
         <chart-switcher *ngIf="Loyalty_Index" [title]="'Loyality Index'" [data]="Loyalty_Index"></chart-switcher>
 
@@ -213,7 +213,7 @@
           <!--</nb-card-body>-->
         <!--</nb-card>-->
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-6 small-container">
         <chart-switcher *ngIf="Platform" [title]="'App Version'" [data]="Platform"></chart-switcher>
 
         <!--<nb-card>-->

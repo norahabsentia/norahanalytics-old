@@ -117,17 +117,18 @@ background: white;
   padding-left: 20px;
   padding-right: 10px;
   color: rgba(95, 95, 95, 1);
-  font-size: 18px;
+  font-size: 16px;
 }
   i{
       color: rgba(147, 147, 147, 1);
   }
 .dropdawn {
-  top: 34px;
+  top: 32px;
   background: white;
   z-index: 100;
   position: absolute;
   width: 100%;
+  border-radius: 0 0 5px 5px;
 }
 .list-location{
   list-style: none;
@@ -149,7 +150,7 @@ background: white;
           padding-left: 20px;
           padding-right: 10px;
           color: rgba(166, 166, 166, 1) !important;
-          font-size: 17px;
+          font-size: 15px;
           border-top: 1px solid rgba(205, 205, 205, 1);
       }
       a:hover{
@@ -203,7 +204,11 @@ background: white;
   border-radius: 4px;
 }
 .ion-arrow-down-b{
-  color: rgb(148, 148, 148);
+  color: #949494;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  margin-top: -10px;
 }
 // .download-button:hover{
 //     background: none;
@@ -218,7 +223,7 @@ cursor: pointer;
 .dropdawn-wrap-outer{
   position: absolute;
   z-index: 10;
-  right: 5px;
-  top: 7px;
-  width: 50%;
+  right: 25px;
+  top: 24px;
+  width: 40%;
 }
