@@ -33,7 +33,7 @@
   </nb-card-header>
   <nb-card-body>
     <div id="class" class="wrapper">
-       
+
           <div *ngFor="let item of charts">
             <!--<ngx-chartjs-pie></ngx-chartjs-pie>-->
             <ngx-echarts-pie *ngIf="item.show && item.type === 'Pie' && dataEPie && reload" [data]="dataEPie"></ngx-echarts-pie>
@@ -47,8 +47,94 @@
             <ngx-echarts-line *ngIf="item.show && item.type === 'Line' && dataLine" [data]="dataLine"></ngx-echarts-line>
             <!--<div *ngIf="item.show && item.type === 'Map'" echarts [options]="options" class="echarts"></div>-->
             <ngx-country-chart *ngIf="item.show && item.type === 'Map'"></ngx-country-chart>
-            <div>
-              <ng2-smart-table *ngIf="item.show && item.type === 'Table'" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" reset></ng2-smart-table>
+            <div *ngIf="item.show && item.type === 'Table'">
+              <!--<ngx-chart-switcher-table></ngx-chart-switcher-table>-->
+
+              <div class="table-smart">
+                <div class="header-table-smart">
+                  <div class="column column-data center-alingh" style="border-left: 0; border-bottom: 0;">
+                    <div>
+
+                    </div>
+                  </div>
+                  <div class="column column-data center-alingh" style="width: 80%;">
+                    <div>
+                      Total users
+                    </div>
+                  </div>
+                </div>
+                <div class="header-table-smart">
+                  <div class="column column-data center-alingh" style="border: 0;">
+                    <div>
+                      {{title}}
+                    </div>
+                  </div>
+                  <div class="column column-data center-alingh" style="width: 40%; border-top: 0;">
+                    <div>
+                      Churned
+                    </div>
+                  </div>
+                  <div class="column column-data center-alingh" style="width: 40%; border-top: 0;">
+                    <div>
+                      Not churned users
+                    </div>
+                  </div>
+                </div>
+                <div class="tbody-smart">
+                  <div class="row-table-smart row-height">
+                    <div class="row-table-item" style="border-left: 0;">
+                      <div>
+
+                      </div>
+                    </div>
+                    <div class="row-table-item ">
+                      <div class=" ">Predicted to churn</div>
+                    </div>
+                    <div class="row-table-item ">
+                      <div class=""  style="">
+                        <div class=" ">Not predicted to churn</div>
+                      </div>
+                    </div>
+                    <div class="row-table-item ">
+                      <div class="">
+                        <div class=" ">Predicted to churn</div>
+                      </div>
+                    </div>
+                    <div class="row-table-item">
+                      <div class="">
+                        <div class=" " >Not predicted to churn</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngFor="let item of data; let i = index" class="row-table-smart row-height">
+                    <div class="row-table-item" style="border-left: 0;">
+                      <div>
+                        {{item.value}}
+                      </div>
+                    </div>
+                    <div class="row-table-item ">
+                      <div class=" ">{{item.pop_churnedPredicted}}</div>
+                    </div>
+                    <div class="row-table-item ">
+                      <div class=""  style="">
+                        <div class=" ">{{item.pop_churnedNotPredicted}}</div>
+                      </div>
+                    </div>
+                    <div class="row-table-item ">
+                      <div class="">
+                        <div class=" ">{{item.pop_notchurnedPredicted}}</div>
+                      </div>
+                    </div>
+                    <div class="row-table-item">
+                      <div class="">
+                        <div class=" " >{{item.pop_notchurnedNotpredicted}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--<ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" reset></ng2-smart-table>-->
             </div>
           </div>
     </div>

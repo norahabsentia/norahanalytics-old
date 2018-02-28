@@ -59,12 +59,58 @@
       <div class="row">
         <div class="col-md-7 col-xs-12">
           <div class="label-top">
-              User Distribution on base of behaviour
+              User Distribution on basis of origin
           </div>
           <div>
-            <chart *ngIf="dataBar1Options.type === 'Histogram'" type="bar" [data]="dataBar1" [options]="optionsBar"></chart>
+            <chart *ngIf="dataBar1Options.type === 'Histogram' && dataBar1" type="bar" [data]="dataBar1" [options]="optionsBar"></chart>
             <div class="table-wrap-scroll" *ngIf="dataBar1Options.type === 'Table'">
-                <ng2-smart-table *ngIf="dataBar1Options.type === 'Table'" [settings]="settings" [source]="source" reset></ng2-smart-table>
+                <!--<ng2-smart-table *ngIf="dataBar1Options.type === 'Table'" [settings]="settings" [source]="source" reset></ng2-smart-table>-->
+              <div  *ngIf="dataBar1Options.type === 'Table' && dataTable1" class="tbody-smart">
+                <div class="row-table-smart">
+                  <div class="row-table-item column-4" style="border-left: 0;">
+                    <div>
+                      {{selectedLocation}}
+                    </div>
+                  </div>
+                  <div class="row-table-item column-4">
+                    <div>
+                      High risk
+                    </div>
+                  </div>
+                  <div class="row-table-item column-4">
+                    <div>
+                      Medium risk
+                    </div>
+                  </div>
+                  <div class="row-table-item column-4">
+                    <div>
+                      Low risk
+                    </div>
+                  </div>
+                </div>
+                <div *ngFor="let item of dataTable1" class="row-table-smart">
+                  <div class="row-table-item column-4" style="border-left: 0;">
+                    <div>
+                      {{item.value}}
+                    </div>
+                  </div>
+                  <div class="row-table-item column-4">
+                    <div>
+                      {{item.High_Risk}}
+                    </div>
+                  </div>
+                  <div class="row-table-item column-4">
+                    <div>
+                      {{item.Medium_Risk}}
+                    </div>
+                  </div>
+                  <div class="row-table-item column-4">
+                    <div>
+                      {{item.Low_Risk}}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="switcher-wrap">
               <switcher [charts]="charts" (changeEvent)="changeUserDistribution($event)"></switcher>
@@ -72,7 +118,7 @@
 
           </div>
         </div>
-        <div class="col-md-4 col-xs-12">  
+        <div class="col-md-4 col-xs-12">
           <div class="right-content-select" style="margin-top: 27px;">
             <div class="lable">
               Basic:
@@ -103,17 +149,60 @@
         <div class="row">
           <div class="col-md-7 col-xs-12">
             <div class="label-top">
-              User Distribution on base of behaviour
+              User Distribution on basis of behaviour
             </div>
             <div>
               <chart *ngIf="dataBar2Options.type === 'Histogram'" type="bar" [data]="dataBar2" [options]="optionsBar"></chart>
               <div class="table-wrap-scroll" *ngIf="dataBar2Options.type === 'Table'">
-                  <ng2-smart-table *ngIf="dataBar2Options.type === 'Table'" [settings]="settings" [source]="source" reset>
-                
-                    </ng2-smart-table>
+                <div  *ngIf="dataBar2Options.type === 'Table' && dataTable2" class="tbody-smart">
+                  <div class="row-table-smart">
+                    <div class="row-table-item column-4" style="border-left: 0;">
+                      <div>
+                        {{selectedEngagement}}
+                      </div>
+                    </div>
+                    <div class="row-table-item column-4">
+                      <div>
+                        High risk
+                      </div>
+                    </div>
+                    <div class="row-table-item column-4">
+                      <div>
+                        Medium risk
+                      </div>
+                    </div>
+                    <div class="row-table-item column-4">
+                      <div>
+                        Low risk
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngFor="let item of dataTable2" class="row-table-smart">
+                    <div class="row-table-item column-4" style="border-left: 0;">
+                      <div>
+                        {{item.value}}
+                      </div>
+                    </div>
+                    <div class="row-table-item column-4">
+                      <div>
+                        {{item.High_Risk}}
+                      </div>
+                    </div>
+                    <div class="row-table-item column-4">
+                      <div>
+                        {{item.Medium_Risk}}
+                      </div>
+                    </div>
+                    <div class="row-table-item column-4">
+                      <div>
+                        {{item.Low_Risk}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="switcher-wrap">
-                <switcher [charts]="charts" (changeEvent)="changeUserDistribution2($event)"></switcher>              
+                <switcher [charts]="charts" (changeEvent)="changeUserDistribution2($event)"></switcher>
               </div>
             </div>
           </div>

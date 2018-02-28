@@ -3,6 +3,7 @@ import {NbColorHelper, NbThemeService} from "@nebular/theme";
 import {LocalDataSource} from "ng2-smart-table";
 import {DataService} from "../../@core/data/getcountrydata.service";
 import {SmartTableService} from "../../@core/data/smart-table.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'churn-predictions',
@@ -27,7 +28,8 @@ export class ChurnPredictionsComponent implements OnInit, OnDestroy {
   ];
   dataBar1Options = this.charts[1];
   dataBar2Options = this.charts[1];
-
+  dataTable1 = []
+  dataTable2 = []
   data: any;
   options: any;
   themeSubscription: any;
@@ -37,29 +39,105 @@ export class ChurnPredictionsComponent implements OnInit, OnDestroy {
   showDownload;
   showEngagement;
   showLocation;
-  selectedLocation = "Location";
-  selectedEngagement = "Engagement";
+  selectedLocation = "country";
+  selectedEngagement = "current level";
   dataLocation= [
-    {name: 'Location'},
-    {name: 'Affluence'},
-    {name: 'Mobile Brand'},
-    {name: 'Platform'},
+    {name: 'country'},
+    {name: 'region'},
+    {name: 'affluence'},
+    {name: 'mobile brand'},
+    {name: 'platform'},
+    {name: 'app version'},
   ];
   dataEngagement = [
-    {name: 'Engagement'},
-    {name: 'Skill'},
-    {name: 'Out of Life'},
-    {name: 'Stuck at level'},
-  ]
+    {name: 'current level'},
+    {name: 'engagement'},
+    {name: 'total time in game'},
+    {name: 'last action'},
+    {name: 'level stickiness'},
+    {name: 'loyalty'},
+    {name: 'out of lives'},
+  ];
+
+  objEngagement = {
+    'current level': {
+      url: 'new2_currentlevel-aggr-format',
+      lab: 'currentlevel'
+    },
+    'engagement': {
+      url: 'new2_engagement-aggr-format',
+      lab: 'Engagement'
+    },
+    'total time in game': {
+      url: 'new2_Total time in game-aggr-format',
+      lab: 'Total time in game'
+    },
+    'last action': {
+      url: 'new2_lastaction-aggr-format',
+      lab: 'LastAction'
+    },
+    'level stickiness': {
+      url: 'new2_levelstickness-aggr-format',
+      lab: 'Levelstickness'
+    },
+    'loyalty': {
+      url: 'new2_Loyality-aggr-format',
+      lab: 'Loyality'
+    },
+    'out of lives': {
+      url: 'new2_out of lives-aggr-format',
+      lab: 'Out of lives'
+    },
+  };
+
+  objLocation = {
+    'country': {
+      url: 'new2_country-aggr-format',
+      lab: 'country'
+    },
+    'region': {
+      url: 'new2_region-aggr-format',
+      lab: 'Region'
+    },
+    'affluence': {
+      url: 'new2_afluance-aggr-format',
+      lab: 'Affluence'
+    },
+    'mobile brand': {
+      url: 'new2_mobiles-aggr-format',
+      lab: 'Mobile'
+    },
+    'platform': {
+      url: 'new2_platform-aggr-format',
+      lab: 'Platform'
+    },
+    'app version': {
+      url: 'new2_appversion-aggr-format',
+      lab: 'AppVersion'
+    },
+  };
+
   clickLocation(item){
     this.selectedLocation = item.name;
     this.showLocation = false;
-    this.setData('dataBar1');
+    this.dataBar1 = null;
+    this.dataTable1 = null;
+
+    this.http.get('../../../json/churn-predictions/basis of origin/' + this.objLocation[item.name].url +'.json').subscribe((res: any) => {
+      this.setData('dataBar1', res[this.objLocation[item.name].lab]);
+      this.dataTable1 = res[this.objLocation[item.name].lab];
+    });
   }
   clickEngagement(item){
     this.selectedEngagement = item.name;
     this.showEngagement = false;
-    this.setData('dataBar2');
+    this.dataBar2 = null;
+    this.dataTable2 = null;
+    this.http.get('../../../json/churn-predictions/basis of behavior/' + this.objEngagement[item.name].url +'.json').subscribe((res: any) => {
+      this.setData('dataBar2', res[this.objEngagement[item.name].lab]);
+      this.dataTable2 = res[this.objEngagement[item.name].lab];
+
+    });
 
   }
 
@@ -99,7 +177,7 @@ export class ChurnPredictionsComponent implements OnInit, OnDestroy {
   public tabledata: any
 
 
-  constructor(private theme: NbThemeService, private service: SmartTableService, public dataservice: DataService) {
+  constructor(private theme: NbThemeService, private service: SmartTableService, public dataservice: DataService, private http: HttpClient) {
 
     const data = this.service.getData();
     this.source.load(data);
@@ -158,11 +236,17 @@ export class ChurnPredictionsComponent implements OnInit, OnDestroy {
         }, // scales
         legend: {display: true}
       }
-      this.setData('dataBar1');
-      this.setData('dataBar2');
 
+      this.http.get('../../../json/churn-predictions/basis of origin/new2_country-aggr-format.json').subscribe((res: any) => {
+        this.setData('dataBar1', res.country);
+        this.dataTable1 = res.country;
+      });
+      // this.setData('dataBar2');
 
-
+      this.http.get('../../../json/churn-predictions/basis of behavior/new2_currentlevel-aggr-format.json').subscribe((res: any) => {
+        this.setData('dataBar2', res['currentlevel']);
+        this.dataTable2 = res.currentlevel;
+      });
       this.optionsBar = barOptions;
     });
   }
@@ -172,40 +256,42 @@ export class ChurnPredictionsComponent implements OnInit, OnDestroy {
 
   }
 
-  setData(i){
-    var dataPack1 = [];
-    var dataPack2 = [];
-    var dataPack3 = [];
-    for(let i = 0; i < 12 ; i++){
-      dataPack1.push(Math.floor(Math.random() * 60000) + 1  );
-      dataPack2.push(Math.floor(Math.random() * 60000) + 1  );
-      dataPack3.push(Math.floor(Math.random() * 60000) + 1  );
+  setData(i, data){
+    let labels = [];
+    let High_Risk = [];
+    let Medium_Risk = [];
+    let Low_Risk = [];
+    for(let item of data){
+      labels.push(item.value);
+      High_Risk.push(item.High_Risk);
+      Medium_Risk.push(item.Medium_Risk);
+      Low_Risk.push(item.Low_Risk);
     }
-    console.log(dataPack1, dataPack2)
+
     this[i] = {
-      labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+      labels: labels,
       datasets: [
         {
-          label: 'dataPack1',
-          data: dataPack1,
-          backgroundColor: "rgba(55, 160, 225, 0.7)",
-          hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
+          label: 'high risk',
+          data: High_Risk,
+          backgroundColor: "#4aa3df",
+          hoverBackgroundColor: "#4aa3df",
           hoverBorderWidth: 2,
           hoverBorderColor: 'lightgrey'
         },
         {
-          label: 'dataPack2',
-          data: dataPack2,
-          backgroundColor: "rgba(225, 58, 55, 0.7)",
-          hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
+          label: 'medium risk',
+          data: Medium_Risk,
+          backgroundColor: "#81b7dc",
+          hoverBackgroundColor: "#81b7dc",
           hoverBorderWidth: 2,
           hoverBorderColor: 'lightgrey'
         },
         {
-          label: 'dataPack3',
-          data: dataPack3,
-          backgroundColor: "rgba(55, 160, 0, 0.7)",
-          hoverBackgroundColor: "rgba(55, 160, 0, 0.7)",
+          label: 'low risk',
+          data: Low_Risk,
+          backgroundColor: "#bcbabe",
+          hoverBackgroundColor: "#bcbabe",
           hoverBorderWidth: 2,
           hoverBorderColor: 'lightgrey'
         }

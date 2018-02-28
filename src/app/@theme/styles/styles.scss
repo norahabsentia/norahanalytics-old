@@ -377,3 +377,11 @@ chart-switcher > nb-card > nb-card-body > div:nth-child(4) > div > ng2-smart-tab
 .menu-item > a > i{
   transform: rotate(180deg);
 }
+
+.column-4{
+  width: 25% !important;
+  height: 45px !important;
+}
+.row-height > div{
+  height: 45px !important;
+}

@@ -27,8 +27,11 @@ import { EchartsBarAnimationComponent } from './echarts/echarts-bar-animation.co
 import { EchartsRadarComponent } from './echarts/echarts-radar.component';
 import {Ng2SmartTableModule} from "ng2-smart-table";
 import { SwitcherComponent } from './chart-switcher/switcher/switcher.component';
+import {TablesModule} from "../tables/tables.module";
+import { ChartSwitcherTableComponent } from './chart-switcher/chart-switcher-table/chart-switcher-table.component';
 
 const components = [
+
   ChartjsLineComponent,
   ChartjsPieComponent,
   ChartjsMultipleXaxisComponent,
@@ -44,6 +47,7 @@ const components = [
   EchartsAreaStackComponent,
   EchartsBarAnimationComponent,
   EchartsRadarComponent,
+  ChartSwitcherTableComponent,
 
 ];
 

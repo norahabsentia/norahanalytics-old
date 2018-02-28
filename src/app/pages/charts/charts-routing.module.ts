@@ -5,6 +5,7 @@ import { ChartsComponent } from './charts.component';
 import { EchartsComponent } from './echarts/echarts.component';
 import { D3Component } from './d3/d3.component';
 import { ChartjsComponent } from './chartjs/chartjs.component';
+import {ChartSwitcherTableComponent} from "./chart-switcher/chart-switcher-table/chart-switcher-table.component";
 
 const routes: Routes = [{
   path: '',
@@ -28,6 +29,7 @@ const routes: Routes = [{
 export class ChartsRoutingModule { }
 
 export const routedComponents = [
+
   ChartsComponent,
   EchartsComponent,
   D3Component,
