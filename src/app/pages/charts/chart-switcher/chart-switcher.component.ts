@@ -11,6 +11,28 @@ import {NbColorHelper, NbThemeService} from "@nebular/theme";
 })
 export class ChartSwitcherComponent implements OnInit {
 
+
+  dataT = [
+    {
+      "ProductID": "12321312",
+      "BasePrice": "10000",
+      "RPRMax": 50,
+      "RPRMin": 10,
+      "CPRMax": 50,
+      "CPRMin": 10,
+    },
+    {
+      "ProductID": "12321312",
+      "BasePrice": "10000",
+      "RPRMax": 50,
+      "RPRMin": 10,
+      "CPRMax": 50,
+      "CPRMin": 10,
+    },
+  ];
+
+  dataTCopy = [];
+
   showSelectItems;
   charts = [
     // {
@@ -74,76 +96,6 @@ export class ChartSwitcherComponent implements OnInit {
   }
 
 
-  settings = {
-    hideSubHeader: false,
-    actions:
-      {
-        position: 'right',
-        add : false,
-        custom: [
-          {
-            name: '<i class="nb-loop" (click)="onClick()"></i>',
-            title: '<i class="nb-loop" (click)="onClick()"></i>',
-          },
-        ],
-      },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    reset: {
-      reset: '<i class="nb-loop"></i>',
-    },
-    columns: {
-      ProductID: {
-        title: 'Product ID',
-        type: 'number',
-        editable: false,
-        filter: false,
-      },
-      AndroidBase: {
-        title: 'Android Base Price',
-        type: 'string',
-        editable: false,
-        filter: false,
-      },
-      IOSBase: {
-        title: 'IOS Base Price',
-        type: 'string',
-        editable: false,
-        filter: false,
-      },
-      AndroidRecommended: {
-        title: 'Android Recommended Price Range',
-        type: 'string',
-        editable: false,
-        filter: false,
-      },
-      IOSRecommended: {
-        title: 'IOS Recommended Price Range',
-        type: 'string',
-        editable: false,
-        filter: false,
-      },
-      AndroidCustom: {
-        title: 'Android Custom Price Range',
-        type: 'string',
-        editable: true,
-        filter: false,
-      },
-      IOSCustom: {
-        title: 'IOS Custom Price Range',
-        type: 'string',
-        editable: true,
-        filter: false,
-      },
-    },
-  };
   selectedLocation = 'Overview';
   showLocation;
   dataLocation= [
@@ -538,7 +490,30 @@ export class ChartSwitcherComponent implements OnInit {
       event.confirm.reject();
     }
   }
+
+  option = {};
+
+  refresh(i){
+    console.log(i, this.dataTCopy[i], this.dataT[i])
+    this.dataTCopy[i] = Object.assign([], this.dataT[i]);
+    this.dataTCopy[i] =  {
+      "ProductID": "12321312",
+      "BasePrice": "10000",
+      "RPRMax": 50,
+      "RPRMin": 10,
+      "CPRMax": 50,
+      "CPRMin": 10,
+    };
+  }
+
+  remove(i){
+    this.dataT.splice(i, 1);
+    this.dataTCopy.splice(i, 1);
+  }
+
   ngOnInit() {
+    this.dataTCopy = Object.assign([], this.dataT);
+
     this.getDataFromJson();
     if(this.showMap){
       this.charts.push( {
