@@ -80,7 +80,7 @@
     
 </nb-card>
 
-  <nb-card >
+  <nb-card [hidden]= "notificationService.editFillerSection == 1">
     <nb-card-header class="noti_nb_header2" >
       <span *ngIf="notificationService.showHide == 0">
       	<span>Notification Manager</span>
@@ -173,3 +173,15 @@
     </div>
     </nb-card-body>
   </nb-card>
+<nb-card *ngIf = "notificationService.editFillerSection == 1">
+	<nb-card-header class="noti_nb_header2" >
+		<span *ngIf="notificationService.showHide == 0">
+      	<span>Edit Filler</span>
+      	<button class="btn noti_nb_header2_span" (click)="showEditFillerTemplate(0)">Back</button>
+      </span>
+	</nb-card-header>
+	<nb-card-body >
+		<edit-filler [curfiller]="currentFiller"></edit-filler>
+	</nb-card-body>
+</nb-card>  
+  

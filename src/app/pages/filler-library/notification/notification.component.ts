@@ -16,7 +16,7 @@ declare var $:any;
   styleUrls: ['./notification.component.scss','./notification-filler.css']
 })
 export class NotificationComponent implements OnInit {
-selectedText:string;
+selectedText:string; 
 currentSelection : string;
 isCurrentSelectionFiller : boolean = false;
 selectionStartIndex : number =-1;
@@ -26,13 +26,13 @@ currentFillerEndIndex : number = -1;
 newFillerVal : string;
 fillArr = [];
 colors:string;
+currentFiller = [];
 showAddNewFiller:boolean = false;
 
 showFillerStatus:boolean = false;;
   
   @Input()
   selectedNotification : Notification
-  
   @Output() 
   eventEmitter = new EventEmitter(); 
   
@@ -40,7 +40,7 @@ showFillerStatus:boolean = false;;
     
     this.resetForm();
     
-    
+    this.notificationService.editFillerItemArray = this.notificationService.itemsInit.slice(0);
     this.notificationService.itemArray = this.notificationService.itemsInit.slice(0);
     this.getFiller();
     
@@ -302,9 +302,6 @@ showFillerStatus:boolean = false;;
   }
   
   textSelect(val,event){
-      // this.resetFillerVar();
-     console.log("CURRENT SEL :"+val)
-     
      this.currentSelection =val;  
   } 
   
@@ -324,28 +321,27 @@ showFillerStatus:boolean = false;;
   }
   
   addThisFiller(filler){
-      console.log('SELECTION :'+this.currentSelection)
-      console.log(window.getSelection());
       let prefixSuffix = this.isCurrentSelectionFiller?'':'`';
-      
-      if(this.currentSelection && this.currentSelection=='title'){
-          console.log('CURRENT VAL : '+this.notificationService.selectedNotification.title)
-          console.log('START : '+this.selectionStartIndex)
-          console.log('END : '+this.selectionEndIndex)
-          console.log('REPLACE WITH : '+'`'+filler.tag_name+'`')
-          
-          this.notificationService.selectedNotification.title = this.replaceBetween(this.selectionStartIndex,this.selectionEndIndex,
-                  prefixSuffix+filler.tag_name+prefixSuffix,this.notificationService.selectedNotification.title);
-          
-          console.log('NEW VAL : '+this.notificationService.selectedNotification.title);
-          
-      }else if(this.currentSelection && this.currentSelection=='body'){
-          this.notificationService.selectedNotification.body = this.replaceBetween(this.selectionStartIndex,this.selectionEndIndex,
-                  prefixSuffix+filler.tag_name+prefixSuffix,this.notificationService.selectedNotification.body);
-          
-          
+      if(this.currentSelection != undefined && this.currentSelection != ''){
+          if(this.currentSelection && this.currentSelection=='title'){
+              console.log('CURRENT VAL : '+this.notificationService.selectedNotification.title)
+              console.log('START : '+this.selectionStartIndex)
+              console.log('END : '+this.selectionEndIndex)
+              console.log('REPLACE WITH : '+'`'+filler.tag_name+'`')
+              
+              this.notificationService.selectedNotification.title = this.replaceBetween(this.selectionStartIndex,this.selectionEndIndex,
+                      prefixSuffix+filler.tag_name+prefixSuffix,this.notificationService.selectedNotification.title);
+              
+              console.log('NEW VAL : '+this.notificationService.selectedNotification.title);
+              
+          }else if(this.currentSelection && this.currentSelection=='body'){
+              this.notificationService.selectedNotification.body = this.replaceBetween(this.selectionStartIndex,this.selectionEndIndex,
+                      prefixSuffix+filler.tag_name+prefixSuffix,this.notificationService.selectedNotification.body);
+          }
+      }else{
+          this.currentFiller = filler;
+          this.notificationService.editFillerSection = 1;
       }
-      
       this.closeFiller();
   }
   
@@ -438,6 +434,9 @@ showFillerStatus:boolean = false;;
   }
   showTemplate(value){
       this.notificationService.showHide = value;
+  }
+  showEditFillerTemplate(value){
+      this.notificationService.editFillerSection = value;
   }
   
 }
