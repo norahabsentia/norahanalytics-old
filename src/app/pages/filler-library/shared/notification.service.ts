@@ -12,10 +12,13 @@ export class NotificationService {
   temp: Notification = new Notification();
   rightArray: any = [];
   itemArray : any =[];
+  editFillerItemArray : any =[];
   tempItemArray : any =[];
   tempRightArray : any =[];
   showHide = 0;
-  itemsInit = [
+  editFillerSection = 0;
+  addFillerTextbox = 0;
+  itemsInit = [ 
     {id:1,name:'Normacjk'},
     {id:2,name:'Inspiring'},
     {id:3,name:'Extraordinary'},
@@ -31,8 +34,22 @@ export class NotificationService {
     {id:13,name:'item5'},
   ];
   fillerArray = [
-                 {filler_id:'1',tag_name:'Country',count:4},
-                 {filler_id:'2',tag_name:'Time',count:1},
+                 {filler_id:'1',tag_name:'Country',count:4,"value_segments": 
+                     {"10": ["High loyalty","Low skill","High loyalty","Low skill","High loyalty","Low skill"],
+                     "20": ["Low Loyalty","High Skill"],
+                     "30": ["High loyalty","Low skill","High loyalty","Low skill","High loyalty","Low skill"],
+                     "40": ["Low Loyalty","High Skill"],
+                     "50": ["Low Loyalty","High Skill"],
+                     "60": ["Low Loyalty","High Skill"],
+                     "70": ["Low Loyalty","High Skill"],
+                     "80": ["Low Loyalty","High Skill"],
+                     "90": ["Low Loyalty","High Skill"],
+                     "100": ["Low Loyalty","High Skill"]
+                     }
+                 },
+                 {filler_id:'2',tag_name:'Time',count:1,"value_segments": 
+                     {"10": ["High loyalty","Low skill"],"20": ["Low Loyalty","High Skill"]}
+                 },
                  {filler_id:'3',tag_name:'Month',count:2},
                  {filler_id:'4',tag_name:'brave',count:5},
                  {filler_id:'5',tag_name:'Day',count:6},
@@ -42,7 +59,7 @@ export class NotificationService {
                  {filler_id:'9',tag_name:'test2',count:0},
                  {filler_id:'10',tag_name:'test4',count:6},
                  {filler_id:'11',tag_name:'test5',count:11},
-    ];
+    ]; 
   notificationTemplate = [
                           {templateId:'1',title:'Hello `Username`. Today is `Month`',body:'Hello `brave`. Today is `test4`'},
                           {templateId:'2',title:'test `Country` . Today is `test1`',body:'`Time`. Today is `Day`'},
@@ -55,8 +72,7 @@ export class NotificationService {
     return this.notificationList;
   }
 
-  insertNotification(notification : Notification,arr)
-  {
+  insertNotification(notification : Notification,arr) {
     this.getData();
     if(!notification.deeplink){
       this.notificationList.push({
@@ -65,8 +81,7 @@ export class NotificationService {
         deeplink: '',
         Customer_Segment_ID: arr
       });
-    }
-    else{
+    }else{
       this.notificationList.push({
         title: notification.title,
         body: notification.body,
@@ -74,8 +89,6 @@ export class NotificationService {
         Customer_Segment_ID: arr
       });
     }
-    
-    
   }
 
   updateNotification(notification : Notification,arr){

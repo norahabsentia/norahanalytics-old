@@ -17,7 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NotificationListComponent implements OnInit {
 
-  @Input()
+  @Input() 
   selectedNotification : Notification
   
   renederedFirstTime : boolean = false;

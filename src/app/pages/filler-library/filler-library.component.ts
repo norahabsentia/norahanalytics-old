@@ -4,7 +4,8 @@ import { HighlightTag } from 'angular-text-input-highlight';
 
 import {NotificationService } from './shared/notification.service';
 import {Notification} from './shared/notification.model';
-
+import { EditFiller } from './edit-filler/edit-filler.component';
+ 
 @Component({
   moduleId: module.id,
   selector: 'ngx-filler-library',
@@ -22,12 +23,10 @@ export class FillerLibraryComponent implements OnInit {
   selectedNotification : Notification
   
   @Output() 
-  eventEmitter = new EventEmitter(); 
-  
-  
+  eventEmitter = new EventEmitter();  
   getNotification($event){
-      this.eventEmitter.emit($event);
-  }
+      this.eventEmitter.emit($event);  
+  } 
   // items = [
   //   {id:1,name:'Normacjk'},
   //   {id:2,name:'Inspiring'},

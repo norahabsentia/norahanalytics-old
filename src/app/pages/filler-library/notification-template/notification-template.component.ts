@@ -18,7 +18,7 @@ export class NotificationTemplateComponent implements OnInit {
   templateList = [];
   constructor(private notificationService: NotificationService, private tostr: ToastrService) { }
   
-  ngOnInit() {
+  ngOnInit() { 
       this.templateList = this.notificationService.getNotificationTemplate();
   }
    
