@@ -1,7 +1,2 @@
 {
-"Out of lives": [
-  {"value": "High", "pop_churned": 1500, "pop_notChurned": 18500, "pop_predicted": 1200, "pop_notPredicted":18800, "pop_churnedPredicted": 1000, "pop_churnedNotPredicted": 500, "pop_notchurnedNotpredicted": 17600, "pop_notchurnedPredicted": 900} ,
-  {"value": "Medium", "pop_churned": 1500, "pop_notChurned": 28500, "pop_predicted": 1200, "pop_notPredicted":28800, "pop_churnedPredicted": 1000, "pop_churnedNotPredicted": 500, "pop_notchurnedNotpredicted": 27600, "pop_notchurnedPredicted": 900} ,
-  {"value": "Low", "pop_churned": 2500, "pop_notChurned": 37500, "pop_predicted": 2200, "pop_notPredicted":37800, "pop_churnedPredicted": 2000, "pop_churnedNotPredicted": 500, "pop_notchurnedNotpredicted": 36700, "pop_notchurnedPredicted": 800}
- ]
-}
+  "AppVersion":[{"value":"low","pop_churned":570,"pop_notChurned":2450,"pop_predicted":585,"pop_notPredicted":2435,"pop_churnedPredicted":540,"pop_churnedNotPredicted":30,"pop_notchurnedNotpredicted":2405,"pop_notchurnedPredicted":65},{"value":"medium","pop_churned":33116,"pop_notChurned":19736,"pop_predicted":33454,"pop_notPredicted":19398,"pop_churnedPredicted":32180,"pop_churnedNotPredicted":936,"pop_notchurnedNotpredicted":18462,"pop_notchurnedPredicted":1652},{"value":"high","pop_churned":30,"pop_notChurned":230,"pop_predicted":38,"pop_notPredicted":222,"pop_churnedPredicted":15,"pop_churnedNotPredicted":15,"pop_notchurnedNotpredicted":209,"pop_notchurnedPredicted":23}]}
