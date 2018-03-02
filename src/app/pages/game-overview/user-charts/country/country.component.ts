@@ -17,7 +17,7 @@ export class CountryComponent implements OnDestroy {
   min = Infinity;
   options: any;
 
-  bubbleTheme: any;
+  //bubbleTheme: any;
   geoColors: any[];
   themeSubscription: any;
 
@@ -26,7 +26,7 @@ export class CountryComponent implements OnDestroy {
     this.themeSubscription = this.theme.getJsTheme()
       .subscribe(config => {
         const colors = config.variables;
-        this.bubbleTheme = config.variables.bubbleMap;
+        //this.bubbleTheme = config.variables.bubbleMap;
         this.geoColors = [colors.primary, colors.info, colors.success, colors.warning, colors.danger];
 
         this.latlong = {
@@ -273,175 +273,175 @@ export class CountryComponent implements OnDestroy {
         };
 
         this.mapData = [
-          { 'code': 'AF', 'name': 'Afghanistan', 'value': 32358260, 'color': this.getRandomGeoColor() },
-          { 'code': 'AL', 'name': 'Albania', 'value': 3215988, 'color': this.getRandomGeoColor() },
-          { 'code': 'DZ', 'name': 'Algeria', 'value': 35980193, 'color': this.getRandomGeoColor() },
-          { 'code': 'AO', 'name': 'Angola', 'value': 19618432, 'color': this.getRandomGeoColor() },
-          { 'code': 'AR', 'name': 'Argentina', 'value': 40764561, 'color': this.getRandomGeoColor() },
-          { 'code': 'AM', 'name': 'Armenia', 'value': 3100236, 'color': this.getRandomGeoColor() },
-          { 'code': 'AU', 'name': 'Australia', 'value': 22605732, 'color': this.getRandomGeoColor() },
-          { 'code': 'AT', 'name': 'Austria', 'value': 8413429, 'color': this.getRandomGeoColor() },
-          { 'code': 'AZ', 'name': 'Azerbaijan', 'value': 9306023, 'color': this.getRandomGeoColor() },
-          { 'code': 'BH', 'name': 'Bahrain', 'value': 1323535, 'color': this.getRandomGeoColor() },
-          { 'code': 'BD', 'name': 'Bangladesh', 'value': 150493658, 'color': this.getRandomGeoColor() },
-          { 'code': 'BY', 'name': 'Belarus', 'value': 9559441, 'color': this.getRandomGeoColor() },
-          { 'code': 'BE', 'name': 'Belgium', 'value': 10754056, 'color': this.getRandomGeoColor() },
-          { 'code': 'BJ', 'name': 'Benin', 'value': 9099922, 'color': this.getRandomGeoColor() },
-          { 'code': 'BT', 'name': 'Bhutan', 'value': 738267, 'color': this.getRandomGeoColor() },
-          { 'code': 'BO', 'name': 'Bolivia', 'value': 10088108, 'color': this.getRandomGeoColor() },
-          { 'code': 'BA', 'name': 'Bosnia and Herzegovina', 'value': 3752228, 'color': this.getRandomGeoColor() },
-          { 'code': 'BW', 'name': 'Botswana', 'value': 2030738, 'color': this.getRandomGeoColor() },
-          { 'code': 'BR', 'name': 'Brazil', 'value': 196655014, 'color': this.getRandomGeoColor() },
-          { 'code': 'BN', 'name': 'Brunei', 'value': 405938, 'color': this.getRandomGeoColor() },
-          { 'code': 'BG', 'name': 'Bulgaria', 'value': 7446135, 'color': this.getRandomGeoColor() },
-          { 'code': 'BF', 'name': 'Burkina Faso', 'value': 16967845, 'color': this.getRandomGeoColor() },
-          { 'code': 'BI', 'name': 'Burundi', 'value': 8575172, 'color': this.getRandomGeoColor() },
-          { 'code': 'KH', 'name': 'Cambodia', 'value': 14305183, 'color': this.getRandomGeoColor() },
-          { 'code': 'CM', 'name': 'Cameroon', 'value': 20030362, 'color': this.getRandomGeoColor() },
-          { 'code': 'CA', 'name': 'Canada', 'value': 34349561, 'color': this.getRandomGeoColor() },
-          { 'code': 'CV', 'name': 'Cape Verde', 'value': 500585, 'color': this.getRandomGeoColor() },
-          { 'code': 'CF', 'name': 'Central African Rep.', 'value': 4486837, 'color': this.getRandomGeoColor() },
-          { 'code': 'TD', 'name': 'Chad', 'value': 11525496, 'color': this.getRandomGeoColor() },
-          { 'code': 'CL', 'name': 'Chile', 'value': 17269525, 'color': this.getRandomGeoColor() },
-          { 'code': 'CN', 'name': 'China', 'value': 1347565324, 'color': this.getRandomGeoColor() },
-          { 'code': 'CO', 'name': 'Colombia', 'value': 46927125, 'color': this.getRandomGeoColor() },
-          { 'code': 'KM', 'name': 'Comoros', 'value': 753943, 'color': this.getRandomGeoColor() },
-          { 'code': 'CD', 'name': 'Congo, Dem. Rep.', 'value': 67757577, 'color': this.getRandomGeoColor() },
-          { 'code': 'CG', 'name': 'Congo, Rep.', 'value': 4139748, 'color': this.getRandomGeoColor() },
-          { 'code': 'CR', 'name': 'Costa Rica', 'value': 4726575, 'color': this.getRandomGeoColor() },
-          { 'code': 'CI', 'name': 'Cote d\'Ivoire', 'value': 20152894, 'color': this.getRandomGeoColor() },
-          { 'code': 'HR', 'name': 'Croatia', 'value': 4395560, 'color': this.getRandomGeoColor() },
-          { 'code': 'CU', 'name': 'Cuba', 'value': 11253665, 'color': this.getRandomGeoColor() },
-          { 'code': 'CY', 'name': 'Cyprus', 'value': 1116564, 'color': this.getRandomGeoColor() },
-          { 'code': 'CZ', 'name': 'Czech Rep.', 'value': 10534293, 'color': this.getRandomGeoColor() },
-          { 'code': 'DK', 'name': 'Denmark', 'value': 5572594, 'color': this.getRandomGeoColor() },
-          { 'code': 'DJ', 'name': 'Djibouti', 'value': 905564, 'color': this.getRandomGeoColor() },
-          { 'code': 'DO', 'name': 'Dominican Rep.', 'value': 10056181, 'color': this.getRandomGeoColor() },
-          { 'code': 'EC', 'name': 'Ecuador', 'value': 14666055, 'color': this.getRandomGeoColor() },
-          { 'code': 'EG', 'name': 'Egypt', 'value': 82536770, 'color': this.getRandomGeoColor() },
-          { 'code': 'SV', 'name': 'El Salvador', 'value': 6227491, 'color': this.getRandomGeoColor() },
-          { 'code': 'GQ', 'name': 'Equatorial Guinea', 'value': 720213, 'color': this.getRandomGeoColor() },
-          { 'code': 'ER', 'name': 'Eritrea', 'value': 5415280, 'color': this.getRandomGeoColor() },
-          { 'code': 'EE', 'name': 'Estonia', 'value': 1340537, 'color': this.getRandomGeoColor() },
-          { 'code': 'ET', 'name': 'Ethiopia', 'value': 84734262, 'color': this.getRandomGeoColor() },
-          { 'code': 'FJ', 'name': 'Fiji', 'value': 868406, 'color': this.getRandomGeoColor() },
-          { 'code': 'FI', 'name': 'Finland', 'value': 5384770, 'color': this.getRandomGeoColor() },
-          { 'code': 'FR', 'name': 'France', 'value': 63125894, 'color': this.getRandomGeoColor() },
-          { 'code': 'GA', 'name': 'Gabon', 'value': 1534262, 'color': this.getRandomGeoColor() },
-          { 'code': 'GM', 'name': 'Gambia', 'value': 1776103, 'color': this.getRandomGeoColor() },
-          { 'code': 'GE', 'name': 'Georgia', 'value': 4329026, 'color': this.getRandomGeoColor() },
-          { 'code': 'DE', 'name': 'Germany', 'value': 82162512, 'color': this.getRandomGeoColor() },
-          { 'code': 'GH', 'name': 'Ghana', 'value': 24965816, 'color': this.getRandomGeoColor() },
-          { 'code': 'GR', 'name': 'Greece', 'value': 11390031, 'color': this.getRandomGeoColor() },
-          { 'code': 'GT', 'name': 'Guatemala', 'value': 14757316, 'color': this.getRandomGeoColor() },
-          { 'code': 'GN', 'name': 'Guinea', 'value': 10221808, 'color': this.getRandomGeoColor() },
-          { 'code': 'GW', 'name': 'Guinea-Bissau', 'value': 1547061, 'color': this.getRandomGeoColor() },
-          { 'code': 'GY', 'name': 'Guyana', 'value': 756040, 'color': this.getRandomGeoColor() },
-          { 'code': 'HT', 'name': 'Haiti', 'value': 10123787, 'color': this.getRandomGeoColor() },
-          { 'code': 'HN', 'name': 'Honduras', 'value': 7754687, 'color': this.getRandomGeoColor() },
-          { 'code': 'HK', 'name': 'Hong Kong, China', 'value': 7122187, 'color': this.getRandomGeoColor() },
-          { 'code': 'HU', 'name': 'Hungary', 'value': 9966116, 'color': this.getRandomGeoColor() },
-          { 'code': 'IS', 'name': 'Iceland', 'value': 324366, 'color': this.getRandomGeoColor() },
-          { 'code': 'IN', 'name': 'India', 'value': 1241491960, 'color': this.getRandomGeoColor() },
-          { 'code': 'ID', 'name': 'Indonesia', 'value': 242325638, 'color': this.getRandomGeoColor() },
-          { 'code': 'IR', 'name': 'Iran', 'value': 74798599, 'color': this.getRandomGeoColor() },
-          { 'code': 'IQ', 'name': 'Iraq', 'value': 32664942, 'color': this.getRandomGeoColor() },
-          { 'code': 'IE', 'name': 'Ireland', 'value': 4525802, 'color': this.getRandomGeoColor() },
-          { 'code': 'IL', 'name': 'Israel', 'value': 7562194, 'color': this.getRandomGeoColor() },
-          { 'code': 'IT', 'name': 'Italy', 'value': 60788694, 'color': this.getRandomGeoColor() },
-          { 'code': 'JM', 'name': 'Jamaica', 'value': 2751273, 'color': this.getRandomGeoColor() },
-          { 'code': 'JP', 'name': 'Japan', 'value': 126497241, 'color': this.getRandomGeoColor() },
-          { 'code': 'JO', 'name': 'Jordan', 'value': 6330169, 'color': this.getRandomGeoColor() },
-          { 'code': 'KZ', 'name': 'Kazakhstan', 'value': 16206750, 'color': this.getRandomGeoColor() },
-          { 'code': 'KE', 'name': 'Kenya', 'value': 41609728, 'color': this.getRandomGeoColor() },
-          { 'code': 'KP', 'name': 'Korea, Dem. Rep.', 'value': 24451285, 'color': this.getRandomGeoColor() },
-          { 'code': 'KR', 'name': 'Korea, Rep.', 'value': 48391343, 'color': this.getRandomGeoColor() },
-          { 'code': 'KW', 'name': 'Kuwait', 'value': 2818042, 'color': this.getRandomGeoColor() },
-          { 'code': 'KG', 'name': 'Kyrgyzstan', 'value': 5392580, 'color': this.getRandomGeoColor() },
-          { 'code': 'LA', 'name': 'Laos', 'value': 6288037, 'color': this.getRandomGeoColor() },
-          { 'code': 'LV', 'name': 'Latvia', 'value': 2243142, 'color': this.getRandomGeoColor() },
-          { 'code': 'LB', 'name': 'Lebanon', 'value': 4259405, 'color': this.getRandomGeoColor() },
-          { 'code': 'LS', 'name': 'Lesotho', 'value': 2193843, 'color': this.getRandomGeoColor() },
-          { 'code': 'LR', 'name': 'Liberia', 'value': 4128572, 'color': this.getRandomGeoColor() },
-          { 'code': 'LY', 'name': 'Libya', 'value': 6422772, 'color': this.getRandomGeoColor() },
-          { 'code': 'LT', 'name': 'Lithuania', 'value': 3307481, 'color': this.getRandomGeoColor() },
-          { 'code': 'LU', 'name': 'Luxembourg', 'value': 515941, 'color': this.getRandomGeoColor() },
-          { 'code': 'MK', 'name': 'Macedonia, FYR', 'value': 2063893, 'color': this.getRandomGeoColor() },
-          { 'code': 'MG', 'name': 'Madagascar', 'value': 21315135, 'color': this.getRandomGeoColor() },
-          { 'code': 'MW', 'name': 'Malawi', 'value': 15380888, 'color': this.getRandomGeoColor() },
-          { 'code': 'MY', 'name': 'Malaysia', 'value': 28859154, 'color': this.getRandomGeoColor() },
-          { 'code': 'ML', 'name': 'Mali', 'value': 15839538, 'color': this.getRandomGeoColor() },
-          { 'code': 'MR', 'name': 'Mauritania', 'value': 3541540, 'color': this.getRandomGeoColor() },
-          { 'code': 'MU', 'name': 'Mauritius', 'value': 1306593, 'color': this.getRandomGeoColor() },
-          { 'code': 'MX', 'name': 'Mexico', 'value': 114793341, 'color': this.getRandomGeoColor() },
-          { 'code': 'MD', 'name': 'Moldova', 'value': 3544864, 'color': this.getRandomGeoColor() },
-          { 'code': 'MN', 'name': 'Mongolia', 'value': 2800114, 'color': this.getRandomGeoColor() },
-          { 'code': 'ME', 'name': 'Montenegro', 'value': 632261, 'color': this.getRandomGeoColor() },
-          { 'code': 'MA', 'name': 'Morocco', 'value': 32272974, 'color': this.getRandomGeoColor() },
-          { 'code': 'MZ', 'name': 'Mozambique', 'value': 23929708, 'color': this.getRandomGeoColor() },
-          { 'code': 'MM', 'name': 'Myanmar', 'value': 48336763, 'color': this.getRandomGeoColor() },
-          { 'code': 'NA', 'name': 'Namibia', 'value': 2324004, 'color': this.getRandomGeoColor() },
-          { 'code': 'NP', 'name': 'Nepal', 'value': 30485798, 'color': this.getRandomGeoColor() },
-          { 'code': 'NL', 'name': 'Netherlands', 'value': 16664746, 'color': this.getRandomGeoColor() },
-          { 'code': 'NZ', 'name': 'New Zealand', 'value': 4414509, 'color': this.getRandomGeoColor() },
-          { 'code': 'NI', 'name': 'Nicaragua', 'value': 5869859, 'color': this.getRandomGeoColor() },
-          { 'code': 'NE', 'name': 'Niger', 'value': 16068994, 'color': this.getRandomGeoColor() },
-          { 'code': 'NG', 'name': 'Nigeria', 'value': 162470737, 'color': this.getRandomGeoColor() },
-          { 'code': 'NO', 'name': 'Norway', 'value': 4924848, 'color': this.getRandomGeoColor() },
-          { 'code': 'OM', 'name': 'Oman', 'value': 2846145, 'color': this.getRandomGeoColor() },
-          { 'code': 'PK', 'name': 'Pakistan', 'value': 176745364, 'color': this.getRandomGeoColor() },
-          { 'code': 'PA', 'name': 'Panama', 'value': 3571185, 'color': this.getRandomGeoColor() },
-          { 'code': 'PG', 'name': 'Papua New Guinea', 'value': 7013829, 'color': this.getRandomGeoColor() },
-          { 'code': 'PY', 'name': 'Paraguay', 'value': 6568290, 'color': this.getRandomGeoColor() },
-          { 'code': 'PE', 'name': 'Peru', 'value': 29399817, 'color': this.getRandomGeoColor() },
-          { 'code': 'PH', 'name': 'Philippines', 'value': 94852030, 'color': this.getRandomGeoColor() },
-          { 'code': 'PL', 'name': 'Poland', 'value': 38298949, 'color': this.getRandomGeoColor() },
-          { 'code': 'PT', 'name': 'Portugal', 'value': 10689663, 'color': this.getRandomGeoColor() },
-          { 'code': 'PR', 'name': 'Puerto Rico', 'value': 3745526, 'color': this.getRandomGeoColor() },
-          { 'code': 'QA', 'name': 'Qatar', 'value': 1870041, 'color': this.getRandomGeoColor() },
-          { 'code': 'RO', 'name': 'Romania', 'value': 21436495, 'color': this.getRandomGeoColor() },
-          { 'code': 'RU', 'name': 'Russia', 'value': 142835555, 'color': this.getRandomGeoColor() },
-          { 'code': 'RW', 'name': 'Rwanda', 'value': 10942950, 'color': this.getRandomGeoColor() },
-          { 'code': 'SA', 'name': 'Saudi Arabia', 'value': 28082541, 'color': this.getRandomGeoColor() },
-          { 'code': 'SN', 'name': 'Senegal', 'value': 12767556, 'color': this.getRandomGeoColor() },
-          { 'code': 'RS', 'name': 'Serbia', 'value': 9853969, 'color': this.getRandomGeoColor() },
-          { 'code': 'SL', 'name': 'Sierra Leone', 'value': 5997486, 'color': this.getRandomGeoColor() },
-          { 'code': 'SG', 'name': 'Singapore', 'value': 5187933, 'color': this.getRandomGeoColor() },
-          { 'code': 'SK', 'name': 'Slovak Republic', 'value': 5471502, 'color': this.getRandomGeoColor() },
-          { 'code': 'SI', 'name': 'Slovenia', 'value': 2035012, 'color': this.getRandomGeoColor() },
-          { 'code': 'SB', 'name': 'Solomon Islands', 'value': 552267, 'color': this.getRandomGeoColor() },
-          { 'code': 'SO', 'name': 'Somalia', 'value': 9556873, 'color': this.getRandomGeoColor() },
-          { 'code': 'ZA', 'name': 'South Africa', 'value': 50459978, 'color': this.getRandomGeoColor() },
-          { 'code': 'ES', 'name': 'Spain', 'value': 46454895, 'color': this.getRandomGeoColor() },
-          { 'code': 'LK', 'name': 'Sri Lanka', 'value': 21045394, 'color': this.getRandomGeoColor() },
-          { 'code': 'SD', 'name': 'Sudan', 'value': 34735288, 'color': this.getRandomGeoColor() },
-          { 'code': 'SR', 'name': 'Suriname', 'value': 529419, 'color': this.getRandomGeoColor() },
-          { 'code': 'SZ', 'name': 'Swaziland', 'value': 1203330, 'color': this.getRandomGeoColor() },
-          { 'code': 'SE', 'name': 'Sweden', 'value': 9440747, 'color': this.getRandomGeoColor() },
-          { 'code': 'CH', 'name': 'Switzerland', 'value': 7701690, 'color': this.getRandomGeoColor() },
-          { 'code': 'SY', 'name': 'Syria', 'value': 20766037, 'color': this.getRandomGeoColor() },
-          { 'code': 'TW', 'name': 'Taiwan', 'value': 23072000, 'color': this.getRandomGeoColor() },
-          { 'code': 'TJ', 'name': 'Tajikistan', 'value': 6976958, 'color': this.getRandomGeoColor() },
-          { 'code': 'TZ', 'name': 'Tanzania', 'value': 46218486, 'color': this.getRandomGeoColor() },
-          { 'code': 'TH', 'name': 'Thailand', 'value': 69518555, 'color': this.getRandomGeoColor() },
-          { 'code': 'TG', 'name': 'Togo', 'value': 6154813, 'color': this.getRandomGeoColor() },
-          { 'code': 'TT', 'name': 'Trinidad and Tobago', 'value': 1346350, 'color': this.getRandomGeoColor() },
-          { 'code': 'TN', 'name': 'Tunisia', 'value': 10594057, 'color': this.getRandomGeoColor() },
-          { 'code': 'TR', 'name': 'Turkey', 'value': 73639596, 'color': this.getRandomGeoColor() },
-          { 'code': 'TM', 'name': 'Turkmenistan', 'value': 5105301, 'color': this.getRandomGeoColor() },
-          { 'code': 'UG', 'name': 'Uganda', 'value': 34509205, 'color': this.getRandomGeoColor() },
-          { 'code': 'UA', 'name': 'Ukraine', 'value': 45190180, 'color': this.getRandomGeoColor() },
-          { 'code': 'AE', 'name': 'United Arab Emirates', 'value': 7890924, 'color': this.getRandomGeoColor() },
-          { 'code': 'GB', 'name': 'United Kingdom', 'value': 62417431, 'color': this.getRandomGeoColor() },
-          { 'code': 'US', 'name': 'United States', 'value': 313085380, 'color': this.getRandomGeoColor() },
-          { 'code': 'UY', 'name': 'Uruguay', 'value': 3380008, 'color': this.getRandomGeoColor() },
-          { 'code': 'UZ', 'name': 'Uzbekistan', 'value': 27760267, 'color': this.getRandomGeoColor() },
-          { 'code': 'VE', 'name': 'Venezuela', 'value': 29436891, 'color': this.getRandomGeoColor() },
-          { 'code': 'PS', 'name': 'West Bank and Gaza', 'value': 4152369, 'color': this.getRandomGeoColor() },
-          { 'code': 'VN', 'name': 'Vietnam', 'value': 88791996, 'color': this.getRandomGeoColor() },
-          { 'code': 'YE', 'name': 'Yemen, Rep.', 'value': 24799880, 'color': this.getRandomGeoColor() },
-          { 'code': 'ZM', 'name': 'Zambia', 'value': 13474959, 'color': this.getRandomGeoColor() },
-          { 'code': 'ZW', 'name': 'Zimbabwe', 'value': 12754378, 'color': this.getRandomGeoColor() }];
+          { 'code': 'AF', 'name': 'Afghanistan', 'value': 32358260 },
+          { 'code': 'AL', 'name': 'Albania', 'value': 3215988 },
+          { 'code': 'DZ', 'name': 'Algeria', 'value': 35980193 },
+          { 'code': 'AO', 'name': 'Angola', 'value': 19618432 },
+          { 'code': 'AR', 'name': 'Argentina', 'value': 40764561 },
+          { 'code': 'AM', 'name': 'Armenia', 'value': 3100236 },
+          { 'code': 'AU', 'name': 'Australia', 'value': 22605732 },
+          { 'code': 'AT', 'name': 'Austria', 'value': 8413429 },
+          { 'code': 'AZ', 'name': 'Azerbaijan', 'value': 9306023 },
+          { 'code': 'BH', 'name': 'Bahrain', 'value': 1323535 },
+          { 'code': 'BD', 'name': 'Bangladesh', 'value': 150493658 },
+          { 'code': 'BY', 'name': 'Belarus', 'value': 9559441 },
+          { 'code': 'BE', 'name': 'Belgium', 'value': 10754056 },
+          { 'code': 'BJ', 'name': 'Benin', 'value': 9099922 },
+          { 'code': 'BT', 'name': 'Bhutan', 'value': 738267 },
+          { 'code': 'BO', 'name': 'Bolivia', 'value': 10088108 },
+          { 'code': 'BA', 'name': 'Bosnia and Herzegovina', 'value': 3752228 },
+          { 'code': 'BW', 'name': 'Botswana', 'value': 2030738 },
+          { 'code': 'BR', 'name': 'Brazil', 'value': 196655014 },
+          { 'code': 'BN', 'name': 'Brunei', 'value': 405938 },
+          { 'code': 'BG', 'name': 'Bulgaria', 'value': 7446135 },
+          { 'code': 'BF', 'name': 'Burkina Faso', 'value': 16967845 },
+          { 'code': 'BI', 'name': 'Burundi', 'value': 8575172 },
+          { 'code': 'KH', 'name': 'Cambodia', 'value': 14305183 },
+          { 'code': 'CM', 'name': 'Cameroon', 'value': 20030362 },
+          { 'code': 'CA', 'name': 'Canada', 'value': 34349561 },
+          { 'code': 'CV', 'name': 'Cape Verde', 'value': 500585 },
+          { 'code': 'CF', 'name': 'Central African Rep.', 'value': 4486837 },
+          { 'code': 'TD', 'name': 'Chad', 'value': 11525496 },
+          { 'code': 'CL', 'name': 'Chile', 'value': 17269525 },
+          { 'code': 'CN', 'name': 'China', 'value': 1347565324 },
+          { 'code': 'CO', 'name': 'Colombia', 'value': 46927125 },
+          { 'code': 'KM', 'name': 'Comoros', 'value': 753943 },
+          { 'code': 'CD', 'name': 'Congo, Dem. Rep.', 'value': 67757577 },
+          { 'code': 'CG', 'name': 'Congo, Rep.', 'value': 4139748 },
+          { 'code': 'CR', 'name': 'Costa Rica', 'value': 4726575 },
+          { 'code': 'CI', 'name': 'Cote d\'Ivoire', 'value': 20152894 },
+          { 'code': 'HR', 'name': 'Croatia', 'value': 4395560 },
+          { 'code': 'CU', 'name': 'Cuba', 'value': 11253665 },
+          { 'code': 'CY', 'name': 'Cyprus', 'value': 1116564 },
+          { 'code': 'CZ', 'name': 'Czech Rep.', 'value': 10534293 },
+          { 'code': 'DK', 'name': 'Denmark', 'value': 5572594 },
+          { 'code': 'DJ', 'name': 'Djibouti', 'value': 905564 },
+          { 'code': 'DO', 'name': 'Dominican Rep.', 'value': 10056181 },
+          { 'code': 'EC', 'name': 'Ecuador', 'value': 14666055 },
+          { 'code': 'EG', 'name': 'Egypt', 'value': 82536770 },
+          { 'code': 'SV', 'name': 'El Salvador', 'value': 6227491 },
+          { 'code': 'GQ', 'name': 'Equatorial Guinea', 'value': 720213 },
+          { 'code': 'ER', 'name': 'Eritrea', 'value': 5415280 },
+          { 'code': 'EE', 'name': 'Estonia', 'value': 1340537 },
+          { 'code': 'ET', 'name': 'Ethiopia', 'value': 84734262 },
+          { 'code': 'FJ', 'name': 'Fiji', 'value': 868406 },
+          { 'code': 'FI', 'name': 'Finland', 'value': 5384770 },
+          { 'code': 'FR', 'name': 'France', 'value': 63125894 },
+          { 'code': 'GA', 'name': 'Gabon', 'value': 1534262 },
+          { 'code': 'GM', 'name': 'Gambia', 'value': 1776103 },
+          { 'code': 'GE', 'name': 'Georgia', 'value': 4329026 },
+          { 'code': 'DE', 'name': 'Germany', 'value': 82162512 },
+          { 'code': 'GH', 'name': 'Ghana', 'value': 24965816 },
+          { 'code': 'GR', 'name': 'Greece', 'value': 11390031 },
+          { 'code': 'GT', 'name': 'Guatemala', 'value': 14757316 },
+          { 'code': 'GN', 'name': 'Guinea', 'value': 10221808 },
+          { 'code': 'GW', 'name': 'Guinea-Bissau', 'value': 1547061 },
+          { 'code': 'GY', 'name': 'Guyana', 'value': 756040 },
+          { 'code': 'HT', 'name': 'Haiti', 'value': 10123787 },
+          { 'code': 'HN', 'name': 'Honduras', 'value': 7754687 },
+          { 'code': 'HK', 'name': 'Hong Kong, China', 'value': 7122187 },
+          { 'code': 'HU', 'name': 'Hungary', 'value': 9966116 },
+          { 'code': 'IS', 'name': 'Iceland', 'value': 324366 },
+          { 'code': 'IN', 'name': 'India', 'value': 1241491960 },
+          { 'code': 'ID', 'name': 'Indonesia', 'value': 242325638 },
+          { 'code': 'IR', 'name': 'Iran', 'value': 74798599 },
+          { 'code': 'IQ', 'name': 'Iraq', 'value': 32664942 },
+          { 'code': 'IE', 'name': 'Ireland', 'value': 4525802 },
+          { 'code': 'IL', 'name': 'Israel', 'value': 7562194 },
+          { 'code': 'IT', 'name': 'Italy', 'value': 60788694 },
+          { 'code': 'JM', 'name': 'Jamaica', 'value': 2751273 },
+          { 'code': 'JP', 'name': 'Japan', 'value': 126497241 },
+          { 'code': 'JO', 'name': 'Jordan', 'value': 6330169 },
+          { 'code': 'KZ', 'name': 'Kazakhstan', 'value': 16206750 },
+          { 'code': 'KE', 'name': 'Kenya', 'value': 41609728 },
+          { 'code': 'KP', 'name': 'Korea, Dem. Rep.', 'value': 24451285 },
+          { 'code': 'KR', 'name': 'Korea, Rep.', 'value': 48391343 },
+          { 'code': 'KW', 'name': 'Kuwait', 'value': 2818042 },
+          { 'code': 'KG', 'name': 'Kyrgyzstan', 'value': 5392580 },
+          { 'code': 'LA', 'name': 'Laos', 'value': 6288037 },
+          { 'code': 'LV', 'name': 'Latvia', 'value': 2243142 },
+          { 'code': 'LB', 'name': 'Lebanon', 'value': 4259405 },
+          { 'code': 'LS', 'name': 'Lesotho', 'value': 2193843 },
+          { 'code': 'LR', 'name': 'Liberia', 'value': 4128572 },
+          { 'code': 'LY', 'name': 'Libya', 'value': 6422772 },
+          { 'code': 'LT', 'name': 'Lithuania', 'value': 3307481 },
+          { 'code': 'LU', 'name': 'Luxembourg', 'value': 515941 },
+          { 'code': 'MK', 'name': 'Macedonia, FYR', 'value': 2063893 },
+          { 'code': 'MG', 'name': 'Madagascar', 'value': 21315135 },
+          { 'code': 'MW', 'name': 'Malawi', 'value': 15380888 },
+          { 'code': 'MY', 'name': 'Malaysia', 'value': 28859154 },
+          { 'code': 'ML', 'name': 'Mali', 'value': 15839538 },
+          { 'code': 'MR', 'name': 'Mauritania', 'value': 3541540 },
+          { 'code': 'MU', 'name': 'Mauritius', 'value': 1306593 },
+          { 'code': 'MX', 'name': 'Mexico', 'value': 114793341 },
+          { 'code': 'MD', 'name': 'Moldova', 'value': 3544864 },
+          { 'code': 'MN', 'name': 'Mongolia', 'value': 2800114 },
+          { 'code': 'ME', 'name': 'Montenegro', 'value': 632261 },
+          { 'code': 'MA', 'name': 'Morocco', 'value': 32272974 },
+          { 'code': 'MZ', 'name': 'Mozambique', 'value': 23929708 },
+          { 'code': 'MM', 'name': 'Myanmar', 'value': 48336763 },
+          { 'code': 'NA', 'name': 'Namibia', 'value': 2324004 },
+          { 'code': 'NP', 'name': 'Nepal', 'value': 30485798 },
+          { 'code': 'NL', 'name': 'Netherlands', 'value': 16664746 },
+          { 'code': 'NZ', 'name': 'New Zealand', 'value': 4414509 },
+          { 'code': 'NI', 'name': 'Nicaragua', 'value': 5869859 },
+          { 'code': 'NE', 'name': 'Niger', 'value': 16068994 },
+          { 'code': 'NG', 'name': 'Nigeria', 'value': 162470737 },
+          { 'code': 'NO', 'name': 'Norway', 'value': 4924848 },
+          { 'code': 'OM', 'name': 'Oman', 'value': 2846145 },
+          { 'code': 'PK', 'name': 'Pakistan', 'value': 176745364 },
+          { 'code': 'PA', 'name': 'Panama', 'value': 3571185 },
+          { 'code': 'PG', 'name': 'Papua New Guinea', 'value': 7013829 },
+          { 'code': 'PY', 'name': 'Paraguay', 'value': 6568290 },
+          { 'code': 'PE', 'name': 'Peru', 'value': 29399817 },
+          { 'code': 'PH', 'name': 'Philippines', 'value': 94852030 },
+          { 'code': 'PL', 'name': 'Poland', 'value': 38298949 },
+          { 'code': 'PT', 'name': 'Portugal', 'value': 10689663 },
+          { 'code': 'PR', 'name': 'Puerto Rico', 'value': 3745526 },
+          { 'code': 'QA', 'name': 'Qatar', 'value': 1870041 },
+          { 'code': 'RO', 'name': 'Romania', 'value': 21436495 },
+          { 'code': 'RU', 'name': 'Russia', 'value': 142835555 },
+          { 'code': 'RW', 'name': 'Rwanda', 'value': 10942950 },
+          { 'code': 'SA', 'name': 'Saudi Arabia', 'value': 28082541 },
+          { 'code': 'SN', 'name': 'Senegal', 'value': 12767556 },
+          { 'code': 'RS', 'name': 'Serbia', 'value': 9853969 },
+          { 'code': 'SL', 'name': 'Sierra Leone', 'value': 5997486 },
+          { 'code': 'SG', 'name': 'Singapore', 'value': 5187933 },
+          { 'code': 'SK', 'name': 'Slovak Republic', 'value': 5471502 },
+          { 'code': 'SI', 'name': 'Slovenia', 'value': 2035012 },
+          { 'code': 'SB', 'name': 'Solomon Islands', 'value': 552267 },
+          { 'code': 'SO', 'name': 'Somalia', 'value': 9556873 },
+          { 'code': 'ZA', 'name': 'South Africa', 'value': 50459978 },
+          { 'code': 'ES', 'name': 'Spain', 'value': 46454895 },
+          { 'code': 'LK', 'name': 'Sri Lanka', 'value': 21045394 },
+          { 'code': 'SD', 'name': 'Sudan', 'value': 34735288 },
+          { 'code': 'SR', 'name': 'Suriname', 'value': 529419 },
+          { 'code': 'SZ', 'name': 'Swaziland', 'value': 1203330 },
+          { 'code': 'SE', 'name': 'Sweden', 'value': 9440747 },
+          { 'code': 'CH', 'name': 'Switzerland', 'value': 7701690 },
+          { 'code': 'SY', 'name': 'Syria', 'value': 20766037 },
+          { 'code': 'TW', 'name': 'Taiwan', 'value': 23072000 },
+          { 'code': 'TJ', 'name': 'Tajikistan', 'value': 6976958 },
+          { 'code': 'TZ', 'name': 'Tanzania', 'value': 46218486 },
+          { 'code': 'TH', 'name': 'Thailand', 'value': 69518555 },
+          { 'code': 'TG', 'name': 'Togo', 'value': 6154813 },
+          { 'code': 'TT', 'name': 'Trinidad and Tobago', 'value': 1346350 },
+          { 'code': 'TN', 'name': 'Tunisia', 'value': 10594057 },
+          { 'code': 'TR', 'name': 'Turkey', 'value': 73639596 },
+          { 'code': 'TM', 'name': 'Turkmenistan', 'value': 5105301 },
+          { 'code': 'UG', 'name': 'Uganda', 'value': 34509205 },
+          { 'code': 'UA', 'name': 'Ukraine', 'value': 45190180 },
+          { 'code': 'AE', 'name': 'United Arab Emirates', 'value': 7890924 },
+          { 'code': 'GB', 'name': 'United Kingdom', 'value': 62417431 },
+          { 'code': 'US', 'name': 'United States', 'value': 313085380 },
+          { 'code': 'UY', 'name': 'Uruguay', 'value': 3380008 },
+          { 'code': 'UZ', 'name': 'Uzbekistan', 'value': 27760267 },
+          { 'code': 'VE', 'name': 'Venezuela', 'value': 29436891 },
+          { 'code': 'PS', 'name': 'West Bank and Gaza', 'value': 4152369 },
+          { 'code': 'VN', 'name': 'Vietnam', 'value': 88791996 },
+          { 'code': 'YE', 'name': 'Yemen, Rep.', 'value': 24799880 },
+          { 'code': 'ZM', 'name': 'Zambia', 'value': 13474959 },
+          { 'code': 'ZW', 'name': 'Zimbabwe', 'value': 12754378 }];
 
         this.mapData.forEach((itemOpt) => {
           if (itemOpt.value > this.max) {
@@ -453,71 +453,75 @@ export class CountryComponent implements OnDestroy {
         });
 
         this.options = {
-          title: {
-            text: 'World Population (2011)',
-            left: 'center',
-            top: 'top',
-            textStyle: {
-              color: this.bubbleTheme.titleColor,
-            },
-          },
-          tooltip: {
-            trigger: 'item',
-            formatter: params => {
-              return `${params.name}: ${params.value[2]}`;
-            },
-          },
-          visualMap: {
-            show: false,
-            min: 0,
-            max: this.max,
-            inRange: {
-              symbolSize: [6, 60],
-            },
-          },
-          geo: {
-            name: 'World Population (2010)',
-            type: 'map',
-            map: 'world',
-            roam: true,
-            label: {
-              emphasis: {
-                show: false,
-              },
-            },
-            itemStyle: {
-              normal: {
-                areaColor: this.bubbleTheme.areaColor,
-                borderColor: this.bubbleTheme.areaBorderColor,
-              },
-              emphasis: {
-                areaColor: this.bubbleTheme.areaHoverColor,
-              },
-            },
-            zoom: 1.1,
-          },
-          series: [
-            {
-              type: 'scatter',
-              coordinateSystem: 'geo',
-              data: this.mapData.map(itemOpt => {
-                return {
-                  name: itemOpt.name,
-                  value: [
-                    this.latlong[itemOpt.code].longitude,
-                    this.latlong[itemOpt.code].latitude,
-                    itemOpt.value,
-                  ],
-                  itemStyle: {
-                    normal: {
-                      color: itemOpt.color,
-                    },
-                  },
-                };
-              }),
-            },
-          ],
-        };
+	    title : {
+        	text: 'World Population (2010)',
+	        subtext: 'from United Nations, Total population, both sexes combined, as of 1 July (thousands)',
+        	sublink : 'http://esa.un.org/wpp/Excel-Data/population.htm',
+	        x:'center',
+        	y:'top'
+	    },
+	    tooltip : {
+        	trigger: 'item',
+	        formatter : function (params) {
+        	    //var value = (params.value + '').split('.');
+	            //var cvalue = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,')
+        	    //        + '.' + value[1];
+	            var cvalue = params.value;
+        	    return params.seriesName + '<br/>' + params.name + ' : ' + cvalue;
+	        }
+    	    },
+	    toolbox: {
+        	show : true,
+	        orient : 'vertical',
+        	x: 'right',
+	        y: 'center',
+        	feature : {
+	            mark : {show: true},
+        	    dataView : {show: true, readOnly: false},
+	            restore : {show: true},
+        	    saveAsImage : {show: true}
+	        }	
+	    },
+	    dataRange: {
+        	min: 0,
+	        max: 1000000,
+        	text:['High','Low'],
+	        realtime: false,
+	        calculable : true,
+	        color: ['orangered','yellow','lightskyblue']
+	    },
+	    series : [
+        	{
+	            name: 'World Population (2010)',
+        	    type: 'map',
+	            mapType: 'world',
+        	    roam: true,
+	            mapLocation: {
+        	        y : 60
+		    },
+	            itemStyle:{
+                	emphasis:{label:{show:true}}
+	            },
+	            data: this.mapData.map(itemOpt => {
+        	        return {
+                	  name: itemOpt.name,
+	                  value:
+        	            //this.latlong[itemOpt.code].longitude,
+                	    //this.latlong[itemOpt.code].latitude,
+	                    itemOpt.value,
+
+        	          itemStyle: {
+                	    normal: {
+	                      //color: itemOpt.color,
+        	              color: this.getCalculateGeoColor(itemOpt.value),
+                	    },
+	                  },
+               		 };
+	            }),
+
+        	}
+	    ]	
+	};
       });
 
     // setTimeout(() => {
@@ -543,8 +547,52 @@ export class CountryComponent implements OnDestroy {
     this.themeSubscription.unsubscribe();
   }
 
+  private getCalculateGeoColor(value) {
+    var perc = ((value - this.min)/(this.max-this.min))*100;
+
+    return this.getColorForPercentage(perc/100);
+
+
+  }
+
   private getRandomGeoColor() {
     const index = Math.round(Math.random() * this.geoColors.length);
-    return this.geoColors[index];
+    return "#000000";
+    //return this.geoColors[index];
   }
+
+
+   private getColorForPercentage (pct){
+      var percentColors = [
+        { pct: 0.0, color: { r: 0xc8, g: 0xbf, b: 0xe7 } },
+        { pct: 1.0, color: { r: 0x00, g: 0x00, b: 0xff } } ];
+
+      /*for (var i = 1; i < percentColors.length - 1; i++) {
+        if (pct < percentColors[i].pct) {
+            break;
+        }
+      }*/
+
+      //var lower = percentColors[i - 1];
+      var lower = percentColors[0];
+
+      //var upper = percentColors[i];
+      var upper = percentColors[1];
+
+
+      var range = upper.pct - lower.pct;
+  
+      var rangePct = (pct - lower.pct) / range;
+      var pctLower = 1 - rangePct;
+      var pctUpper = rangePct;
+      var color = {
+        r: Math.floor(lower.color.r * pctLower + upper.color.r * pctUpper),
+        g: Math.floor(lower.color.g * pctLower + upper.color.g * pctUpper),
+        b: Math.floor(lower.color.b * pctLower + upper.color.b * pctUpper)
+      };
+      return 'rgb(' + [color.r, color.g, color.b].join(',') + ')';
+    // or output as hex if preferred
+}  
+
+
 }
