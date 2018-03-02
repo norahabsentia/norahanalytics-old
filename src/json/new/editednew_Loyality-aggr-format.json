@@ -1,7 +1,1 @@
-{
-  "Loyality": [
-  {"value": "High", "pop_churned": 2500, "pop_notChurned": 67500, "pop_predicted": 2200, "pop_notPredicted":67800, "pop_churnedPredicted": 2000, "pop_churnedNotPredicted": 500, "pop_notchurnedNotpredicted": 66700, "pop_notchurnedPredicted": 800} ,
-  {"value": "Medium", "pop_churned": 3500, "pop_notChurned": 46500, "pop_predicted": 3200, "pop_notPredicted":46800, "pop_churnedPredicted": 3000, "pop_churnedNotPredicted": 500, "pop_notchurnedNotpredicted": 45600, "pop_notchurnedPredicted": 900} ,
-  {"value": "Low", "pop_churned": 2500, "pop_notChurned": 37500, "pop_predicted": 2200, "pop_notPredicted":37800, "pop_churnedPredicted": 2000, "pop_churnedNotPredicted": 500, "pop_notchurnedNotpredicted": 36700, "pop_notchurnedPredicted": 800}
-  ]
-}
+{"loyalty_index":[{"value":"low","pop_churned":2877,"pop_notChurned":2568,"pop_predicted":2796,"pop_notPredicted":2649,"pop_churnedPredicted":2823,"pop_churnedNotPredicted":54,"pop_notchurnedNotpredicted":2595,"pop_notchurnedPredicted":343},{"value":"medium","pop_churned":8078,"pop_notChurned":14231,"pop_predicted":8595,"pop_notPredicted":13714,"pop_churnedPredicted":7796,"pop_churnedNotPredicted":282,"pop_notchurnedNotpredicted":13432,"pop_notchurnedPredicted":959},{"value":"high","pop_churned":4091,"pop_notChurned":1739,"pop_predicted":3519,"pop_notPredicted":2311,"pop_churnedPredicted":3886,"pop_churnedNotPredicted":205,"pop_notchurnedNotpredicted":2106,"pop_notchurnedPredicted":367}]}
