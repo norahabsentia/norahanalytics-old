@@ -98,9 +98,9 @@ export class ClassificationDiagChartComponent implements OnDestroy, AfterViewIni
     // setTimeout(() => {
     console.log(2)
 // define sets and set set intersections
-      var sets = [ {sets: ['Predicted Churn'], size: 14910},
+      var sets = [ {sets: ['Predicted Churn'], size: 20854},
         {sets: ['Observed Churn'], size: 15046},
-        {sets: ['Predicted Churn','Observed Churn'], size: 14505}];
+        {sets: ['Predicted Churn','Observed Churn'], size: 13712}];
 
       var chart = venn.VennDiagram().width(500).height(300);;
       d3.select("#venn").datum(sets).call(chart);
