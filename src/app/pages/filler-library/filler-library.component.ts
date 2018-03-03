@@ -15,7 +15,7 @@ import { EditFiller } from './edit-filler/edit-filler.component';
 })
 
 export class FillerLibraryComponent implements OnInit {
-
+ 
   @ViewChild('highlight') highlight: TextInputHighlightComponent;
   @ViewChild('highlightTitle') highlightTitle: TextInputHighlightComponent;
 

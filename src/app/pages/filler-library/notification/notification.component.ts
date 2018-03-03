@@ -39,8 +39,6 @@ showFillerStatus:boolean = false;;
   ngOnInit() {
     
     this.resetForm();
-    
-    this.notificationService.editFillerItemArray = this.notificationService.itemsInit.slice(0);
     this.notificationService.itemArray = this.notificationService.itemsInit.slice(0);
     this.getFiller();
     
@@ -111,7 +109,7 @@ showFillerStatus:boolean = false;;
       // this.router.navigate(['pages/notificationslist']);
       
   }
-  
+   
   buttonChangeHandler(index){
     this.notificationService.itemArray.push(this.notificationService.rightArray[index]);
     this.notificationService.rightArray.splice(index, 1);
@@ -321,6 +319,8 @@ showFillerStatus:boolean = false;;
   }
   
   addThisFiller(filler){
+      console.log("current");
+      console.log(this.currentSelection);
       let prefixSuffix = this.isCurrentSelectionFiller?'':'`';
       if(this.currentSelection != undefined && this.currentSelection != ''){
           if(this.currentSelection && this.currentSelection=='title'){
