@@ -1,6 +1,6 @@
 <div class="edit_filler" *ngIf="curfiller">
 	<input type="text" value="" placeholder="Filler Name" id="filler_name" value="{{curfiller.tag_name}}"/><br>
-	<textarea placeholder="Filler Description" value="" id="filler_description" class="col-lg-6" value="{{curfiller.filler_description}}"></textarea>
+	<textarea placeholder="Filler Description" id="filler_description" class="col-lg-6" value="{{curfiller.filler_description}}"></textarea>
 	<div id="table-wrapper">
   		<div id="table-scroll">
 			<table class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
@@ -11,7 +11,7 @@
 						<th *ngIf="editValue == 1">Segments</th>
 					</tr>
 				</thead>
-				<tbody *ngIf="editValue == 0 && curfiller">
+				<tbody *ngIf="editValue == 0">
 					<tr class="table_row" *ngFor="let key of getCurrentFillerKeys()">
 						<td width=100 class="rightborder key_val">
 							<span>{{key}}</span>
@@ -31,7 +31,7 @@
 				<tbody *ngIf="editValue == 1">
 					<tr class="table_row">
 						<td class="rightborder key_val" width="100" style="vertical-align: text-top;">
-							<div class="bottomborder" *ngFor="let key of curfillerKey" [ngStyle]="editSegmentKey==key ?{'background-color':'#4aa3df'}:{} ">
+							<div class="bottomborder" (click)="editfillerValue(key)"  *ngFor="let key of curfillerKey" [ngStyle]="editSegmentKey==key ?{'background-color':'#4aa3df'}:{} ">
 								<span>{{key}}</span>
 							</div>
 							<input type="text" name="addValue" [(ngModel)]="addValue" (change)="createFillerValue(addValue)" *ngIf="notificationService.addFillerTextbox==1" style="width: 100%;"/>
@@ -47,7 +47,7 @@
 						            </nb-card-header>
 						            <nb-card-body class="noti_nb_body2">
 						                <select  multiple class="form-control noti_nb_select"  >
-						                    <option *ngFor="let value of this.curfiller['value_segments'][editSegmentKey]" [value]="value">{{value}}</option>
+						                    <option *ngFor="let value of this.curfiller['value_segments'][editSegmentKey]" [value]="value" (click)="backFiller(value)">{{value}}</option>
 						                </select>
 						            </nb-card-body>
 						        </nb-card>
@@ -56,8 +56,8 @@
 						                <span>Presets</span>
 						            </nb-card-header>
 						            <nb-card-body class="noti_nb_body2">
-						                <select  multiple class="form-control noti_nb_select"  >
-						                    <option *ngFor="let value of this.curfiller['value_segments'][editSegmentKey]" [value]="value">{{value}}</option>
+						                <select  multiple class="form-control noti_nb_select"   *ngIf="this.curfiller['value_segments_presets']">
+						                    <option *ngFor="let value of this.curfiller['value_segments_presets'][editSegmentKey]"  [value]="value">{{value}}</option>
 						                </select>
 						            </nb-card-body>
 						        </nb-card>
@@ -69,7 +69,7 @@
 							            </nb-card-header>
 							            <nb-card-body class="noti_nb_body2">
 							                <select  multiple class="form-control noti_nb_select"  >
-							                    <option *ngFor = "let item of this.notificationService.editFillerItemArray | orderBy: orderId" (click)="addSegmentFiller(item.name)" [value]="item.name">{{item.name}}</option>
+							                    <option *ngFor = "let item of this.editFillerItemArray | orderBy: orderId" (click)="addSegmentFiller(item.name)" [value]="item?item.name:''">{{item?item.name:''}}</option>
 							                </select>
 							                 
 							            </nb-card-body>
@@ -77,11 +77,11 @@
 								</div>
 								<div class="col-lg-2 rightDiv leftborder" style="height: 336px;">
 									<button class="btn btn-default noti_nb_button2"  type="submit" style="margin-bottom: 1em">
-					                  	<img style="padding-right: 1em;" src="../../../assets/images/save1.png" alt="">
+					                  	<img style="padding-right: 1em;" src="../../../assets/images/save1.png" alt=""  (click)="showEditFillerTemplate(0)">
 					              	</button>
 						            <img style="padding-right: 1em;padding-bottom: 1em" src="../../../assets/images/cancel1.png" alt=""  (click)="showEditFillerTemplate(0)">
-					              	<img style="padding-right: 1em;padding-bottom: 1em" src="../../../assets/images/reset1.png" alt="" (click)="showEditFillerTemplate(0)">
-					              	<img src="../../../assets/images/enter1.png" alt="" >
+					              	<img style="padding-right: 1em;padding-bottom: 1em" src="../../../assets/images/reset	1.png" alt="" (click)="reset()">
+					              	<img src="../../../assets/images/enter1.png" alt="" (click)="saveAsPreset()">
 								</div>
 							</div>
 						</td>

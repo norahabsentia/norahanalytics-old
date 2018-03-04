@@ -12,7 +12,6 @@ export class NotificationService {
   temp: Notification = new Notification();
   rightArray: any = [];
   itemArray : any =[];
-  editFillerItemArray : any =[];
   tempItemArray : any =[];
   tempRightArray : any =[];
   showHide = 0;
