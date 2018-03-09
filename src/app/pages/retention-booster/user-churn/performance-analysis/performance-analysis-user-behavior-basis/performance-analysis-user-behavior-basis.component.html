@@ -6,20 +6,29 @@
             </div>
         </div>
 
+        <br>
+        <div class="row">
+            <div class="col-lg-12 stackbar">
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-lg-12 stackbar">
                 <chart-switcher *ngIf="lastAction" [title]="'Last Action'" [data]="lastAction"></chart-switcher>
             </div>
         </div>
+        <br>
 
         <div class="row">
             <div class="col-lg-6">
                 <chart-switcher *ngIf="engagement" [title]="'Engagement'" [data]="engagement"></chart-switcher>
             </div>
+
             <div class="col-lg-6">
                 <chart-switcher *ngIf="totalGame" [title]="'Total time spent in Game'" [data]="totalGame"></chart-switcher>
             </div>
         </div>
+        <br>
 
         <div class="row">
             <div class="col-lg-6">
