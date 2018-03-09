@@ -1,1 +1,33 @@
-{ "Engagement": [{ "value": "low", "pop_churned": 15905, "pop_notChurned": 12348, "pop_predicted": 14633, "pop_notPredicted": 13620, "pop_churnedPredicted": 15427, "pop_churnedNotPredicted": 478, "pop_notchurnedNotpredicted": 13142, "pop_notchurnedPredicted": 794 }, { "value": "medium", "pop_churned": 309, "pop_notChurned": 1046, "pop_predicted": 353, "pop_notPredicted": 1002, "pop_churnedPredicted": 296, "pop_churnedNotPredicted": 13, "pop_notchurnedNotpredicted": 989, "pop_notchurnedPredicted": 57 }, { "value": "high", "pop_churned": 8537, "pop_notChurned": 2248, "pop_predicted": 8623, "pop_notPredicted": 2162, "pop_churnedPredicted": 8195, "pop_churnedNotPredicted": 342, "pop_notchurnedNotpredicted": 1820, "pop_notchurnedPredicted": 428 }] }
+{
+    "engagement": [{
+        "value": "low",
+        "pop_churned": 16034,
+        "pop_notChurned": 15216,
+        "pop_predicted": 17959,
+        "pop_notPredicted": 16158,
+        "pop_churnedPredicted": 15232,
+        "pop_churnedNotPredicted": 802,
+        "pop_notchurnedNotpredicted": 15356,
+        "pop_notchurnedPredicted": 2727
+    }, {
+        "value": "medium",
+        "pop_churned": 627,
+        "pop_notChurned": 1363,
+        "pop_predicted": 546,
+        "pop_notPredicted": 1728,
+        "pop_churnedPredicted": 608,
+        "pop_churnedNotPredicted": 19,
+        "pop_notchurnedNotpredicted": 1709,
+        "pop_notchurnedPredicted": 62
+    }, {
+        "value": "high",
+        "pop_churned": 113,
+        "pop_notChurned": 230,
+        "pop_predicted": 107,
+        "pop_notPredicted": 1231,
+        "pop_churnedPredicted": 109,
+        "pop_churnedNotPredicted": 4,
+        "pop_notchurnedNotpredicted": 1227,
+        "pop_notchurnedPredicted": 2
+    }]
+}
