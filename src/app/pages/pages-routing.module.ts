@@ -12,41 +12,42 @@ import {PerformanceAnalysisUserOriginBasisComponent} from "./retention-booster/u
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
-  children: [{
-    path: 'dashboard',
-    component: DashboardComponent,
-  }, {
-    path: 'filler-library',
-    loadChildren: './filler-library/filler-library.module#FillerLibraryModule',
-  },{
-    path: 'norah-scheduler',
-    loadChildren: './norah-scheduler/norah-scheduler.module#NorahSchedulerModule',
-  }, 
-  {
-      path: 'notificationslist',
-      loadChildren: './notifications/notificationlist.module#NotificationlistModule',
-  },{
-    path: 'ui-features',
-    loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
-  }, {
-    path: 'components',
-    loadChildren: './components/components.module#ComponentsModule',
-  }, {
-    path: 'maps',
-    loadChildren: './maps/maps.module#MapsModule',
-  },{
-    path: 'smart-pricing',
-    loadChildren: './smart-pricing/smart-pricing.module#SmartPricingModule',
-  }, {
-    path: 'charts',
-    loadChildren: './charts/charts.module#ChartsModule',
-  }, {
-    path: 'forms',
-    loadChildren: './forms/forms.module#FormsModule',
-  }, {
-    path: 'tables',
-    loadChildren: './tables/tables.module#TablesModule',
-  },
+   children: [
+  //  {
+  //   path: 'dashboard',
+  //   component: DashboardComponent,
+  // }, {
+  //   path: 'filler-library',
+  //   loadChildren: './filler-library/filler-library.module#FillerLibraryModule',
+  // },{
+  //   path: 'norah-scheduler',
+  //   loadChildren: './norah-scheduler/norah-scheduler.module#NorahSchedulerModule',
+  // }, 
+  // {
+  //     path: 'notificationslist',
+  //     loadChildren: './notifications/notificationlist.module#NotificationlistModule',
+  // },{
+  //   path: 'ui-features',
+  //   loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
+  // }, {
+  //   path: 'components',
+  //   loadChildren: './components/components.module#ComponentsModule',
+  // }, {
+  //   path: 'maps',
+  //   loadChildren: './maps/maps.module#MapsModule',
+  // },{
+  //   path: 'smart-pricing',
+  //   loadChildren: './smart-pricing/smart-pricing.module#SmartPricingModule',
+  // }, {
+  //   path: 'charts',
+  //   loadChildren: './charts/charts.module#ChartsModule',
+  // }, {
+  //   path: 'forms',
+  //   loadChildren: './forms/forms.module#FormsModule',
+  // }, {
+  //   path: 'tables',
+  //   loadChildren: './tables/tables.module#TablesModule',
+  // },
     {
       path: 'retention-booster/user-churn/performance-analysis/performance-analysis-user-behavior-basis',
       component: PerformanceAnalysisUserBehaviorBasisComponent,
@@ -63,16 +64,18 @@ const routes: Routes = [{
     path: '',
     redirectTo: 'retention-booster/user-churn/performance-analysis/performance-analysis-overview',
     pathMatch: 'full',
-  }, {
-    path: 'game-overview',
-    component: GameOverviewComponent,
-  }, {
-    path: 'churn-predictions',
-    component: ChurnPredictionsComponent,
-  },{
-    path: 'game-overview',
-    pathMatch: 'full',
-  }],
+   }
+  // , {
+  //   path: 'game-overview',
+  //   component: GameOverviewComponent,
+  // }, {
+  //   path: 'churn-predictions',
+  //   component: ChurnPredictionsComponent,
+  // },{
+  //   path: 'game-overview',
+  //   pathMatch: 'full',
+  // }
+],
 }];
 
 @NgModule({
