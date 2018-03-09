@@ -1,5 +1,5 @@
 {
-    "region": [{
+    "Region": [{
         "value": "Maharashtra",
         "pop_churned": 2703,
         "pop_notChurned": 2804,
