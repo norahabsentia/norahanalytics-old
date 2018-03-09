@@ -61,7 +61,7 @@ const routes: Routes = [{
     },
     {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'retention-booster/user-churn/performance-analysis/performance-analysis-overview',
     pathMatch: 'full',
   }, {
     path: 'game-overview',
