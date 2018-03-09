@@ -1,1 +1,80 @@
-{"Affluence":[{"value":1,"pop_churned":98,"pop_notChurned":42,"pop_predicted":112,"pop_notPredicted":28,"pop_churnedPredicted":96,"pop_churnedNotPredicted":2,"pop_notchurnedNotpredicted":26,"pop_notchurnedPredicted":16},{"value":2,"pop_churned":2737,"pop_notChurned":1485,"pop_predicted":2573,"pop_notPredicted":1649,"pop_churnedPredicted":2737,"pop_churnedNotPredicted":0,"pop_notchurnedNotpredicted":1649,"pop_notchurnedPredicted":164},{"value":3,"pop_churned":9937,"pop_notChurned":5768,"pop_predicted":8745,"pop_notPredicted":6960,"pop_churnedPredicted":9738,"pop_churnedNotPredicted":199,"pop_notchurnedNotpredicted":6761,"pop_notchurnedPredicted":993},{"value":4,"pop_churned":6644,"pop_notChurned":4555,"pop_predicted":7110,"pop_notPredicted":4089,"pop_churnedPredicted":6444,"pop_churnedNotPredicted":200,"pop_notchurnedNotpredicted":3889,"pop_notchurnedPredicted":666},{"value":5,"pop_churned":4257,"pop_notChurned":3071,"pop_predicted":3960,"pop_notPredicted":3368,"pop_churnedPredicted":4257,"pop_churnedNotPredicted":0,"pop_notchurnedNotpredicted":3368,"pop_notchurnedPredicted":297},{"value":6,"pop_churned":710,"pop_notChurned":494,"pop_predicted":604,"pop_notPredicted":600,"pop_churnedPredicted":681,"pop_churnedNotPredicted":29,"pop_notchurnedNotpredicted":571,"pop_notchurnedPredicted":77},{"value":7,"pop_churned":368,"pop_notChurned":227,"pop_predicted":350,"pop_notPredicted":245,"pop_churnedPredicted":353,"pop_churnedNotPredicted":15,"pop_notchurnedNotpredicted":230,"pop_notchurnedPredicted":3}]}
+{
+    "Affluence": [{
+            "value": 1,
+            "pop_churned": 36,
+            "pop_notChurned": 29,
+            "pop_predicted": 19,
+            "pop_notPredicted": 46,
+            "pop_churnedPredicted": 8,
+            "pop_churnedNotPredicted": 28,
+            "pop_notchurnedNotpredicted": 18,
+            "pop_notchurnedPredicted": 11
+        },
+        {
+            "value": 6,
+            "pop_churned": 315,
+            "pop_notChurned": 354,
+            "pop_predicted": 215,
+            "pop_notPredicted": 454,
+            "pop_churnedPredicted": 103,
+            "pop_churnedNotPredicted": 212,
+            "pop_notchurnedNotpredicted": 242,
+            "pop_notchurnedPredicted": 112
+        },
+        {
+            "value": 3,
+            "pop_churned": 4626,
+            "pop_notChurned": 4244,
+            "pop_predicted": 2625,
+            "pop_notPredicted": 6245,
+            "pop_churnedPredicted": 1399,
+            "pop_churnedNotPredicted": 3227,
+            "pop_notchurnedNotpredicted": 3018,
+            "pop_notchurnedPredicted": 1226
+        },
+        {
+            "value": 5,
+            "pop_churned": 1903,
+            "pop_notChurned": 2202,
+            "pop_predicted": 1242,
+            "pop_notPredicted": 2863,
+            "pop_churnedPredicted": 586,
+            "pop_churnedNotPredicted": 1317,
+            "pop_notchurnedNotpredicted": 1546,
+            "pop_notchurnedPredicted": 656
+        },
+        {
+            "value": 4,
+            "pop_churned": 3102,
+            "pop_notChurned": 3394,
+            "pop_predicted": 1910,
+            "pop_notPredicted": 4586,
+            "pop_churnedPredicted": 922,
+            "pop_churnedNotPredicted": 2180,
+            "pop_notchurnedNotpredicted": 2406,
+            "pop_notchurnedPredicted": 988
+        },
+        {
+            "value": 7,
+            "pop_churned": 157,
+            "pop_notChurned": 165,
+            "pop_predicted": 88,
+            "pop_notPredicted": 234,
+            "pop_churnedPredicted": 45,
+            "pop_churnedNotPredicted": 112,
+            "pop_notchurnedNotpredicted": 122,
+            "pop_notchurnedPredicted": 43
+        },
+        {
+            "value": 2,
+            "pop_churned": 1278,
+            "pop_notChurned": 1067,
+            "pop_predicted": 723,
+            "pop_notPredicted": 1622,
+            "pop_churnedPredicted": 397,
+            "pop_churnedNotPredicted": 881,
+            "pop_notchurnedNotpredicted": 741,
+            "pop_notchurnedPredicted": 326
+        }
+    ]
+}
