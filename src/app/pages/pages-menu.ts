@@ -6,13 +6,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Retention Booster',
     icon: 'nb-compose',
     children: [
-      {
-        title: 'User Churn',
-        children: [
-          {
-            title: 'Performance Analysis',
-            children: [
-              {
+             {
                 title: 'Overview',
                 link: '/pages/retention-booster/user-churn/performance-analysis/performance-analysis-overview',
               },
@@ -23,11 +17,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
               {
                 title: 'User Behavior Basis',
                 link: '/pages/retention-booster/user-churn/performance-analysis/performance-analysis-user-behavior-basis',
-              },
-            ],
-          },
-        ],
-      }]
-  }
+              }
+      ]
+    }
  
 ];
