@@ -4,7 +4,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
   {
     title: 'Retention Booster',
-    icon: 'nb-compose',
+    icon: 'nb-bar-chart',
     children: [
              {
                 title: 'Overview',
