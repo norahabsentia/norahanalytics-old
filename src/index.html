@@ -12,10 +12,15 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.css">
-  <!--https://d3js.org/d3.v4.min.js-->
+    <!--https://d3js.org/d3.v4.min.js-->
+    <style>
+        @font-face {
+            font-family: 'Avenir';
+            src: url('fonts/Avenir/AvenirRegular.woff') format('woff');
+        }
+    </style>
 
 
-  
 </head>
 
 <body>
@@ -30,7 +35,7 @@
                 transform: rotate(360deg)
             }
         }
-
+        
         @-moz-keyframes spin {
             0% {
                 -moz-transform: rotate(0)
@@ -39,7 +44,7 @@
                 -moz-transform: rotate(360deg)
             }
         }
-
+        
         @keyframes spin {
             0% {
                 transform: rotate(0)
@@ -48,7 +53,7 @@
                 transform: rotate(360deg)
             }
         }
-
+        
         .spinner {
             position: fixed;
             top: 0;
@@ -59,7 +64,7 @@
             background: #000000;
             overflow: hidden
         }
-
+        
         .spinner div:first-child {
             display: block;
             position: relative;
@@ -73,14 +78,14 @@
             transform: translate3d(0, 0, 0);
             animation: spin 2s linear infinite
         }
-
+        
         .spinner div:first-child:after,
         .spinner div:first-child:before {
             content: '';
             position: absolute;
             border-radius: 50%
         }
-
+        
         .spinner div:first-child:before {
             top: 5px;
             left: 5px;
@@ -90,7 +95,7 @@
             -webkit-animation: spin 3s linear infinite;
             animation: spin 3s linear infinite
         }
-
+        
         .spinner div:first-child:after {
             top: 15px;
             left: 15px;
@@ -99,9 +104,9 @@
             box-shadow: 0 3px 3px 0 rgba(61, 175, 255, 1);
             animation: spin 1.5s linear infinite
         }
-
-        nb-card{
-          max-height: 560px;
+        
+        nb-card {
+            max-height: 560px;
         }
     </style>
     <div id="nb-global-spinner" class="spinner">
@@ -113,7 +118,7 @@
         <div class="blob blob-5"></div>
     </div>
 
-    
+
 </body>
 
 </html>
